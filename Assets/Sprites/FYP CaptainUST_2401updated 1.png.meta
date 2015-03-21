@@ -1,0 +1,399 @@
+fileFormatVersion: 2
+guid: 54f99219204dd42b19e9a500c0d5df40
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FYP CaptainUST_2401updated 1_0
+    21300002: FYP CaptainUST_2401updated 1_1
+    21300004: FYP CaptainUST_2401updated 1_2
+    21300006: FYP CaptainUST_2401updated 1_3
+    21300008: FYP CaptainUST_2401updated 1_4
+    21300010: FYP CaptainUST_2401updated 1_5
+    21300012: FYP CaptainUST_2401updated 1_6
+    21300014: FYP CaptainUST_2401updated 1_7
+    21300016: FYP CaptainUST_2401updated 1_8
+    21300018: FYP CaptainUST_2401updated 1_9
+    21300020: FYP CaptainUST_2401updated 1_10
+    21300022: FYP CaptainUST_2401updated 1_11
+    21300024: FYP CaptainUST_2401updated 1_12
+    21300026: FYP CaptainUST_2401updated 1_13
+    21300028: FYP CaptainUST_2401updated 1_14
+    21300030: FYP CaptainUST_2401updated 1_15
+    21300032: FYP CaptainUST_2401updated 1_16
+    21300034: FYP CaptainUST_2401updated 1_17
+    21300036: FYP CaptainUST_2401updated 1_18
+    21300038: FYP CaptainUST_2401updated 1_19
+    21300040: FYP CaptainUST_2401updated 1_20
+    21300042: FYP CaptainUST_2401updated 1_21
+    21300044: FYP CaptainUST_2401updated 1_22
+    21300046: FYP CaptainUST_2401updated 1_23
+    21300048: FYP CaptainUST_2401updated 1_24
+    21300050: FYP CaptainUST_2401updated 1_25
+    21300052: FYP CaptainUST_2401updated 1_26
+    21300054: FYP CaptainUST_2401updated 1_27
+    21300056: FYP CaptainUST_2401updated 1_28
+    21300058: FYP CaptainUST_2401updated 1_29
+    21300060: FYP CaptainUST_2401updated 1_30
+    21300062: FYP CaptainUST_2401updated 1_31
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: FYP CaptainUST_2401updated 1_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_3
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_5
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_6
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_7
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 291
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_8
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_10
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_11
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_12
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_13
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_14
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_15
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 196
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_16
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_17
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_18
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_19
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_20
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_21
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_22
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_23
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 101
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_24
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_25
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_26
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_27
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_28
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_29
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_30
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP CaptainUST_2401updated 1_31
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 6
+        width: 66
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

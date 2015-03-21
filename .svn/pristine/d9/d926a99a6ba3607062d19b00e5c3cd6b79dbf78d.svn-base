@@ -1,0 +1,7 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Singleton  {
+
+	static public  GlobalValues GlobalValues=new GlobalValues();
+}

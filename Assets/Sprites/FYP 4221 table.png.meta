@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 2a3d2290cb81c41eb812b2f9676a4a84
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: FYP 4221 table_0
+    21300002: FYP 4221 table_1
+    21300004: FYP 4221 table_2
+    21300006: FYP 4221 table_3
+    21300008: FYP 4221 table_4
+    21300010: FYP 4221 table_5
+    21300012: FYP 4221 table_6
+    21300014: FYP 4221 table_7
+    21300016: FYP 4221 table_8
+    21300018: FYP 4221 table_9
+    21300020: FYP 4221 table_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: FYP 4221 table_0
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 209
+        width: 52
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_1
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 209
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_2
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 209
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_3
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 209
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 27
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 66
+        width: 52
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 66
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_7
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 66
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_8
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 66
+        width: 51
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_9
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 70
+        width: 41
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: FYP 4221 table_10
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 12
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
