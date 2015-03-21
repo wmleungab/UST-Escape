@@ -12,7 +12,7 @@ public class Multi_QTESlide : MonoBehaviour
 		Vector3 orgPoint1;
 		Vector3 orgPoint2;
 		Vector3 touching;
-
+		int angle=0;
 		double r1;
 		double r2;
 		bool invalidPt1_Pos=false;
@@ -77,6 +77,7 @@ public class Multi_QTESlide : MonoBehaviour
 						ptChild1.transform.position = orgPoint1;
 						ptChild2.transform.position = orgPoint2;
 				}
+		transform.RotateAround (transform.position, Vector3.forward, -angle);
 		
 				//point = Camera.main.ScreenToWorldPoint (new Vector3 (Screen.width , Screen.height , 1));
 				do {
@@ -85,7 +86,7 @@ public class Multi_QTESlide : MonoBehaviour
 						transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (x, y, 1));
 			
 				} while (collisionWithEdges());
-				int angle = Random.Range (0, 359);
+				angle = Random.Range (0, 359);
 				transform.RotateAround (transform.position, Vector3.forward, angle);
 		orgPoint1 = ptChild1.transform.position;
 		orgPoint2 = ptChild2.transform.position;

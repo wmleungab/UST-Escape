@@ -8,6 +8,7 @@ public class Multi_QTEParent : MonoBehaviour
 		public GameObject QTETouch;
 		public GameObject QTESwipe;
 		public GameObject QTESlide;
+		public GameObject QTETriangle;
 		public GameObject attackRound;
 		public GameObject defenseRound;
 		public GameObject resultBanner;
@@ -66,11 +67,17 @@ public class Multi_QTEParent : MonoBehaviour
 								case 2:
 										QTEChildren = Instantiate (QTESlide, new Vector3 (0, 0, 0), Quaternion.identity)as GameObject;
 										break;
+								case 3:
+										QTEChildren = Instantiate (QTETriangle, new Vector3 (0, 0, 0), Quaternion.identity)as GameObject;
+										break;
 								}
-
 						}
+
+
+
+						
 						if (Network.isServer)
-								myFields.syncQTEMode (Random.Range (0, 3));
+								myFields.syncQTEMode (Random.Range (0, 4));
 				}
 
 				//Round end

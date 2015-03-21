@@ -7,7 +7,7 @@ public class Multi_QTETriangleCheck : MonoBehaviour {
 	
 	void Start () {
 		do {
-			parent = GameObject.Find ("QTETri").GetComponent<Multi_QTETriangle> ();
+			parent = GameObject.Find ("QTETri(Clone)").GetComponent<Multi_QTETriangle> ();
 		} while(parent==null);
 	}
 	
