@@ -15,7 +15,7 @@ function Update ()
 	{
 		var temp = GameObject.Find("Victim");
 		if (temp == null) Debug.Log("player not found");
-		DontDestroyOnLoad(temp);
+		//DontDestroyOnLoad(temp);
 		Application.LoadLevel("battle");
 	}
 }
