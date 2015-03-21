@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Multi_QTETriangle : MonoBehaviour {
@@ -176,7 +176,7 @@ public class Multi_QTETriangle : MonoBehaviour {
 				arriveCP2=false;
 				invalidPt_Pos=false;
 				drawTriangle();
-				Debug.Log("here now2");
+				//Debug.Log("here now2");
 
 			}
 		}
