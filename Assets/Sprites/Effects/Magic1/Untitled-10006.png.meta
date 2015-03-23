@@ -3,10 +3,11 @@ guid: 6cf03494598df1741af30a68fdc91c72
 TextureImporter:
   fileIDToRecycleName:
     21300000: Untitled-10006_0
+    21300002: Untitled-10006
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,7 +27,7 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: 1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
