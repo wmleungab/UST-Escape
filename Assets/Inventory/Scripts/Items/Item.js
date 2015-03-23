@@ -99,6 +99,7 @@ function PickUpItem ()
 		{
 			playersinv.AddItem(this.transform);
 			MoveMeToThePlayer(playersinv.itemHolderObject);//moves the object, to the player
+			Debug.Log("move " + this.name + " to " + playersinv.itemHolderObject + " of " + playersinv.transform.parent);
 		}
 		else if (playersinv.Contents.length >= playersinv.MaxContent)
 		{

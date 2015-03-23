@@ -16,10 +16,15 @@ function Update ()
 		var temp = GameObject.Find("Victim");
 		if (temp == null) Debug.Log("player not found");
 		else {
-			temp.name = "VictimClone";
-			temp.tag = null;
-			//DontDestroyOnLoad(temp);
+			//temp.name = "VictimClone";
+			//temp.tag = null;
+			var navComponent = (temp.transform.GetComponent ("NavMeshAgent") as NavMeshAgent);
+			navComponent.enabled = true;
+			DontDestroyOnLoad(temp);
 		}
+
+		GameObject.Find("Inventory").SendMessage ("toMapMode");
+
 		Application.LoadLevel("lab_stage");
 	}
 }

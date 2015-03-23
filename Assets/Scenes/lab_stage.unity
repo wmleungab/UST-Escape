@@ -208,7 +208,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 45442047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e91eda71682047c49c30262bbde68c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 39f3cbf689b208c488f3ac5fd07df79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &46693958
@@ -247,7 +247,7 @@ MonoBehaviour:
   maxGettingDistance: 3
   itemType: 
   stackable: 1
-  maxStack: 20
+  maxStack: 5
   stack: 1
   isEquipment: 0
   isAlsoWeapon: 0
@@ -1247,7 +1247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: .150000006
-  target: {fileID: 45442048}
 --- !u!1 &575067239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,7 +1572,7 @@ MonoBehaviour:
   maxGettingDistance: 3
   itemType: 
   stackable: 1
-  maxStack: 20
+  maxStack: 5
   stack: 1
   isEquipment: 0
   isAlsoWeapon: 0
@@ -2667,7 +2666,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1606171801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0574338d9054ca8931246b1f8a7e04, type: 3}
   m_Name: 

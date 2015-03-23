@@ -5,7 +5,7 @@
      
      public float dampTime = 0.15f;
      private Vector3 velocity = Vector3.zero;
-     public Transform target;
+     private Transform target;
  
 	float mapX = 25.0f;
 	float mapY = 20.0f;
@@ -17,6 +17,8 @@
 	private bool isClamp = false;
 
 	void Start() {
+		target = GameObject.FindWithTag("Player").transform;
+		
 		float vertExtent = Camera.main.camera.orthographicSize;    
 		float horzExtent = vertExtent * Screen.width / Screen.height;
 		

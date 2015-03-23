@@ -12,7 +12,7 @@ static var itemHolderObject : Transform; //The object the unactive items are goi
 @script AddComponentMenu ("Inventory/Inventory")
 
 //Handle components and assign the itemHolderObject.
-function Awake ()
+function Start ()
 {
 	itemHolderObject = gameObject.transform;
 	

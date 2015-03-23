@@ -16,8 +16,8 @@ public class CameraTracksPlayer : MonoBehaviour {
 		}
 
 		player = player_go.transform;
-		offsetx = transform.position.x - player.position.x;
-		offsetz = transform.position.z - player.position.z;
+		//offsetx = transform.position.x - player.position.x;
+		//offsetz = transform.position.z - player.position.z;
 	}
 	
 	// Update is called once per frame

@@ -66,14 +66,14 @@ function Awake()
 	}
 	else
 	{
-		Debug.LogError ("No Character script was found on this object. Attaching one allows for functionality such as equipping items.");
+		Debug.Log ("No Character script was found on this object. Attaching one allows for functionality such as equipping items.");
 		cSheetFound = false;
 	}
 
 }
 
 function toBattleMode(){
-	Debug.Log("change to battle mode");
+	Debug.Log("Inventory change to battle mode");
 	isBattle = true;
 	windowTitle = "";
 	WindowOffset.y = spaceTemp/2;
@@ -85,6 +85,21 @@ function toBattleMode(){
 	
 	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
 	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+}
+
+function toMapMode(){
+	Debug.Log("Inventory change to map mode");
+	isBattle = false;
+	windowTitle = "Inventory";
+	WindowOffset.y = spaceTemp/2;
+	windowSize = Vector2(Screen.width/4, Screen.height);
+	windowRect=Rect(0,0,windowSize.x,windowSize.y);
+	canBeDragged = true;
+
+	displayInventory = false;
+	
+	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
 }
 
 //Update the inv list

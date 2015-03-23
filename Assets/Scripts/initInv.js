@@ -16,6 +16,7 @@ function Start () {
 	else{
 		Debug.Log("player no clone");
 	}
+	this.enabled = false;
 }
 
 function copyInv2Victim(oldInv:Inventory) {
