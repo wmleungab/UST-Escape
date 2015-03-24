@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 public var patrolPoints : Vector3[];
-public var victim : Transform;
+private var victim : Transform;
 
 private var navComponent : NavMeshAgent;
 private var patrolIndex : int;
@@ -20,6 +20,7 @@ function Start () {
 	patrolIndex = 0;
 	enemyInsight = false;
 
+	victim = GameObject.FindWithTag("Player").transform;
 	navComponent = this.transform.GetComponent(NavMeshAgent);
 	Debug.Log("in start: " + patrolIndex +" "+ patrolPoints.Length);
 
