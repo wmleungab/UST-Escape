@@ -15,13 +15,16 @@ public class DialogSystem : MonoBehaviour
 	public Queue<string>cnameString = new Queue<string> ();
 	public Queue<string> cdialogString = new Queue<string> ();
 
+
+	public Sprite DialogPrecident ;
+
 		// Use this for initialization
 		void Start ()
 		{
 
 				//test
 				toCreateDialog = true;
-				nameString = new string[]{"principal","principal"};
+		nameString = new string[]{"Precident","Precident"};
 				dialogString = new string[]{"fuck\nfuck","you"};
 		}
 	
@@ -45,6 +48,11 @@ public class DialogSystem : MonoBehaviour
 				if (cdialogString.Count > 0) {
 					dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text = cnameString.Dequeue ();
 					dialogbg.transform.GetChild (2).GetComponent<TextMesh> ().text = cdialogString.Dequeue ();
+
+					//charaterpic
+					if(dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text.Equals("Precident"))
+					dialogbg.transform.GetChild (3).GetComponent<SpriteRenderer> ().sprite = DialogPrecident;
+
 					waitForClick = true;
 					isClick = false;
 				}

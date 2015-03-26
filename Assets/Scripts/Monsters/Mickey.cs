@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DimJack : MonoBehaviour {
+public class Mickey : MonoBehaviour {
 	public GameObject defendSheildpf;
 	
 	GameObject defendSheild;
@@ -14,29 +14,28 @@ public class DimJack : MonoBehaviour {
 	public float sheildsize=0.5f;
 
 
+
 	public bool startFlag=true;
 	public bool dieFlag=true;
 	
-
+	
 	public float min;
 	public float factor;
 	public float frequency;
-
+	
 	public float threshold;
 	
 	Vector3 pos;
-
-	public GameObject maclok1;
-	public GameObject maclok2;
-
+	
+	public GameObject box;
+	
 	Animator anim;
-
+	
 	// Use this for initialization
 	void Start () {
-
-		anim = GetComponent<Animator> ();
 		
-		invokeAttack1 ();
+		anim = GetComponent<Animator> ();
+
 	}
 
 	
@@ -59,10 +58,10 @@ public class DimJack : MonoBehaviour {
 	{
 		if (dieFlag && BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			float r = Random.value;
-			Invoke ("attack1", frequency * (min + factor * r));
+			Invoke ("attack", frequency * (min + factor * r));
 		}
 	}
-
+	
 	void Update(){
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING ) {
 			if(startFlag)			{
@@ -79,38 +78,35 @@ public class DimJack : MonoBehaviour {
 	void init(){
 		pos = gameObject.transform.position;
 		invokeAttack1 ();
-
 		float ran = Random.value;
 		Invoke ("Defend", defendfrequency * (defendmin + ran * defendfactor));
 	}
-
-
-	void attack1(){
-		anim.SetTrigger ("attack1");
-	}
-
-	void attack1_createmaclok(){
-		GameObject w = GameObject.Find ("Weapons");
-		GameObject s = Instantiate (maclok1, new Vector3 (pos.x + 1, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
-		GameObject s2 = Instantiate (maclok2, new Vector3 (pos.x - 1.3f, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
-
-		s.transform.parent = 	w.transform;
-		s2.transform.parent = 	w.transform;
-
-	}
-
+	
 	void OnMouseDown ()
 	{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
 			gameObject.GetComponent<HealthBar> ().HP--;
 			
 		}
 	}
+
+
+	void attack(){
+		anim.SetTrigger ("attack");
+	}
+	
+	void attack_createbox(){
+		GameObject w = GameObject.Find ("Weapons");
+		GameObject s = Instantiate (box, new Vector3 (pos.x , pos.y+2.3f , w.transform.position.z),Quaternion.identity)as GameObject;
+		s.transform.parent = w.transform;
+	}
+
 	void die()
 	{
 		StartCoroutine ("dieAnim");
+		CancelInvoke ("Defend");
+		CancelInvoke ("DefendDisappear");
 	}
-
 	IEnumerator dieAnim ()
 	{
 		Renderer [] component = gameObject.GetComponentsInChildren<Renderer> ();
