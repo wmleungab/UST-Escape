@@ -31,17 +31,24 @@ public class DialogSystem : MonoBehaviour
 			playerNavMesh = (NavMeshAgent)GameObject.FindWithTag("Player").GetComponent("NavMeshAgent");
 		}
 		
-/*		void startDialog (string[] _nameString, string[] _dialogString) {
+		void startDialog() {
+			toCreateDialog = true;
+		}
+
+		void startDialog (string _nameString, string _dialogString) {
+			toCreateDialog = true;
+			nameString = new string[]{_nameString};
+			dialogString = new string[]{_dialogString};
+
+		}
+
+		void startDialog (string[] _nameString, string[] _dialogString) {
 			toCreateDialog = true;
 			nameString = _nameString;
 			dialogString = _dialogString;
 
 		}
-*/	
-		void startDialog() {
-			toCreateDialog = true;
-		}
-	
+
 		// Update is called once per frame
 		void Update ()
 		{

@@ -74,7 +74,7 @@ function PickUpItem ()
 	if(canGet){//if its getable or hasnt been gotten.
 	
 	playersinv.gameObject.SendMessage ("PlayPickUpSound", SendMessageOptions.DontRequireReceiver); //Play sound
-	GameObject.Find("DialogSystem").GetComponent("DialogSystem").SendMessage("startDialog");
+	(GameObject.Find("DialogSystem").GetComponent("DialogSystem") as DialogSystem).startDialog("item", "item Get");
 	
 		if(stackable){
 			var locatedit:Item;
