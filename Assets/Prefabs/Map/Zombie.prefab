@@ -88,7 +88,6 @@ MonoBehaviour:
   patrolPoints:
   - {x: 5, y: 0, z: 5}
   - {x: -5, y: 0, z: 5}
-  victim: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

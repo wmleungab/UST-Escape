@@ -24,7 +24,7 @@ public class DialogSystem : MonoBehaviour
 		void Start ()
 		{
 			//test
-			toCreateDialog = true;
+			//toCreateDialog = true;
 			nameString = new string[]{"Precident","Precident"};
 			dialogString = new string[]{"fuck\nfuck","you"};
 			
