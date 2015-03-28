@@ -138,7 +138,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 3732675085
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 745e3f07e0eb5d443a99c3fdeea48a61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: feff70c06487c1243a7948fcca587102, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &218593966
 Transform:
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8979adc1bee614da3217f8195b22a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
+  hb: {fileID: 118968, guid: 574209c0f32704c4f926cac9700ccab0, type: 2}
   fullHP: 100
   HP: 100
   offset: {x: -3.04999995, y: .400000006, z: 0}
@@ -656,6 +656,7 @@ MonoBehaviour:
   QTESwipe: {fileID: 159216, guid: 0ade74423ca1eaa448f910129f405262, type: 2}
   QTESlide: {fileID: 170640, guid: 288b8f78f1326514fab02a331d60afb0, type: 2}
   QTETriangle: {fileID: 155062, guid: 9ecd3c7de24f73642abd91f3785b3bf7, type: 2}
+  QTEUpDown: {fileID: 163192, guid: 3c81c0c4bef5be948b422c41af2677b9, type: 2}
   attackRound: {fileID: 189742, guid: 715519a96c77ac14f9451dc3ca233d86, type: 2}
   defenseRound: {fileID: 160626, guid: 758d5e72c6ae4614cb184513181968ba, type: 2}
   resultBanner: {fileID: 141974, guid: 57fafad1c3f5a5941aa6bdba43b41bed, type: 2}

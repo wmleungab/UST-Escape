@@ -59,6 +59,6 @@ public class Multi_StarterScript : MonoBehaviour
 		myFields.changeState(Multi_Fields.States.ROUND_STARTS , true);
 		myFields.changeState(Multi_Fields.States.ATTACK_ROUND , true);
 		if (Network.isServer)
-						myFields.syncQTEMode (Random.Range (0, 2));
+						myFields.syncQTEMode (Random.Range (0, 5));
 		}
 }
