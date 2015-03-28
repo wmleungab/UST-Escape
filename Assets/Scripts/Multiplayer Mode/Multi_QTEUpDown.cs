@@ -7,7 +7,7 @@ public class Multi_QTEUpDown : MonoBehaviour {
 	bool movingDown=false;
 	int success=10;
 	int done=0;
-	bool display=false;
+
 	private long startTime = 0;
 	// Use this for initialization
 	void Start () {

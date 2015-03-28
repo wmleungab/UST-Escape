@@ -3,21 +3,21 @@ using System.Collections;
 
 public class Multi_NetworkManager : MonoBehaviour
 {
-		public Sprite playerServer;
-		public Sprite playerClient;
+		//public Sprite playerServer;
+		//public Sprite playerClient;
+		public GameObject enemyOfServer;
+		public GameObject enemyOfClient;
 		public GameObject sharedData;
 		private Multi_Fields myFields;
 		private const string typeName = "AHKUSTGame";
 		private const string gameName = "HKUSTGameRoom";
 		private HostData[] hostList;
-	private GUIStyle myButtonStyle;
+		private GUIStyle myButtonStyle;
 
 		// Use this for initialization
 		void Start ()
 		{
 				myFields = sharedData.GetComponent<Multi_Fields> ();
-
-			
 		}
 	
 	// Update is called once per frame
@@ -47,11 +47,11 @@ public class Multi_NetworkManager : MonoBehaviour
 		{
 				Debug.Log ("Server Initializied");
 				myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED] = true;
-				
-				spawnCharCServer ();
+				Instantiate (enemyOfServer);
+				//spawnCharCServer ();
 
 		}
-
+	/*
 		void spawnCharCServer ()
 		{
 				GameObject enemy = GameObject.Find ("enemyChar");
@@ -61,7 +61,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				//enemy.transform.position = tempP;
 				//enemy.transform.localScale = tempS;
 		}
-
+*/
 		private void JoinServer (HostData hostData)
 		{
 				Network.Connect (hostData);
@@ -70,10 +70,10 @@ public class Multi_NetworkManager : MonoBehaviour
 		void OnConnectedToServer ()
 		{
 				Debug.Log ("Server Joined");
-		myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED] = true;
-				spawnCharClient ();
+				myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED] = true;
+				//spawnCharClient ();
 		}
-
+	/*
 		void spawnCharClient ()
 		{
 				GameObject enemy = GameObject.Find ("enemyChar");
@@ -83,7 +83,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				//enemy.transform.position = tempP;
 				//enemy.transform.localScale = tempS;
 		}
-
+*/
 		void OnGUI ()
 		{
 				// Create style for a button
