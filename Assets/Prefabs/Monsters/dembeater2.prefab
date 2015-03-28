@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11474234}
   - 114: {fileID: 11474236}
   - 60: {fileID: 6099656}
+  - 82: {fileID: 8280206}
   m_Layer: 0
   m_Name: dembeater2
   m_TagString: Untagged
@@ -166,6 +167,64 @@ PolygonCollider2D:
       - {x: -.837100506, y: -.68082732}
       - {x: -.977100551, y: -.810827315}
       - {x: -1.07710052, y: -.880827308}
+--- !u!82 &8280206
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 4d0ac008e6b110b42b152965b21c31ee, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9574236
 Animator:
   serializedVersion: 3
@@ -192,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2deac51454f78d428c4123df21dd00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightsound: {fileID: 0}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
   defendmin: 2
@@ -222,8 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 100
-  HP: 100
+  fullHP: 20
+  HP: 20
   offset: {x: -.639999986, y: 3.5999999, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21274236

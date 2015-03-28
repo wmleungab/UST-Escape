@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Dembeater2 : MonoBehaviour {
+	public AudioSource fightsound;
+
 	public GameObject defendSheildpf;
 	
 	GameObject defendSheild;
@@ -164,7 +166,7 @@ public class Dembeater2 : MonoBehaviour {
 	{
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
 			gameObject.GetComponent<HealthBar> ().HP--;
-			
+			audio.Play();
 		}
 	}
 	

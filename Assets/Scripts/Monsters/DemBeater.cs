@@ -163,6 +163,7 @@ public class DemBeater : MonoBehaviour {
 	void OnMouseDown ()
 	{
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
+			audio.Play();
 			gameObject.GetComponent<HealthBar> ().HP--;
 			
 		}

@@ -87,6 +87,7 @@ public class Fryer : MonoBehaviour {
 	void OnMouseDown(){
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
 						gameObject.GetComponent<HealthBar> ().HP--;
+			audio.Play();
 		}
 
 

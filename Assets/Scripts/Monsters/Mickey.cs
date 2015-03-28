@@ -86,7 +86,7 @@ public class Mickey : MonoBehaviour {
 	{
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
 			gameObject.GetComponent<HealthBar> ().HP--;
-			
+			audio.Play();
 		}
 	}
 

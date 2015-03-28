@@ -78,8 +78,10 @@ public class Void : MonoBehaviour {
 
 	}
 	void OnMouseDown(){
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState)
-		gameObject.GetComponent<HealthBar> ().HP--;
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
+						gameObject.GetComponent<HealthBar> ().HP--;
+						audio.Play ();
+				}
 	}
 	void die()
 	{

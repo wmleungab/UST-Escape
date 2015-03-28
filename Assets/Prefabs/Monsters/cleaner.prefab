@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11454816}
   - 114: {fileID: 11454818}
   - 60: {fileID: 6012438}
+  - 82: {fileID: 8226324}
   m_Layer: 0
   m_Name: cleaner
   m_TagString: Enemy
@@ -94,6 +95,64 @@ PolygonCollider2D:
       - {x: -1.25864506, y: -3.26031232}
       - {x: -1.51100063, y: -.920439482}
       - {x: -.88738656, y: .213512123}
+--- !u!82 &8226324
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154816}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 4d0ac008e6b110b42b152965b21c31ee, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9554816
 Animator:
   serializedVersion: 3
@@ -149,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
   fullHP: 20
-  HP: 10
+  HP: 20
   offset: {x: -.5, y: 3.29999995, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21254816
