@@ -473,6 +473,10 @@ Prefab:
       propertyPath: tableNo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 1264885105}
@@ -546,6 +550,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -694,6 +702,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1147,6 +1159,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1625,6 +1641,10 @@ Prefab:
       propertyPath: tableNo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 2144539732}
@@ -1743,6 +1763,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -1892,6 +1916,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -2465,6 +2493,10 @@ Prefab:
       propertyPath: tableNo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 1340289489}
@@ -2850,6 +2882,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3361,6 +3397,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -4821,6 +4861,10 @@ Prefab:
       propertyPath: tableNo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 894451956}
@@ -5086,6 +5130,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -5960,6 +6008,10 @@ Prefab:
       propertyPath: tableNo
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 349058431}
@@ -6757,6 +6809,10 @@ Prefab:
       propertyPath: tableNo
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 337769092}
@@ -6831,6 +6887,10 @@ Prefab:
       propertyPath: tableNo
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 1115170783}
@@ -6904,6 +6964,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -7132,6 +7196,10 @@ Prefab:
       propertyPath: tableNo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 1608007176}
@@ -7241,6 +7309,10 @@ Prefab:
       propertyPath: tableNo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 875464513}
@@ -7304,6 +7376,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -7526,6 +7602,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -7832,6 +7912,10 @@ Prefab:
       propertyPath: tableNo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 829786567}
@@ -7957,6 +8041,10 @@ Prefab:
       propertyPath: tableNo
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
   m_RootGameObject: {fileID: 1830349340}
@@ -8030,6 +8118,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
@@ -8452,6 +8544,10 @@ Prefab:
     - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
       propertyPath: tableNo
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
+      propertyPath: maxTouchingDistance
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ba07c3ed24fff9418aa4422d705c11d, type: 2}
