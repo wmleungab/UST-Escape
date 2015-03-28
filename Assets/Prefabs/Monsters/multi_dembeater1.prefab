@@ -149,7 +149,6 @@ MonoBehaviour:
   startFlag: 1
   dieFlag: 1
   readyTime: 2
-  damage: 0
 --- !u!114 &11449710
 MonoBehaviour:
   m_ObjectHideFlags: 1

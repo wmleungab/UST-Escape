@@ -20,7 +20,8 @@ public class Multi_Fields : MonoBehaviour
 				CLIENT_FINISH,
 				SERVER_SUCCESS,
 				SERVER_ATTACKING,
-				DEFENSE_SUCCESS
+				DEFENSE_SUCCESS,
+				ATTACK_ANI_READY
 		}
 		public int QTEmode = 0;
 		public int ServerHP = 100;

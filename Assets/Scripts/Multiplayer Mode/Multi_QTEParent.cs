@@ -13,6 +13,8 @@ public class Multi_QTEParent : MonoBehaviour
 		public GameObject attackRound;
 		public GameObject defenseRound;
 		public GameObject resultBanner;
+		public int originalDamage;
+		public int reducedDamage;
 		private Multi_Fields myFields;
 		private GameObject roundStarterInstance;
 		private GameObject QTEChildren;
@@ -31,7 +33,7 @@ public class Multi_QTEParent : MonoBehaviour
 		void Update ()
 		{
 
-				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS]) {
+				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS] && !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]) {
 						Debug.Log ("Attrd: " + myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]);
 						Debug.Log ("Defenrd: " + myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]);
 						myFields.changeState (Multi_Fields.States.ROUND_STARTS, false);
@@ -101,12 +103,14 @@ public class Multi_QTEParent : MonoBehaviour
 						myFields.changeState (Multi_Fields.States.ROUND_IN_PROGRESS, false);
 						myFields.changeState (Multi_Fields.States.SERVER_FINISH, false);
 						myFields.changeState (Multi_Fields.States.CLIENT_FINISH, false);
+
 						Instantiate (resultBanner, new Vector3 (0, 0, 0), Quaternion.identity);
+
 						myFields.ServerFinishTime = null;
 						myFields.ClientFinishTime = null;
 
 
-			//Attack round
+						//Attack round
 						if (myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]
 								&& !myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]) {
 
@@ -114,15 +118,17 @@ public class Multi_QTEParent : MonoBehaviour
 										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, true);
 								else if (!myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS])
 										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, false);
-			//change back to defense round
+
+								myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
+								//change back to defense round
 								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, false);
 								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, true);
 								
-			//Defense round and its action
+								//Defense round and its action
 						} else if (!myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]
 								&& myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]) {
 								
-				//check defense operation success or not
+								//check defense operation success or not
 								if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS]) {
 										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING])
 												myFields.changeState (Multi_Fields.States.DEFENSE_SUCCESS, false);
@@ -133,24 +139,45 @@ public class Multi_QTEParent : MonoBehaviour
 												myFields.changeState (Multi_Fields.States.DEFENSE_SUCCESS, true);
 										else
 												myFields.changeState (Multi_Fields.States.DEFENSE_SUCCESS, false);
-							}
-				//issue damage
+								}
+
+								//Attack animation
+								while (!(myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY])) {
+										
+								}
+								
+								if (Network.isServer) {
+										if (!myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
+												GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag = true;
+												while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag);
+										}
+								} else {
+										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
+												GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag = true;
+												while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag);
+										}
+								}
+
+								//issue damage
 								if (Network.isServer) {
 										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
 												if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
-														myFields.syncHP (20, false);
+														myFields.syncHP (reducedDamage, false);
 												} else {
-														myFields.syncHP (40, false);
+														myFields.syncHP (originalDamage, false);
 												}
 										} else {
 												if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
-														myFields.syncHP (20, true);
+														myFields.syncHP (reducedDamage, true);
 												} else {
-														myFields.syncHP (40, true);
+														myFields.syncHP (originalDamage, true);
 												}
 										}
 								}
-				//change back to attack round
+
+							
+								myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
+								//change back to attack round
 								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
 								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, false);
 

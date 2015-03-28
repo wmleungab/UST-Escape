@@ -9,30 +9,26 @@ public class Multi_dembeater1 : MonoBehaviour {
 	private Multi_Fields myFields;
 	public GameObject explosion;
 	
-	public bool startFlag = true;
+	public bool startFlag = false;
 	public bool dieFlag = true;
 	public float readyTime;
 
-	public int damage;
 	float time;
 	Animator anim;
-
-	
 	Vector3 pos;
 	
 	// Use this for initialization
 	void Start ()
 	{
+		startFlag = false;
 		name="Enemy";
 		myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
-
+		anim = GetComponent<Animator> ();
+		pos = gameObject.transform.position;
 	}
 	
 	void init ()
 	{
-		anim = GetComponent<Animator> ();
-		pos = gameObject.transform.position;
-
 	}
 
 	void readyTofight ()
@@ -45,7 +41,6 @@ public class Multi_dembeater1 : MonoBehaviour {
 	
 	void counting ()
 	{
-		
 		time--;
 		if (time == 0) {
 			CancelInvoke ("counting");
@@ -56,7 +51,11 @@ public class Multi_dembeater1 : MonoBehaviour {
 	void fight ()
 	{
 		anim.SetTrigger ("ToFight");
-
+		
+		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;
+		exp.transform.localScale = new Vector3 (2f, 2f, 1);
+		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;
+		exp2.transform.localScale = new Vector3 (2f, 2f, 1);
 	}
 
 	
@@ -69,35 +68,23 @@ public class Multi_dembeater1 : MonoBehaviour {
 	}
 	void Update ()
 	{
-		
+		if (startFlag) {
 
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
-			if (startFlag) {
-				init ();
-				startFlag = false;
-			}
-			
-			if (GetComponent<Multi_HealthBar> ().HP <= 0 && dieFlag) {
-				print ("s");
+			readyTofight ();
+
+		}	
+		/*if (GetComponent<Multi_HealthBar> ().HP <= 0 && dieFlag) {
 				die ();
 				dieFlag = false;
-			}
-		}
-		
-		
-		
-		
+			}*/
 	}
 
 	
 	void playerdamage ()
 	{
 //		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
-	
-		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;
-		exp.transform.localScale = new Vector3 (2f, 2f, 1);
-		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;
-		exp2.transform.localScale = new Vector3 (2f, 2f, 1);
+
+		startFlag = false;
 	}
 	
 	void die ()
