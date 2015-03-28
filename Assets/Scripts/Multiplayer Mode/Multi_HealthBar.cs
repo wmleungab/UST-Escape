@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Multi_HealthBar : MonoBehaviour {
 	public GameObject hb;
-	
+	public Multi_Fields myFields;
 	public int fullHP;
 	public int HP;
 	public Vector3 offset;
@@ -16,7 +16,7 @@ public class Multi_HealthBar : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+		myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
 		pos = gameObject.transform.position;
 		hpInitScaleX = hb.transform.GetChild (1) .localScale.x;
 		s = Instantiate (hb, pos+offset,Quaternion.identity)as GameObject;
@@ -27,6 +27,11 @@ public class Multi_HealthBar : MonoBehaviour {
 	}
 	
 	void healthbar(){
+		if (Network.isClient)
+						HP = myFields.ClientHP;
+				else if (Network.isServer)
+						HP = myFields.ServerHP;
+
 		if (HP < 0)
 			HP = 0;
 		

@@ -18,7 +18,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				myFields = sharedData.GetComponent<Multi_Fields> ();
 
 			
-	}
+		}
 	
 	// Update is called once per frame
 		void Update ()
@@ -58,8 +58,8 @@ public class Multi_NetworkManager : MonoBehaviour
 				enemy.GetComponent<SpriteRenderer> ().sprite = playerServer;
 				Vector3 tempP = new Vector3 (-1.22f, 1.53f, 0);
 				Vector3 tempS = new Vector3 (1.3f, 1.3f, 0);
-				enemy.transform.position = tempP;
-				enemy.transform.localScale = tempS;
+				//enemy.transform.position = tempP;
+				//enemy.transform.localScale = tempS;
 		}
 
 		private void JoinServer (HostData hostData)
@@ -80,8 +80,8 @@ public class Multi_NetworkManager : MonoBehaviour
 				enemy.GetComponent<SpriteRenderer> ().sprite = playerClient;
 				Vector3 tempP = new Vector3 (-1.22f, 0.98f, 0);
 				Vector3 tempS = new Vector3 (1.1f, 1.1f, 0);
-				enemy.transform.position = tempP;
-				enemy.transform.localScale = tempS;
+				//enemy.transform.position = tempP;
+				//enemy.transform.localScale = tempS;
 		}
 
 		void OnGUI ()

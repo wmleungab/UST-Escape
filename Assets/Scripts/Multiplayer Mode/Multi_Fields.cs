@@ -18,13 +18,18 @@ public class Multi_Fields : MonoBehaviour
 				DEFENSE_ROUND,
 				SERVER_FINISH,
 				CLIENT_FINISH,
-				SERVER_SUCCESS
+				SERVER_SUCCESS,
+				SERVER_ATTACKING,
+				DEFENSE_SUCCESS
 		}
 		public int QTEmode = 0;
+		public int ServerHP = 100;
+		public int ClientHP = 100;
 		public string ServerFinishTime;
 		public string ClientFinishTime;
-		public string internServerFinishTime;
-		public string internClientFinishTime;
+
+		//public string internServerFinishTime;
+		//public string internClientFinishTime;
 		public bool[] stateInfo; // declare numbers as an int array of any size
 
 		// Use this for initialization
@@ -33,8 +38,8 @@ public class Multi_Fields : MonoBehaviour
 				stateInfo = new bool[32];
 				for (int i=0; i<32; i++)
 						stateInfo [i] = false;
-				internServerFinishTime = "0";
-				internClientFinishTime = "0";
+				//internServerFinishTime = "0";
+				//internClientFinishTime = "0";
 
 		}
 
@@ -73,18 +78,40 @@ public class Multi_Fields : MonoBehaviour
 				if (isServer) {
 
 						ServerFinishTime = time;
-						internServerFinishTime = time;
+						//internServerFinishTime = time;
 
 				} else {
-						internClientFinishTime = time;
+						//internClientFinishTime = time;
 						ClientFinishTime = time;
 				}
 		}
-		
+
+		public void syncHP (int damage, bool isServer)
+		{
+				networkView.RPC ("mySyncHP", 
+		                             RPCMode.AllBuffered, 
+		                             damage, isServer);
+		}
+
+		[RPC]
+		void mySyncHP (int damage, bool isServer)
+		{
+				if (isServer) {
+						ServerHP -= damage;
+						if (ServerHP < 0)
+								ServerHP = 0;
+				} else {
+						ClientHP -= damage;
+						if (ClientHP < 0)
+								ClientHP = 0;
+				}
+
+		}
+
 		public void syncQTEMode (int mode)
 		{
 		
-		networkView.RPC ("mySyncQTEMode", 
+				networkView.RPC ("mySyncQTEMode", 
 		                 RPCMode.AllBuffered, 
 		                 mode);
 		}
