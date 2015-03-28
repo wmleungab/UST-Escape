@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2deac51454f78d428c4123df21dd00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fightsound: {fileID: 0}
+  fightsound: {fileID: 8300000, guid: 5ea7c5141ab766e4db88548d186ffee5, type: 3}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
   defendmin: 2

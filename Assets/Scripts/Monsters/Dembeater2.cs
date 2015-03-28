@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Dembeater2 : MonoBehaviour {
-	public AudioSource fightsound;
+	public AudioClip fightsound;
 
 	public GameObject defendSheildpf;
 	
@@ -173,6 +173,7 @@ public class Dembeater2 : MonoBehaviour {
 	void playerdamage ()
 	{
 		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
+		AudioSource.PlayClipAtPoint (fightsound, pos);
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;
 		exp.transform.localScale = new Vector3 (2f, 2f, 1);
 		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;
