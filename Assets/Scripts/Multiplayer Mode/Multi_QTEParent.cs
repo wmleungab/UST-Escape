@@ -32,8 +32,8 @@ public class Multi_QTEParent : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-
-				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS] && !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]) {
+		//&& !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]
+				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS] ) {
 						Debug.Log ("Attrd: " + myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]);
 						Debug.Log ("Defenrd: " + myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]);
 						myFields.changeState (Multi_Fields.States.ROUND_STARTS, false);
@@ -78,12 +78,11 @@ public class Multi_QTEParent : MonoBehaviour
 										break;
 								}
 						}
-
-
-
-						
-						if (Network.isServer)
-								myFields.syncQTEMode (Random.Range (0, 5));
+						if (Network.isServer){
+							float myRan=Random.Range (0, 5);
+							
+							myFields.syncQTEMode (Mathf.FloorToInt(myRan));
+						}
 				}
 
 				//Round end
@@ -99,7 +98,7 @@ public class Multi_QTEParent : MonoBehaviour
 								myFields.changeState (Multi_Fields.States.SERVER_SUCCESS, false);
 						} else
 								result = "Fair";
-			
+						
 						myFields.changeState (Multi_Fields.States.ROUND_IN_PROGRESS, false);
 						myFields.changeState (Multi_Fields.States.SERVER_FINISH, false);
 						myFields.changeState (Multi_Fields.States.CLIENT_FINISH, false);
@@ -116,10 +115,9 @@ public class Multi_QTEParent : MonoBehaviour
 
 								if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS])
 										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, true);
-								else if (!myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS])
-										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, false);
-
-								myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
+								else myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, false);
+								
+								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
 								//change back to defense round
 								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, false);
 								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, true);
@@ -140,21 +138,17 @@ public class Multi_QTEParent : MonoBehaviour
 										else
 												myFields.changeState (Multi_Fields.States.DEFENSE_SUCCESS, false);
 								}
-
-								//Attack animation
-								while (!(myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY])) {
-										
-								}
+								
 								
 								if (Network.isServer) {
 										if (!myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
 												GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag = true;
-												while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag);
+												//while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag);
 										}
 								} else {
 										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
 												GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag = true;
-												while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag);
+												//while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag);
 										}
 								}
 
@@ -176,7 +170,7 @@ public class Multi_QTEParent : MonoBehaviour
 								}
 
 							
-								myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
+								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
 								//change back to attack round
 								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
 								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, false);

@@ -71,6 +71,7 @@ public class Multi_NetworkManager : MonoBehaviour
 		{
 				Debug.Log ("Server Joined");
 				myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED] = true;
+				Instantiate (enemyOfClient);
 				//spawnCharClient ();
 		}
 	/*

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 176574, guid: 552e7047a608a254c882e6bfaeda9522, type: 2}
-  startFlag: 1
+  startFlag: 0
   dieFlag: 1
   readyTime: 2
 --- !u!114 &11449710

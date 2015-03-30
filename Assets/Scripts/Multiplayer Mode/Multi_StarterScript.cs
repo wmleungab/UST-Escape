@@ -55,10 +55,16 @@ public class Multi_StarterScript : MonoBehaviour
 						yield return new WaitForSeconds (0.01f);
 				}
 				Go.GetComponent<SpriteRenderer> ().sprite = null;
-			//myFields.syncState(Multi_Fields.States.ROUND_STARTS,true);
-		myFields.changeState(Multi_Fields.States.ROUND_STARTS , true);
-		myFields.changeState(Multi_Fields.States.ATTACK_ROUND , true);
-		if (Network.isServer)
-						myFields.syncQTEMode (Random.Range (0, 5));
+				//myFields.syncState(Multi_Fields.States.ROUND_STARTS,true);
+				myFields.changeState (Multi_Fields.States.ROUND_STARTS, true);
+				myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
+				if (Network.isServer) {
+
+					float myRan=Random.Range (0, 5);
+			
+					myFields.syncQTEMode (Mathf.FloorToInt(myRan));
+
+				}
+				Debug.Log (" " + myFields.QTEmode);
 		}
 }

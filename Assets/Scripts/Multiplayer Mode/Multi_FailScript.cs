@@ -17,8 +17,9 @@ public class Multi_FailScript : MonoBehaviour {
 	IEnumerator startanim ()
 	{	yield return new WaitForSeconds (2.75f);
 		myFields.changeState (Multi_Fields.States.ROUND_STARTS, true);
-		yield return new WaitForSeconds (0.25f);
 		myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, true);
+		yield return new WaitForSeconds (0.25f);
+
 
 		Destroy (gameObject);
 	}

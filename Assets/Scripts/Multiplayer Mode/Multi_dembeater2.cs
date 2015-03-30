@@ -78,7 +78,7 @@ public class Multi_dembeater2 : MonoBehaviour
 		void playerdamage ()
 		{
 				//GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
-		startFlag = false;
+				startFlag = false;
 		}
 	
 		void die ()
