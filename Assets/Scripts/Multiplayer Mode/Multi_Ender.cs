@@ -6,12 +6,11 @@ public class Multi_Ender : MonoBehaviour
 		public GameObject Win;
 		public GameObject Lost;
 		public GameObject stat;
-	public GameObject wonqte;
-	public GameObject responsetime;
-
+		public GameObject wonqte;
+		public GameObject responsetime;
 		private Multi_Fields myFields;
-		
 		bool done = false;
+		bool statButton = true;
 		// Use this for initialization
 		void Start ()
 		{
@@ -29,11 +28,10 @@ public class Multi_Ender : MonoBehaviour
 
 						if (myFields.ServerHP == 0) {
 								if (Network.isServer) {
-										win ();
-			
+										lost ();
 
 								} else if (Network.isClient) {
-										lost ();
+										win ();
 
 								}	
 						} else if (myFields.ClientHP == 0) {
@@ -98,16 +96,27 @@ public class Multi_Ender : MonoBehaviour
 				myButtonStyle.font = myFont;
 		
 				if (done) {
-						if (GUI.Button (new Rect (100, 100, 250, 100), "Statistic", myButtonStyle)) {
-
+						if (statButton && GUI.Button (new Rect (100, 100, 250, 100), "Statistic", myButtonStyle)) {
+								Destroy (GameObject.Find ("Enemy"));
+								statButton = false;
 								Win.SetActive (false);
 								Lost.SetActive (false);
 								stat.SetActive (true);
-								TextMesh tm=wonqte.GetComponent<TextMesh> ();
-				if(Network.isServer)
-					tm.text=tm.text+" "+myFields.SWonQTE+"/"+(myFields.SWonQTE+myFields.CWonQTE);
-				else if(Network.isClient)
-					tm.text=tm.text+" "+myFields.CWonQTE+"/"+(myFields.SWonQTE+myFields.CWonQTE);
+								TextMesh tm = wonqte.GetComponent<TextMesh> ();
+								TextMesh tm2 = responsetime.GetComponent<TextMesh> ();
+								if (Network.isServer) {
+
+										tm.text = tm.text + "  " + myFields.SWonQTE + "/" + (myFields.SWonQTE + myFields.CWonQTE);
+										tm2.text = tm2.text + " " + myFields.ServerFinishTimeHelper + "s";
+								} else if (Network.isClient) {
+
+										tm.text = tm.text + "  " + myFields.CWonQTE + "/" + (myFields.SWonQTE + myFields.CWonQTE);
+										tm2.text = tm2.text + " " + myFields.ClientFinishTimeHelper + "s";
+								}
+						}
+
+						if (!statButton && GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Exit", myButtonStyle)) {
+
 						}
 				}
 		}

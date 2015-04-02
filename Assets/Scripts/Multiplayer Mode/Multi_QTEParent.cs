@@ -20,6 +20,10 @@ public class Multi_QTEParent : MonoBehaviour
 		private GameObject QTEChildren;
 		private string result = "NONE";
 
+
+	long startingSecond =0;
+	long cSumSecond =0;
+	long sSumSecond =0;
 		void Start ()
 		{
 				myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
@@ -33,7 +37,7 @@ public class Multi_QTEParent : MonoBehaviour
 		void Update ()
 		{
 				//&& !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]
-				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS]) {
+				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS] && !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]) {
 						Debug.Log ("Attrd: " + myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]);
 						Debug.Log ("Defenrd: " + myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]);
 						myFields.changeState (Multi_Fields.States.ROUND_STARTS, false);
@@ -45,6 +49,8 @@ public class Multi_QTEParent : MonoBehaviour
 								&& !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]
 								&& myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND])
 								roundStarterInstance = Instantiate (defenseRound, new Vector3 (0, 0, 0), Quaternion.identity)as GameObject;
+						
+						
 						
 				}
 
@@ -77,6 +83,11 @@ public class Multi_QTEParent : MonoBehaviour
 										QTEChildren = Instantiate (QTEUpDown, new Vector3 (0, 0, 0), Quaternion.identity)as GameObject;
 										break;
 								}
+
+								int currentSeconds = int.Parse(System.DateTime.Now.ToString("ss"));
+								int currentMinutes = int.Parse(System.DateTime.Now.ToString("mm"));
+								int currentHours = int.Parse(System.DateTime.Now.ToString("hh"));
+								startingSecond = currentHours*3600 + currentMinutes*60 + currentSeconds;
 						}
 						if (Network.isServer) {
 								float myRan = Random.Range (0, 5);
@@ -104,6 +115,9 @@ public class Multi_QTEParent : MonoBehaviour
 						} else
 								result = "Fair";
 						
+						sSumSecond+=myFields.ServerFinishTimeHelper-startingSecond;
+						cSumSecond+=myFields.ClientFinishTimeHelper-startingSecond;
+
 						myFields.changeState (Multi_Fields.States.ROUND_IN_PROGRESS, false);
 						myFields.changeState (Multi_Fields.States.SERVER_FINISH, false);
 						myFields.changeState (Multi_Fields.States.CLIENT_FINISH, false);
@@ -144,8 +158,17 @@ public class Multi_QTEParent : MonoBehaviour
 										else
 												myFields.changeState (Multi_Fields.States.DEFENSE_SUCCESS, false);
 								}
-								
-								
+
+								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
+								//change back to attack round
+								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
+								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, false);
+
+						}
+				}
+				if (myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]) {
+						if (myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]
+								&& !myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]) {
 								if (Network.isServer) {
 										if (!myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
 												GameObject.Find ("Enemy").GetComponent<Multi_dembeater1> ().startFlag = true;
@@ -157,7 +180,7 @@ public class Multi_QTEParent : MonoBehaviour
 												//while(GameObject.Find ("Enemy").GetComponent<Multi_dembeater2> ().startFlag);
 										}
 								}
-
+			
 								//issue damage
 								if (Network.isServer) {
 										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
@@ -174,22 +197,18 @@ public class Multi_QTEParent : MonoBehaviour
 												}
 										}
 								}
-								
-							
-								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
-								//change back to attack round
-								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
-								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, false);
-
-								if (myFields.ServerHP == 0 || myFields.ClientHP == 0)
-										Destroy (gameObject);
-
 						}
-						
-						
-				}
-		}
+						myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
 
+						if (myFields.ServerHP == 0 || myFields.ClientHP == 0){
+							myFields.ServerFinishTimeHelper=sSumSecond/(myFields.SWonQTE + myFields.CWonQTE);
+							myFields.ClientFinishTimeHelper=cSumSecond/(myFields.SWonQTE + myFields.CWonQTE);
+							Destroy (gameObject);
+						}
+							
+				}
+	}
+	
 		void OnGUI ()
 		{
 				// Create style for a button

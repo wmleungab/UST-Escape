@@ -30,7 +30,8 @@ public class Multi_Fields : MonoBehaviour
 		public int CWonQTE = 0;
 		public string ServerFinishTime;
 		public string ClientFinishTime;
-
+		public long ServerFinishTimeHelper;
+		public long ClientFinishTimeHelper;
 		//public string internServerFinishTime;
 		//public string internClientFinishTime;
 		public bool[] stateInfo; // declare numbers as an int array of any size
@@ -78,14 +79,20 @@ public class Multi_Fields : MonoBehaviour
 		[RPC]
 		void mySyncTime (string time, bool isServer)
 		{
+				int currentSeconds = int.Parse(System.DateTime.Now.ToString("ss"));
+				int currentMinutes = int.Parse(System.DateTime.Now.ToString("mm"));
+				int currentHours = int.Parse(System.DateTime.Now.ToString("hh"));
+		long second = currentHours*3600 + currentMinutes*60 + currentSeconds;
 				if (isServer) {
 
 						ServerFinishTime = time;
 						//internServerFinishTime = time;
+			ServerFinishTimeHelper = second;
 
 				} else {
 						//internClientFinishTime = time;
 						ClientFinishTime = time;
+			ClientFinishTimeHelper= second;
 				}
 		}
 
