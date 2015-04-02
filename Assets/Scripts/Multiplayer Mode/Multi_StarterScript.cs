@@ -11,7 +11,7 @@ public class Multi_StarterScript : MonoBehaviour
 		// Use this for initialization
 		void Update ()
 		{
-		if (myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START] && myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START] && !done) {
+				if (myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START] && myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START] && !done) {
 						StartCoroutine ("startanim");
 						
 						done = true;
@@ -55,16 +55,12 @@ public class Multi_StarterScript : MonoBehaviour
 						yield return new WaitForSeconds (0.01f);
 				}
 				Go.GetComponent<SpriteRenderer> ().sprite = null;
+
+
 				//myFields.syncState(Multi_Fields.States.ROUND_STARTS,true);
 				myFields.changeState (Multi_Fields.States.ROUND_STARTS, true);
 				myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
-				if (Network.isServer) {
 
-					float myRan=Random.Range (0, 5);
-			if(myRan==2)myRan=3;
-			myFields.syncQTEMode (Mathf.FloorToInt(myRan));
-
-				}
 				Debug.Log (" " + myFields.QTEmode);
 		}
 }

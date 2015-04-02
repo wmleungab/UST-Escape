@@ -19,11 +19,10 @@ public class Multi_QTEParent : MonoBehaviour
 		private GameObject roundStarterInstance;
 		private GameObject QTEChildren;
 		private string result = "NONE";
+		long startingSecond = 0;
+		long cSumSecond = 0;
+		long sSumSecond = 0;
 
-
-	long startingSecond =0;
-	long cSumSecond =0;
-	long sSumSecond =0;
 		void Start ()
 		{
 				myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
@@ -51,7 +50,10 @@ public class Multi_QTEParent : MonoBehaviour
 								roundStarterInstance = Instantiate (defenseRound, new Vector3 (0, 0, 0), Quaternion.identity)as GameObject;
 						
 						
-						
+						if (Network.isServer) {
+							float myRan = Random.Range (0, 5);
+							myFields.syncQTEMode (Mathf.FloorToInt (myRan));
+						}
 				}
 
 				
@@ -84,17 +86,12 @@ public class Multi_QTEParent : MonoBehaviour
 										break;
 								}
 
-								int currentSeconds = int.Parse(System.DateTime.Now.ToString("ss"));
-								int currentMinutes = int.Parse(System.DateTime.Now.ToString("mm"));
-								int currentHours = int.Parse(System.DateTime.Now.ToString("hh"));
-								startingSecond = currentHours*3600 + currentMinutes*60 + currentSeconds;
+								int currentSeconds = int.Parse (System.DateTime.Now.ToString ("ss"));
+								int currentMinutes = int.Parse (System.DateTime.Now.ToString ("mm"));
+								int currentHours = int.Parse (System.DateTime.Now.ToString ("hh"));
+								startingSecond = currentHours * 3600 + currentMinutes * 60 + currentSeconds;
 						}
-						if (Network.isServer) {
-								float myRan = Random.Range (0, 5);
-								if (myRan == 2)
-										myRan = 3;
-								myFields.syncQTEMode (Mathf.FloorToInt (myRan));
-						}
+
 				}
 
 				//Round end
@@ -115,8 +112,8 @@ public class Multi_QTEParent : MonoBehaviour
 						} else
 								result = "Fair";
 						
-						sSumSecond+=myFields.ServerFinishTimeHelper-startingSecond;
-						cSumSecond+=myFields.ClientFinishTimeHelper-startingSecond;
+						sSumSecond += myFields.ServerFinishTimeHelper - startingSecond;
+						cSumSecond += myFields.ClientFinishTimeHelper - startingSecond;
 
 						myFields.changeState (Multi_Fields.States.ROUND_IN_PROGRESS, false);
 						myFields.changeState (Multi_Fields.States.SERVER_FINISH, false);
@@ -182,32 +179,40 @@ public class Multi_QTEParent : MonoBehaviour
 								}
 			
 								//issue damage
-								if (Network.isServer) {
-										if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
-												if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
-														myFields.syncHP (reducedDamage, false);
-												} else {
-														myFields.syncHP (originalDamage, false);
-												}
+								
+								if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_ATTACKING]) {
+										if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
+												myFields.ClientHP -= reducedDamage;
+												//myFields.syncHP (reducedDamage, false);
 										} else {
-												if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
-														myFields.syncHP (reducedDamage, true);
-												} else {
-														myFields.syncHP (originalDamage, true);
-												}
+												myFields.ClientHP -= originalDamage;
+												//myFields.syncHP (originalDamage, false);
 										}
+										if (myFields.ClientHP < 0)
+												myFields.ClientHP = 0;
+								} else {
+										if (myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_SUCCESS]) {
+												myFields.ServerHP -= reducedDamage;
+												//myFields.syncHP (reducedDamage, true);
+										} else {
+												myFields.ServerHP -= originalDamage;
+												//myFields.syncHP (originalDamage, true);
+										}
+										if (myFields.ServerHP < 0)
+												myFields.ServerHP = 0;
+								}
+
+
+								if (myFields.ServerHP == 0 || myFields.ClientHP == 0) {
+										myFields.ServerFinishTimeHelper = sSumSecond / (myFields.SWonQTE + myFields.CWonQTE);
+										myFields.ClientFinishTimeHelper = cSumSecond / (myFields.SWonQTE + myFields.CWonQTE);
+										Destroy (gameObject);
 								}
 						}
 						myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);
-
-						if (myFields.ServerHP == 0 || myFields.ClientHP == 0){
-							myFields.ServerFinishTimeHelper=sSumSecond/(myFields.SWonQTE + myFields.CWonQTE);
-							myFields.ClientFinishTimeHelper=cSumSecond/(myFields.SWonQTE + myFields.CWonQTE);
-							Destroy (gameObject);
-						}
-							
+	
 				}
-	}
+		}
 	
 		void OnGUI ()
 		{
@@ -220,14 +225,19 @@ public class Multi_QTEParent : MonoBehaviour
 
 
 				
-				/*
-				GUI.Box (new Rect (Screen.width / 2 - 300, 0, 600, 100), result
-						+ '\n' + "qte: " + QTEChildren
+				
+		//		GUI.Box (new Rect (Screen.width / 2 - 300, 0, 600, 100), //result
+				/*		+ '\n' + "qte: " + QTEChildren
 						+ '\n' + "sReady: " + myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START_ROUND]
 						+ '\n' + "cReady: " + myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START_ROUND]
 						+ '\n' + "SERVER_SUCCESS: " + myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS]
 						+ '\n' + "s: " + long.Parse (myFields.internServerFinishTime)
-						+ '\n' + "c: " + long.Parse (myFields.internClientFinishTime)
-				);*/
+						+ '\n' + "c: " + long.Parse (myFields.internClientFinishTime)*/
+		         /*       "\n" + sSumSecond
+						+ "\n" + cSumSecond
+						+ "\n" + myFields.ServerFinishTimeHelper
+						+ "\n" + myFields.ClientFinishTimeHelper
+				);
+		*/
 		}
 }

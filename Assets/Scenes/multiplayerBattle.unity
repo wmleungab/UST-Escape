@@ -1127,8 +1127,8 @@ MonoBehaviour:
   attackRound: {fileID: 189742, guid: 715519a96c77ac14f9451dc3ca233d86, type: 2}
   defenseRound: {fileID: 160626, guid: 758d5e72c6ae4614cb184513181968ba, type: 2}
   resultBanner: {fileID: 141974, guid: 57fafad1c3f5a5941aa6bdba43b41bed, type: 2}
-  originalDamage: 100
-  reducedDamage: 100
+  originalDamage: 45
+  reducedDamage: 25
 --- !u!4 &1730150227
 Transform:
   m_ObjectHideFlags: 0
