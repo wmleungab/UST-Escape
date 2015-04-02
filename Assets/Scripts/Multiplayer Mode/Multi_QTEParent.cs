@@ -32,8 +32,8 @@ public class Multi_QTEParent : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		//&& !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]
-				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS] ) {
+				//&& !myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ANI_READY]
+				if (myFields.stateInfo [(int)Multi_Fields.States.ROUND_STARTS]) {
 						Debug.Log ("Attrd: " + myFields.stateInfo [(int)Multi_Fields.States.ATTACK_ROUND]);
 						Debug.Log ("Defenrd: " + myFields.stateInfo [(int)Multi_Fields.States.DEFENSE_ROUND]);
 						myFields.changeState (Multi_Fields.States.ROUND_STARTS, false);
@@ -78,10 +78,11 @@ public class Multi_QTEParent : MonoBehaviour
 										break;
 								}
 						}
-						if (Network.isServer){
-							float myRan=Random.Range (0, 5);
-							
-							myFields.syncQTEMode (Mathf.FloorToInt(myRan));
+						if (Network.isServer) {
+								float myRan = Random.Range (0, 5);
+								if (myRan == 2)
+										myRan = 3;
+								myFields.syncQTEMode (Mathf.FloorToInt (myRan));
 						}
 				}
 
@@ -93,9 +94,13 @@ public class Multi_QTEParent : MonoBehaviour
 						if (long.Parse (myFields.ServerFinishTime) < long.Parse (myFields.ClientFinishTime)) {
 								result = "Server";
 								myFields.changeState (Multi_Fields.States.SERVER_SUCCESS, true);
+								if (Network.isServer)
+										myFields.incrementWonQTE (true);
 						} else if (long.Parse (myFields.ServerFinishTime) > long.Parse (myFields.ClientFinishTime)) {
 								result = "Client";
 								myFields.changeState (Multi_Fields.States.SERVER_SUCCESS, false);
+								if (Network.isServer)
+										myFields.incrementWonQTE (false);
 						} else
 								result = "Fair";
 						
@@ -115,7 +120,8 @@ public class Multi_QTEParent : MonoBehaviour
 
 								if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS])
 										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, true);
-								else myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, false);
+								else
+										myFields.changeState (Multi_Fields.States.SERVER_ATTACKING, false);
 								
 								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
 								//change back to defense round
@@ -168,12 +174,15 @@ public class Multi_QTEParent : MonoBehaviour
 												}
 										}
 								}
-
+								
 							
 								/*myFields.changeState (Multi_Fields.States.ATTACK_ANI_READY, false);*/
 								//change back to attack round
 								myFields.changeState (Multi_Fields.States.ATTACK_ROUND, true);
 								myFields.changeState (Multi_Fields.States.DEFENSE_ROUND, false);
+
+								if (myFields.ServerHP == 0 || myFields.ClientHP == 0)
+										Destroy (gameObject);
 
 						}
 						

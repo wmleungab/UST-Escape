@@ -61,8 +61,8 @@ public class Multi_StarterScript : MonoBehaviour
 				if (Network.isServer) {
 
 					float myRan=Random.Range (0, 5);
-			
-					myFields.syncQTEMode (Mathf.FloorToInt(myRan));
+			if(myRan==2)myRan=3;
+			myFields.syncQTEMode (Mathf.FloorToInt(myRan));
 
 				}
 				Debug.Log (" " + myFields.QTEmode);

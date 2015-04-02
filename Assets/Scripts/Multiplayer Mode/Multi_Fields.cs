@@ -26,6 +26,8 @@ public class Multi_Fields : MonoBehaviour
 		public int QTEmode = 0;
 		public int ServerHP = 100;
 		public int ClientHP = 100;
+		public int SWonQTE = 0;
+		public int CWonQTE = 0;
 		public string ServerFinishTime;
 		public string ClientFinishTime;
 
@@ -108,6 +110,24 @@ public class Multi_Fields : MonoBehaviour
 				}
 
 		}
+
+	public void incrementWonQTE (bool isServer)
+	{
+		networkView.RPC ("myIncrementWonQTE", 
+		                 RPCMode.AllBuffered, 
+		                  isServer);
+	}
+	
+	[RPC]
+	void myIncrementWonQTE ( bool isServer)
+	{
+		if (isServer) {
+			SWonQTE++;
+		} else {
+			CWonQTE++;
+		}
+		
+	}
 
 		public void syncQTEMode (int mode)
 		{

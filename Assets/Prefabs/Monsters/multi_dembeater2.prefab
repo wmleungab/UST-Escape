@@ -147,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hb: {fileID: 118968, guid: 574209c0f32704c4f926cac9700ccab0, type: 2}
   myFields: {fileID: 0}
-  fullHP: 25
-  HP: 25
+  fullHP: 100
+  HP: 100
   offset: {x: -1.75, y: 4.19999981, z: 0}
   hpLengthFactor: 6.19999981
 --- !u!114 &11431462
