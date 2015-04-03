@@ -188,6 +188,57 @@ function DropMeFromThePlayer(makeDuplicate : boolean)
 	}
 }
 
+//Drops the Item from the Inventory.
+function DropMeToLocation(makeDuplicate : boolean, pos : Vector3)
+{
+	if (makeDuplicate == false) //We use this if the object is not stacked and so we can just drop it.
+	{
+		canGet = true;
+		gameObject.SetActive(true);
+		
+/* 		if (GetComponent(MeshRenderer) != null)
+		{
+			GetComponent(MeshRenderer).enabled = true;
+		}
+		
+		if (GetComponent(Collider) != null)
+		{
+			GetComponent(Collider).enabled = true;
+		}
+ */	
+		ControlRenderers(true);
+		(GetComponent("Item") as Item).enabled = true;
+		
+		transform.parent = null;
+		transform.position = pos;
+		DelayPhysics();
+	}
+	else //If the object is stacked we need to make a clone of it and drop the clone instead.
+	{
+		canGet = true;
+		clone = Instantiate(gameObject, transform.position, transform.rotation);
+		canGet = false;
+		clone.SetActive(true);
+		
+ 		if (clone.GetComponent(MeshRenderer) != null)
+		{
+			clone.GetComponent(MeshRenderer).enabled = true;
+		}
+		
+		if (clone.GetComponent(Collider) != null)
+		{
+			clone.GetComponent(Collider).enabled = true;
+		}
+ 	
+		(clone.GetComponent("Item") as Item).ControlRenderers(true);
+		(clone.GetComponent("Item") as Item).enabled = true;
+		
+		clone.transform.parent = null;
+		clone.name = gameObject.name;
+		clone.transform.position = pos;
+	}
+}
+
 function DelayPhysics ()
 {
 	if (playersinv.transform.parent.collider != null && collider != null)

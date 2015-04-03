@@ -170,10 +170,14 @@ function Update()
 					itemBeingDragged.GetComponent(ItemEffect).UseEffect(); //It's not equipment so we just use the effect.
 		   }
 		   else {
-/* 			   if(!windowRect.Contains(Input.mousePosition)){
+ 			   if(!windowRect.Contains(Input.mousePosition)){
 				   Debug.Log("outside window");
+					var targetPos = Input.mousePosition;
+					targetPos.z = Camera.main.transform.position.y;  //camera to floor value
+					targetPos = Camera.main.ScreenToWorldPoint(targetPos);
+					associatedInventory.DropItemToLocation(itemBeingDragged, targetPos);
 				}
- */		   }
+ 		   }
 		   ClearDraggedItem(); //Stop dragging
 	   }
    }

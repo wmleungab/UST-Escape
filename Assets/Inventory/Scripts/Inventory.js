@@ -99,6 +99,30 @@ function DropItem(item:Item)
 	}
 }
 
+//Dropping an Item from the Inventory
+function DropItemToLocation(item:Item, pos:Vector3)
+{
+	gameObject.SendMessage ("PlayDropItemSound", SendMessageOptions.DontRequireReceiver); //Play sound
+	
+	var makeDuplicate = false;
+	if (item.stack == 1) //Drop item
+	{
+		RemoveItem(item.transform);
+	}
+	else //Drop from stack
+	{
+		item.stack -= 1;
+		makeDuplicate = true;
+	}
+	
+	item.DropMeToLocation(makeDuplicate, pos); //Calling the drop function + telling it if the object is stacked or not.
+	
+	if (DebugMode)
+	{
+		Debug.Log(item.name + " has been dropped");
+	}
+}
+
 //This will tell you everything that is in the inventory.
 function DebugInfo()
 {

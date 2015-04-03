@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 9c490fbb1731d2a4cacf8a575f993483
+guid: dc3151523d0070244aafad17bd9f36a4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: dem_beat1
+    21300000: FYP LG2 floor
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,18 +26,18 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: .549075961, y: .490137875}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 19}
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
