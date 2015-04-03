@@ -15,8 +15,7 @@ public class DialogSystem : MonoBehaviour
 	public Queue<string>cnameString = new Queue<string> ();
 	public Queue<string> cdialogString = new Queue<string> ();
 	
-	private NavMeshAgent playerNavMesh;
-
+	private GameObject playerObj;
 
 	public Sprite DialogPrecident ;
 
@@ -28,7 +27,7 @@ public class DialogSystem : MonoBehaviour
 			nameString = new string[]{"Precident","Precident"};
 			dialogString = new string[]{"fuck\nfuck","you"};
 			
-			playerNavMesh = (NavMeshAgent)GameObject.FindWithTag("Player").GetComponent("NavMeshAgent");
+			playerObj = GameObject.FindWithTag("Player");
 		}
 		
 		void startDialog() {
@@ -80,7 +79,7 @@ public class DialogSystem : MonoBehaviour
 				else{
 					Destroy(dialogbg);
 					dialogisOn=false;
-					playerNavMesh.enabled = true;
+					playerObj.gameObject.SendMessage("continueWalking");
 				}
 			}
 			
@@ -115,6 +114,7 @@ public class DialogSystem : MonoBehaviour
 				}*/
 			dialogisOn = false;
 			waitForClick = true;
-			playerNavMesh.enabled = false;
+			playerObj.gameObject.SendMessage("stopWalking");
+			
 		}
 }

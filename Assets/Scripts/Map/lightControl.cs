@@ -22,10 +22,10 @@ public class lightControl : MonoBehaviour {
 			lt.intensity = amplitude;
 		}
     }
-	void OnTriggerExit () {
+	void OnTriggerExit (Collider other) {
 		Debug.Log("Trigger exit " + lt.intensity);
 		triggerEnter = true;
-		if (lt.intensity <= minIntensity) lightup = true;
+		if (other.transform.position.x < this.transform.position.x) lightup = true;
 		else lightup = false;
 		
 		startTime = Time.time;

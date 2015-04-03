@@ -35,6 +35,7 @@ private var cSheetFound = false;
 private var cSheet : Character;
 private var startTime : float = 0;
 private var buttonPressed = false;
+private var playerObj : GameObject;
 
 //battle variables
 var windowTitle = "Inventory";
@@ -70,6 +71,7 @@ function Awake()
 		cSheetFound = false;
 	}
 
+	playerObj = GameObject.FindWithTag("Player");
 }
 
 function toBattleMode(){
@@ -81,10 +83,7 @@ function toBattleMode(){
 	windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
 	canBeDragged = false;
 
-	displayInventory = true;
-	
-	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
-	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+	openDisplay();
 }
 
 function toMapMode(){
@@ -96,10 +95,7 @@ function toMapMode(){
 	windowRect=Rect(0,0,windowSize.x,windowSize.y);
 	canBeDragged = true;
 
-	displayInventory = false;
-	
-	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
-	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+	closeDisplay();
 }
 
 //Update the inv list
@@ -125,17 +121,11 @@ function Update()
 	{
 		if (displayInventory)
 		{
-			displayInventory = false;
-			
-			gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
-			gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+			closeDisplay();
 		}
 		else
 		{
-			displayInventory = true;
-			
-			gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
-			gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+			openDisplay();
 		}
 	}
 	
@@ -175,6 +165,7 @@ function Update()
 					var targetPos = Input.mousePosition;
 					targetPos.z = Camera.main.transform.position.y;  //camera to floor value
 					targetPos = Camera.main.ScreenToWorldPoint(targetPos);
+					targetPos.y = 2;
 					associatedInventory.DropItemToLocation(itemBeingDragged, targetPos);
 				}
  		   }
@@ -281,6 +272,30 @@ function DisplayInventoryWindow(windowID:int)
 			}
 		}
 	}
+}
+
+function openDisplay () {
+	
+	displayInventory = true;
+	
+	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
+	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
+	
+	if(playerObj != null) 
+		playerObj.gameObject.SendMessage("stopWalking");
+	
+}
+
+function closeDisplay () {
+	
+	displayInventory = false;
+	
+	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
+	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
+	
+	if(playerObj != null) 
+		playerObj.gameObject.SendMessage("continueWalking");
+
 }
 
 //If we are dragging an item, we will clear it.

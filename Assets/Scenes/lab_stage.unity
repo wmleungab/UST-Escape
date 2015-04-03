@@ -89,6 +89,7 @@ GameObject:
   - 143: {fileID: 45442052}
   - 114: {fileID: 45442054}
   - 114: {fileID: 45442055}
+  - 114: {fileID: 45442056}
   m_Layer: 0
   m_Name: Victim
   m_TagString: Player
@@ -210,6 +211,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f3cbf689b208c488f3ac5fd07df79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &45442056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 1989305921}
+  m_GameObject: {fileID: 45442047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &46335737
@@ -6165,6 +6178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296c9fdb6abf34e9499dba3d881c18bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target_go: {fileID: 0}
+  tracePlayer: 1
 --- !u!108 &1509747310
 Light:
   m_ObjectHideFlags: 0

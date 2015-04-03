@@ -6,16 +6,18 @@ public class CameraTracksPlayer : MonoBehaviour {
 	Transform player;
 	float offsetx;
 	float offsetz;
+	public GameObject target_go;
+	public bool tracePlayer = true;
 
 	// Use this for initialization
 	void Start () {
-		GameObject player_go = GameObject.FindGameObjectWithTag ("Player");
-		if (player_go == null) {
-			Debug.LogError ("Couldn't find GameObject with tag 'Player'");
+		if (tracePlayer) target_go = GameObject.FindGameObjectWithTag ("Player");
+		if (target_go == null) {
+			Debug.LogError ("Target Object not found for CameraTracksPlayer");
 			return;
 		}
 
-		player = player_go.transform;
+		player = target_go.transform;
 		//offsetx = transform.position.x - player.position.x;
 		//offsetz = transform.position.z - player.position.z;
 	}
