@@ -21,6 +21,7 @@ public class TablesScript : BigTableScript {
 			Debug.Log("Big Table Array: " + this.getTablesOpen());
 			if(checkArray()){
 				Debug.Log("get it right!");
+				GameObject.Find("Door").gameObject.SendMessage("openDoor", true, SendMessageOptions.DontRequireReceiver);
 				return true;
 			}
 		}

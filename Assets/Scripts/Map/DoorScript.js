@@ -2,11 +2,14 @@
 
 static var playersinv : Inventory;
 private var isOpened : boolean = false;
+private var doorObj : GameObject;
 
 function Start () {
 
 	playersinv = FindObjectOfType(Inventory); //finding the players inv.
 	isOpened = false;
+	doorObj = GameObject.Find("opendoor");
+	doorObj.active = false;
 
 }
 
@@ -26,12 +29,18 @@ function findKey() : Transform
 	return null;
 }
 
+function openDoor(){
+	Debug.Log("Lab Door Open");
+	isOpened = true;
+	doorObj.active = true;
+}
+
 function OnTriggerEnter() {
 	
 	Debug.Log("trigger enters");
 	
 	if(!isOpened) {
-		// find if the player has the key
+/*		// find if the player has the key
 		var keyChild : Transform;
 		
 		keyChild = findKey();
@@ -43,6 +52,7 @@ function OnTriggerEnter() {
 			playersinv.RemoveItem(keyChild);
 			goToNextScene();
 		}
+*/
 	}
 	else {
 		goToNextScene();

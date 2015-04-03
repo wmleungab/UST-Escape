@@ -29,7 +29,7 @@ public class MickeyAnimateScript : MonoBehaviour {
 	}
 	
 	void flipHorizontal() {
-		Debug.Log("Mickry Flip!!");
+		//Debug.Log("Mickry Flip!!");
 		
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;

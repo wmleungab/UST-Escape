@@ -56,7 +56,7 @@ public class animationScript : MonoBehaviour {
 			}				
 		}
 		
-		Debug.Log("animationScript: direction: " + animator.GetInteger("Direction") +" angle: " + angle);
+		//Debug.Log("animationScript: direction: " + animator.GetInteger("Direction") +" angle: " + angle);
 	}
 }
 
