@@ -62,7 +62,8 @@ public class Multi_QTETriangle : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
+				if (Network.isServer || Network.isClient)
+						myFields = GameObject.Find ("SharedData").GetComponent<Multi_Fields> ();
 
 
 				CircleCollider2D temp = ptChild.GetComponents<CircleCollider2D> () [0]as CircleCollider2D;
@@ -179,12 +180,14 @@ public class Multi_QTETriangle : MonoBehaviour
 										myFields.syncTime (timeStamp, false);
 										Destroy (gameObject);
 					
-								} else {
+								} else  if (Network.isServer) {
 										myFields.syncState (Multi_Fields.States.SERVER_FINISH, true);
 										long period = 10L * 60L * 1000L * 10000L; // In ticks
 										long timeStamp = System.DateTime.Now.Ticks + period;
 										timeStamp -= startTime;
 										myFields.syncTime (timeStamp, true);
+										Destroy (gameObject);
+								} else {
 										Destroy (gameObject);
 								}
 						} else {

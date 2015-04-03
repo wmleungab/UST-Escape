@@ -116,7 +116,11 @@ public class Multi_Ender : MonoBehaviour
 						}
 
 						if (!statButton && GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Exit", myButtonStyle)) {
-
+								{
+										Network.Disconnect ();
+										MasterServer.UnregisterHost ();
+										Application.LoadLevel ("mainmenu"); 
+								}
 						}
 				}
 		}

@@ -44,7 +44,16 @@ public class Multi_Fields : MonoBehaviour
 						stateInfo [i] = false;
 				//internServerFinishTime = "0";
 				//internClientFinishTime = "0";
-
+				QTEmode = 0;
+				ServerHP = 100;
+				ClientHP = 100;
+				SWonQTE = 0;
+				CWonQTE = 0;
+				ServerFinishTime = "";
+				ClientFinishTime = "";
+				ServerFinishTimeHelper = 0;
+				ClientFinishTimeHelper = 0;
+				
 		}
 
 		public void changeState (States index, bool value)
@@ -79,20 +88,20 @@ public class Multi_Fields : MonoBehaviour
 		[RPC]
 		void mySyncTime (string time, bool isServer)
 		{
-				int currentSeconds = int.Parse(System.DateTime.Now.ToString("ss"));
-				int currentMinutes = int.Parse(System.DateTime.Now.ToString("mm"));
-				int currentHours = int.Parse(System.DateTime.Now.ToString("hh"));
-		long second = currentHours*3600 + currentMinutes*60 + currentSeconds;
+				int currentSeconds = int.Parse (System.DateTime.Now.ToString ("ss"));
+				int currentMinutes = int.Parse (System.DateTime.Now.ToString ("mm"));
+				int currentHours = int.Parse (System.DateTime.Now.ToString ("hh"));
+				long second = currentHours * 3600 + currentMinutes * 60 + currentSeconds;
 				if (isServer) {
 
 						ServerFinishTime = time;
 						//internServerFinishTime = time;
-			ServerFinishTimeHelper = second;
+						ServerFinishTimeHelper = second;
 
 				} else {
 						//internClientFinishTime = time;
 						ClientFinishTime = time;
-			ClientFinishTimeHelper= second;
+						ClientFinishTimeHelper = second;
 				}
 		}
 
@@ -118,23 +127,23 @@ public class Multi_Fields : MonoBehaviour
 
 		}
 
-	public void incrementWonQTE (bool isServer)
-	{
-		networkView.RPC ("myIncrementWonQTE", 
+		public void incrementWonQTE (bool isServer)
+		{
+				networkView.RPC ("myIncrementWonQTE", 
 		                 RPCMode.AllBuffered, 
 		                  isServer);
-	}
-	
-	[RPC]
-	void myIncrementWonQTE ( bool isServer)
-	{
-		if (isServer) {
-			SWonQTE++;
-		} else {
-			CWonQTE++;
 		}
+	
+		[RPC]
+		void myIncrementWonQTE (bool isServer)
+		{
+				if (isServer) {
+						SWonQTE++;
+				} else {
+						CWonQTE++;
+				}
 		
-	}
+		}
 
 		public void syncQTEMode (int mode)
 		{

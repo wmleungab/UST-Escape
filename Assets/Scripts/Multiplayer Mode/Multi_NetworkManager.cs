@@ -20,7 +20,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				myFields = sharedData.GetComponent<Multi_Fields> ();
 		}
 	
-	// Update is called once per frame
+		// Update is called once per frame
 		void Update ()
 		{
 		
@@ -51,7 +51,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				//spawnCharCServer ();
 
 		}
-	/*
+		/*
 		void spawnCharCServer ()
 		{
 				GameObject enemy = GameObject.Find ("enemyChar");
@@ -74,7 +74,7 @@ public class Multi_NetworkManager : MonoBehaviour
 				Instantiate (enemyOfClient);
 				//spawnCharClient ();
 		}
-	/*
+		/*
 		void spawnCharClient ()
 		{
 				GameObject enemy = GameObject.Find ("enemyChar");
@@ -101,10 +101,16 @@ public class Multi_NetworkManager : MonoBehaviour
 
 						if (GUI.Button (new Rect (100, 250, 250, 100), "Refresh Hosts", myButtonStyle))
 								RefreshHostList ();
-			
+						
+						if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+								Network.Disconnect ();
+								MasterServer.UnregisterHost ();
+								Application.LoadLevel ("mainmenu"); 
+						}
+								
 						if (hostList != null) {
 								for (int i = 0; i < hostList.Length; i++) {
-					if (GUI.Button (new Rect (400, 100 + (110 * i), 300, 100), hostList [i].gameName,myButtonStyle)) {
+										if (GUI.Button (new Rect (400, 100 + (110 * i), 300, 100), hostList [i].gameName, myButtonStyle)) {
 						
 												JoinServer (hostList [i]);
 
@@ -117,18 +123,28 @@ public class Multi_NetworkManager : MonoBehaviour
 								Network.Disconnect ();
 				}*/
 
-		if (myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED]) {
+				if (myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED]) {
 			
-			if (Network.isClient && !myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START]) {
-				if (GUI.Button (new Rect (100, 100, 250, 100), "Start game",myButtonStyle)) 
+						if (Network.isClient && !myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START]) {
+								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle)) 
 					
 										myFields.syncState (Multi_Fields.States.CLIENT_READY_TO_START, true);
+								if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+										Network.Disconnect ();
+										MasterServer.UnregisterHost ();
+										Application.LoadLevel ("mainmenu"); 
+								}
+										
 						}
-			if (Network.isServer && !myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START]) {
-				if (GUI.Button (new Rect (100, 100, 250, 100), "Start game",myButtonStyle))
+						if (Network.isServer && !myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START]) {
+								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle))
 					
 										myFields.syncState (Multi_Fields.States.SERVER_READY_TO_START, true);
-										
+								if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+										Network.Disconnect ();
+										MasterServer.UnregisterHost ();
+										Application.LoadLevel ("mainmenu"); 
+								}	
 				
 						}
 				}
