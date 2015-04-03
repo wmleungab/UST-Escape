@@ -79,7 +79,7 @@ public class DialogSystem : MonoBehaviour
 				else{
 					Destroy(dialogbg);
 					dialogisOn=false;
-					playerObj.gameObject.SendMessage("continueWalking");
+					GlobalVal.GamePause = false;
 				}
 			}
 			
@@ -114,7 +114,7 @@ public class DialogSystem : MonoBehaviour
 				}*/
 			dialogisOn = false;
 			waitForClick = true;
-			playerObj.gameObject.SendMessage("stopWalking");
+			GlobalVal.GamePause = true;
 			
 		}
 }

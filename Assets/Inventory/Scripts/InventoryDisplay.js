@@ -281,8 +281,7 @@ function openDisplay () {
 	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
 	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
 	
-	if(playerObj != null) 
-		playerObj.gameObject.SendMessage("stopWalking");
+	GlobalVal.GamePause = true;
 	
 }
 
@@ -293,8 +292,7 @@ function closeDisplay () {
 	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
 	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
 	
-	if(playerObj != null) 
-		playerObj.gameObject.SendMessage("continueWalking");
+	GlobalVal.GamePause = false;
 
 }
 

@@ -61,7 +61,7 @@ function OnMouseDown()
 
 	Debug.Log("Item Clicked");
 	//If the 'FirstPersonPickUp' script is not attached we want to pick up the item.
-	if (FPPickUpFound == false && (Vector3.Distance(playerObj.transform.position, transform.position) < maxGettingDistance))
+	if (FPPickUpFound == false && (Vector3.Distance(playerObj.transform.position, transform.position) < maxGettingDistance) && !GlobalVal.GamePause )
 	{
 		PickUpItem();
 	}

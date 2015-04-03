@@ -23,7 +23,7 @@ public class lightControl : MonoBehaviour {
 		}
     }
 	void OnTriggerExit (Collider other) {
-		Debug.Log("Trigger exit " + lt.intensity);
+		//Debug.Log("Trigger exit " + lt.intensity);
 		triggerEnter = true;
 		if (other.transform.position.x < this.transform.position.x) lightup = true;
 		else lightup = false;
