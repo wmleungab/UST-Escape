@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 60f05776abd41774c982defa4920f5dd
+guid: 08bb056fb3a487946b439c40c117285d
 TextureImporter:
   fileIDToRecycleName:
-    21300000: cal2
+    21300000: ust express
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,9 +26,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
