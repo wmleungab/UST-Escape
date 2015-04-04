@@ -69,7 +69,9 @@ public class LockerScript : MonoBehaviour
 				} else if (name == "cal_OK") { 
 						if (checkCorrect ()) {
 								//pw matched do sth
+								transform.parent.gameObject.SendMessage("openLocker");
 						}
+						closePanel();
 				} else if (name == "cal_c") {
 						resetPw ();
 				}
@@ -124,5 +126,23 @@ public class LockerScript : MonoBehaviour
 						resetPw ();
 						return false;
 				}
+		}
+		
+		public void showPanel() {
+			GlobalVal.GamePause = true;
+			moveToCamera();
+			gameObject.SetActiveRecursively(true);
+		}
+		public void closePanel() {
+			GlobalVal.GamePause = false;
+			gameObject.SetActiveRecursively(false);
+		}
+		void moveToCamera () {
+			Vector3 currentpos = transform.position;
+			Vector3 camerapos = Camera.main.transform.position;
+			currentpos.x = camerapos.x;
+			currentpos.z = camerapos.z;
+			
+			transform.position = currentpos;
 		}
 }

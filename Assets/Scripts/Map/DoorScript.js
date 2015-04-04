@@ -62,4 +62,5 @@ function OnTriggerEnter() {
 
 function goToNextScene() {
 		Debug.Log("go to next scene");	
+		GameObject.FindWithTag("Player").gameObject.SendMessage("gotoBattle");
 }

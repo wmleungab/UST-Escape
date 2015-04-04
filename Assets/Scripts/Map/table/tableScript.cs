@@ -20,6 +20,7 @@ public class tableScript : MonoBehaviour {
 		
 		playerObj = GameObject.FindWithTag("Player");
 		if (playerObj==null) Debug.LogError("Player Object not found");
+		allCanOpen = true;
 	}
 	
 	void colliderOnClick(){

@@ -11,7 +11,7 @@ function Awake ()
 
 function Update ()
 {
-	if (Input.GetKeyDown(KeyCode.T))
+	if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Menu))
 	{
 		var temp = GameObject.Find("Victim");
 		if (temp == null) Debug.Log("player not found");

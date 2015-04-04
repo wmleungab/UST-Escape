@@ -28,11 +28,13 @@ function Start () {
 
 function Update () {
 
-	if(motionState == 0) {
-		patrolling();
-	}
-	else {
-		attacking();
+	if (navComponent.enabled == true) {
+		if(motionState == 0) {
+			patrolling();
+		}
+		else {
+			attacking();
+		}
 	}
 
 }

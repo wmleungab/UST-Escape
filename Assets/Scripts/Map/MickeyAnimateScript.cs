@@ -5,13 +5,11 @@ public class MickeyAnimateScript : MonoBehaviour {
 
 	private Animator animator;
 
-	NavMeshAgent navmesh;
 	bool faceRight = false;
 
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator>();
-		navmesh = transform.parent.transform.Find("MickeyZombie").GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame

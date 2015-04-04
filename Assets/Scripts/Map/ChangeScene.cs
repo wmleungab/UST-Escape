@@ -17,9 +17,7 @@ public class ChangeScene : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.T)) {
-			Application.LoadLevel("battle");
-		}
+	void gotoBattle () {
+		Application.LoadLevel("battle");
 	}
 }

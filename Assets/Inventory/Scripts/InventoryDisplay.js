@@ -117,7 +117,7 @@ function Update()
 	}
 	
 	//Turn the Inventory on and off and handle audio + pausing the game.
-	if(Input.GetKeyDown(onOffButton) || Input.GetKeyDown(KeyCode.Menu))
+	if((Input.GetKeyDown(onOffButton) || Input.GetKeyDown(KeyCode.Menu)) && !isBattle)
 	{
 		if (displayInventory)
 		{
