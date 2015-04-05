@@ -28,5 +28,6 @@ public class lightControl : MonoBehaviour {
 		else lightup = false;
 		
 		startTime = Time.time;
+		//Debug.Log("Trigger exit " + lightup);
 	}
 }

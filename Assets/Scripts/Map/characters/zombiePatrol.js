@@ -48,7 +48,8 @@ function attacking() {
 			Debug.DrawLine (transform.position, victim.transform.position, Color.red);
 		}
 		else{
-			GetComponent("sceneInterface").SendMessage("changeScene");
+			GetComponent("sceneInterface").SendMessage("gotoBattle");
+			Destroy(transform.parent.gameObject);
 		}
 	}
 	else {

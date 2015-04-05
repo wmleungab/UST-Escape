@@ -27,11 +27,13 @@ public class LockerController : MonoBehaviour {
 	}
 	
 	void openLocker () {
-		Debug.Log("Locker opened");
-		//insert script to get item
-		StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(0));
-		StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(1));
-		isOpened = true;
+		if(!isOpened){
+			Debug.Log("Locker opened");
+			//insert script to get item
+			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(0));
+			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(1));
+			isOpened = true;
+		}
 	}
 	
 	void colliderOnClick(){

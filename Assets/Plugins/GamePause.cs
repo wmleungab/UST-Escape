@@ -10,12 +10,14 @@ public static class GamePause{
 	}
 	
 	public static void pauseGame(){
+		Debug.Log("pauseGame");
 		pauseCount++;
 	}
 	
 	public static void continueGame(){
 		if(pauseCount>0)
 			pauseCount--;
+		Debug.Log("continueGame " + pauseCount);
 	}
 	
 }

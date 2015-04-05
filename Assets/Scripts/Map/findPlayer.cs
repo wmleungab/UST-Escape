@@ -7,7 +7,7 @@ public class findPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		victim = GameObject.Find("Victim");
+		victim = GameObject.FindWithTag("Player");
 		if (victim != null) {
 			Debug.Log ("victim found");
 			GameObject.Find("Inventory").SendMessage ("toBattleMode");

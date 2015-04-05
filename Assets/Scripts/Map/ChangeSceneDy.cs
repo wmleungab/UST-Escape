@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChangeScene : MonoBehaviour {
+public class ChangeSceneDy : MonoBehaviour {
 
-	public static ChangeScene control;
+	public static ChangeSceneDy control;
 
 	// Use this for initialization
 	void Awake () {
@@ -15,5 +15,4 @@ public class ChangeScene : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-	
 }
