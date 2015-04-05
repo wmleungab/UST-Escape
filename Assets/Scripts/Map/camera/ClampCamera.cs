@@ -15,9 +15,15 @@ public class ClampCamera : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		setClamp();
+		
+	}
+	
+	public void setClamp() {
+		
 		float vertExtent = Camera.main.camera.orthographicSize;    
 		float horzExtent = vertExtent * Screen.width / Screen.height;
-		
+
 		// Calculations assume map is position at the origin
 		minX = horzExtent - mapX / 2.0f + centerPoint.x;
 		maxX = mapX / 2.0f - horzExtent + centerPoint.x;
@@ -32,8 +38,8 @@ public class ClampCamera : MonoBehaviour {
 		if(maxY < minY) {
 			minY = 0.0f;
 			maxY = 0.0f;
-		}
-
+		}	
+		
 	}
 
 	public Vector3 clampDes(Vector3 destination){
