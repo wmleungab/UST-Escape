@@ -9,7 +9,7 @@ function Start () {
 	playersinv = FindObjectOfType(Inventory); //finding the players inv.
 	isOpened = false;
 	doorObj = GameObject.Find("opendoor");
-	doorObj.active = false;
+	doorObj.SetActive(false);
 
 }
 
@@ -32,7 +32,7 @@ function findKey() : Transform
 function openDoor(){
 	Debug.Log("Lab Door Open");
 	isOpened = true;
-	doorObj.active = true;
+	doorObj.SetActive(true);
 }
 
 function OnTriggerEnter() {

@@ -281,7 +281,7 @@ function openDisplay () {
 	gameObject.SendMessage ("ChangedState", true, SendMessageOptions.DontRequireReceiver);
 	gameObject.SendMessage("PauseGame", true, SendMessageOptions.DontRequireReceiver); //PauseGame/DisableMouse/HideMouse
 	
-	GlobalVal.GamePause = true;
+	GamePause.pauseGame();
 	
 }
 
@@ -292,7 +292,7 @@ function closeDisplay () {
 	gameObject.SendMessage ("ChangedState", false, SendMessageOptions.DontRequireReceiver);
 	gameObject.SendMessage("PauseGame", false, SendMessageOptions.DontRequireReceiver); //StopPauseGame/EnableMouse/ShowMouse
 	
-	GlobalVal.GamePause = false;
+	GamePause.continueGame();
 
 }
 

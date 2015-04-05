@@ -61,7 +61,7 @@ function OnMouseDown()
 
 	Debug.Log("Item Clicked");
 	//If the 'FirstPersonPickUp' script is not attached we want to pick up the item.
-	if (FPPickUpFound == false && (Vector3.Distance(playerObj.transform.position, transform.position) < maxGettingDistance) && !GlobalVal.GamePause )
+	if (FPPickUpFound == false && (Vector3.Distance(playerObj.transform.position, transform.position) < maxGettingDistance) && !GamePause.isPause() )
 	{
 		PickUpItem();
 	}
@@ -74,7 +74,8 @@ function PickUpItem ()
 	if(canGet){//if its getable or hasnt been gotten.
 	
 	playersinv.gameObject.SendMessage ("PlayPickUpSound", SendMessageOptions.DontRequireReceiver); //Play sound
-	GameObject.Find("DialogSystem").SendMessage("startDialog");
+	//GameObject.Find("DialogSystem").SendMessage("startDialog");
+	gameObject.GetComponent("DialogInterface").SendMessage("getItemDialog");
 	
 		if(stackable){
 			var locatedit:Item;
@@ -191,6 +192,7 @@ function DropMeFromThePlayer(makeDuplicate : boolean)
 //Drops the Item from the Inventory.
 function DropMeToLocation(makeDuplicate : boolean, pos : Vector3)
 {
+	gameObject.GetComponent("DialogInterface").SendMessage("dropItemDialog");
 	if (makeDuplicate == false) //We use this if the object is not stacked and so we can just drop it.
 	{
 		canGet = true;

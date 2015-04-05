@@ -12,11 +12,11 @@ public class StopNavMesh : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(GlobalVal.GamePause && !isPause){
+		if(GamePause.isPause() && !isPause){
 			isPause = true;
 			stopWalking();
 		}
-		else if (!GlobalVal.GamePause && isPause){
+		else if (!GamePause.isPause() && isPause){
 			isPause = false;
 			resumeWalking();
 		}

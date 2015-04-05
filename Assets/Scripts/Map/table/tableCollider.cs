@@ -4,7 +4,7 @@ using System.Collections;
 public class tableCollider : MonoBehaviour {
 
 	void OnMouseDown(){
-		if(	!GlobalVal.GamePause )
+		if(	!GamePause.isPause() )
 		Debug.Log("collider clicked");
 			transform.parent.gameObject.SendMessage("colliderOnClick");
 		

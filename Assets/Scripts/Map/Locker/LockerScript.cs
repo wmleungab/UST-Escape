@@ -129,12 +129,12 @@ public class LockerScript : MonoBehaviour
 		}
 		
 		public void showPanel() {
-			GlobalVal.GamePause = true;
+			GamePause.pauseGame();
 			moveToCamera();
 			gameObject.SetActiveRecursively(true);
 		}
 		public void closePanel() {
-			GlobalVal.GamePause = false;
+			GamePause.continueGame();
 			gameObject.SetActiveRecursively(false);
 		}
 		void moveToCamera () {

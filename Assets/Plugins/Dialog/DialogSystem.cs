@@ -41,7 +41,7 @@ public class DialogSystem : MonoBehaviour
 
 		}
 
-		void startDialog (string[] _nameString, string[] _dialogString) {
+		public void startDialog (string[] _nameString, string[] _dialogString) {
 			toCreateDialog = true;
 			nameString = _nameString;
 			dialogString = _dialogString;
@@ -51,40 +51,49 @@ public class DialogSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		if (!dialogisOn) {
-			if (toCreateDialog) {
-				CreateDialog ();
-				toCreateDialog = false;
-				dialogisOn = true;
+			if (!dialogisOn) {
+				if (toCreateDialog) {
+					CreateDialog ();
+					toCreateDialog = false;
+					dialogisOn = true;
+				}
+						
 			}
-					
-		}
-		if (dialogisOn) {
-			if (waitForClick)
-				if (Input.GetMouseButtonDown (0)){
-						isClick = true;
-				}
-			if (isClick) {
-				if (cdialogString.Count > 0) {
-					dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text = cnameString.Dequeue ();
-					dialogbg.transform.GetChild (2).GetComponent<TextMesh> ().text = cdialogString.Dequeue ();
+			if (dialogisOn) {
+				if (waitForClick)
+					if (Input.GetMouseButtonDown (0)){
+							isClick = true;
+					}
+				if (isClick) {
+					if (cdialogString.Count > 0) {
+						dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text = cnameString.Dequeue ();
+						dialogbg.transform.GetChild (2).GetComponent<TextMesh> ().text = cdialogString.Dequeue ();
 
-					//charaterpic
-					if(dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text.Equals("Precident"))
-						dialogbg.transform.GetChild (3).GetComponent<SpriteRenderer> ().sprite = DialogPrecident;
+						//charaterpic
+						if(dialogbg.transform.GetChild (1).GetComponent<TextMesh> ().text.Equals("Precident"))
+							dialogbg.transform.GetChild (3).GetComponent<SpriteRenderer> ().sprite = DialogPrecident;
 
-					waitForClick = true;
-					isClick = false;
+						waitForClick = true;
+						isClick = false;
+					}
+					else{
+						Destroy(dialogbg);
+						dialogisOn=false;
+						GamePause.continueGame();
+					}
 				}
-				else{
-					Destroy(dialogbg);
-					dialogisOn=false;
-					GlobalVal.GamePause = false;
-				}
+				
 			}
-			
-		}
 
+		}
+		
+		public void onChildrenTouched (string name)
+		{
+			switch (name){
+				case "btn_ok":
+					Debug.Log("ok clicked");
+					break;
+			}
 		}
 
 		void CreateDialog ()
@@ -114,7 +123,7 @@ public class DialogSystem : MonoBehaviour
 				}*/
 			dialogisOn = false;
 			waitForClick = true;
-			GlobalVal.GamePause = true;
+			GamePause.pauseGame();
 			
 		}
 }
