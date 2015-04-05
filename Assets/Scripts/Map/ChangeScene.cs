@@ -19,5 +19,6 @@ public class ChangeScene : MonoBehaviour {
 	// Update is called once per frame
 	void gotoBattle () {
 		Application.LoadLevel("battle");
+		GlobalValues.BattleData.returnScene = "atrium_stage";
 	}
 }

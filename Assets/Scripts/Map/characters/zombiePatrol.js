@@ -47,6 +47,9 @@ function attacking() {
 			attackTimer = 0;
 			Debug.DrawLine (transform.position, victim.transform.position, Color.red);
 		}
+		else{
+			GetComponent("sceneInterface").SendMessage("changeScene");
+		}
 	}
 	else {
 		if (navComponent.remainingDistance <= navComponent.stoppingDistance) {
@@ -73,20 +76,34 @@ function patrolling() {
 	navComponent.SetDestination(patrolPoints[patrolIndex]);
 }
 
-function OnTriggerStay() {
+function OnTriggerStay(other:Collider) {
 
-	var forward = transform.forward;
-	var toOther = victim.transform.position - transform.position;
-	var angle = Vector3.Dot(forward, toOther);
+	if(other.gameObject.tag=="Player"){
+		//Debug.Log("meet Player");
+		var forward = transform.forward;
+		var toOther = victim.transform.position - transform.position;
+		var angle = Vector3.Dot(forward, toOther);
 
-	if ( angle > viewThreshold) {
-		if (!Physics.Linecast (transform.position, victim.transform.position, layerMask)) {
-			motionState = 1;
-			enemyInsight = true;
+		if ( angle > viewThreshold) {
+			if (!Physics.Linecast (transform.position, victim.transform.position, layerMask)) {
+				//Debug.Log("see Player");
+				motionState = 1;
+				enemyInsight = true;
+			}
+			else {
+				enemyInsight = false;
+			}
 		}
-		else {
-			enemyInsight = false;
+	}
+
+	if(other.gameObject.tag=="Item"){
+		Debug.Log(other.name);
+		switch (other.name){
+			case "mace":
+				Destroy(transform.parent.gameObject);    
+				break;
 		}
+		Destroy(other.gameObject);
 	}
 
 }
