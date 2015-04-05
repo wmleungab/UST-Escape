@@ -6,7 +6,7 @@ public class DialogBtn : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		parent = gameObject.transform.parent.gameObject.GetComponent<DialogSystem> () as DialogSystem;
+		parent = GameObject.Find("DialogSystem").GetComponent<DialogSystem> () as DialogSystem;
 	}
 
 	void OnMouseUp(){

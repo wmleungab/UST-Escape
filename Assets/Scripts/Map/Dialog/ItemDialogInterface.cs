@@ -12,13 +12,13 @@ public class ItemDialogInterface : DialogInterface {
 		DialogSystem.character[] nameString ={DialogSystem.character.SYSTEM};
 		string[] dialogString = new string[]{temp};
 		//dsObj.startDialog(nameString, dialogString);
-		conversation (nameString, dialogString, 1, false);
+		conversation (nameString, dialogString, 1);
 	}
 	void dropItemDialog(){
 		string temp = "Item " + this.name + " x1 dropped";
 		DialogSystem.character[] nameString ={DialogSystem.character.SYSTEM};
 		string[] dialogString = new string[]{temp};
-		conversation (nameString, dialogString, 1, false);
+		conversation (nameString, dialogString, 1);
 	}
 
 	override public void  onDialogFinish(int id, int selection){

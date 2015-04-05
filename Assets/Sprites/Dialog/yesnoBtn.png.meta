@@ -1,13 +1,11 @@
 fileFormatVersion: 2
-guid: 45bb318c9838d6f47abbd752a73a15bc
+guid: 51851aa4266cecf4eb49d96bd138ae53
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: dimJACK1
-    21300002: dimJACK1_0
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -27,9 +25,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -42,22 +40,8 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Android
-    maxTextureSize: 1024
-    textureFormat: -3
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: dimJACK1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2480
-        height: 3507
-      alignment: 0
-      pivot: {x: .5, y: .5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 
