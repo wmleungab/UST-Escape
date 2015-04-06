@@ -31,8 +31,7 @@ public class DialogSystem : MonoBehaviour
 		public Sprite dialogCleaningLady;
 		public Sprite dialogDimjack;
 		public Sprite dialogGirlGod;
-
-
+		bool occupied = false;
 
 		struct DialogGroup
 		{
@@ -96,14 +95,14 @@ public class DialogSystem : MonoBehaviour
 		}*/
 		public void startShowBigIcon (character[] _nameString, string[] _dialogString, DialogInterface di, int id, Sprite s)
 		{
-				if (dialogisOn) {
-			Debug.Log("buffering type3 dialog");
+				if (occupied) {
+						Debug.Log ("Buffering type3 dialog");
 						DialogGroup dg = new DialogGroup (3, _nameString, _dialogString, di, id, s);
 						bufferedDialog.Enqueue (dg);
 						return;
 				}
 
-
+				occupied = true;
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
@@ -123,14 +122,15 @@ public class DialogSystem : MonoBehaviour
 		public void startOptionDialog (character _nameString, string _dialogString, DialogInterface di, int id)
 		{
 
-				if (dialogisOn) {
-			Debug.Log("buffering type2 dialog");
+				if (occupied) {
+						Debug.Log ("Buffering type2 dialog");
 						nameString = new character[]{_nameString};
 						dialogString = new string[]{_dialogString};
 						DialogGroup dg = new DialogGroup (2, nameString, dialogString, di, id, null);
 						bufferedDialog.Enqueue (dg);
 						return;
 				}
+				occupied = true;
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
@@ -146,12 +146,13 @@ public class DialogSystem : MonoBehaviour
 
 		public void startDialogs (character[] _nameString, string[] _dialogString, DialogInterface di, int id)
 		{
-				if (dialogisOn) {
-			Debug.Log("buffering type1 dialog");
+				if (occupied) {
+						Debug.Log ("Buffering type1 dialog");
 						DialogGroup dg = new DialogGroup (1, _nameString, _dialogString, di, id, null);
 						bufferedDialog.Enqueue (dg);
 						return;
 				}
+				occupied = true;
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
@@ -192,13 +193,8 @@ public class DialogSystem : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (!dialogisOn) {
-
-						if (toCreateDialog) {
-								CreateDialog ();
-								toCreateDialog = false;
-								dialogisOn = true;
-						} else if (bufferedDialog.Count != 0) {
+				if (!occupied) {
+						if (bufferedDialog.Count != 0) {
 								DialogGroup dg = bufferedDialog.Dequeue ();
 								switch (dg.type) {
 								case 3:
@@ -210,13 +206,19 @@ public class DialogSystem : MonoBehaviour
 								case 1:
 										startDialogs (dg.nameString, dg.contentString, dg.di, dg.id);
 										break;
-								return;
+										return;
 								}
 						}
-				
-							
-						
+				}
 
+				if (!dialogisOn) {
+
+						if (toCreateDialog) {
+								CreateDialog ();
+								toCreateDialog = false;
+								dialogisOn = true;
+						} 
+				
 				}
 				if (dialogisOn) {
 						if (waitForClick)
@@ -274,6 +276,7 @@ public class DialogSystem : MonoBehaviour
 
 										onFinish ();
 										dialogisOn = false;
+										occupied = false;
 										GamePause.continueGame ();
 								}
 						}
@@ -352,6 +355,7 @@ public class DialogSystem : MonoBehaviour
 				Destroy (dialogInstance);
 				onFinish ();
 				dialogisOn = false;
+				occupied = false;
 				GamePause.continueGame ();
 		}
 

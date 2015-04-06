@@ -8,6 +8,7 @@ public abstract class DialogInterface : MonoBehaviour
 		//If there are 3 people in a conservation. Main Character will not appear in any picture.
 		public void conversation (DialogSystem.character[] c, string[] dialogue, int id)
 		{
+		Debug.Log (gameObject.name + " is calling Dialog System, type1");
 				dsObj = GameObject.Find ("DialogSystem").GetComponent<DialogSystem> ();
 				dsObj.startDialogs (c, dialogue, this, id);
 		}
@@ -17,6 +18,7 @@ public abstract class DialogInterface : MonoBehaviour
 		//And provide options for player to choose
 		public void optionSelect (DialogSystem.character c, string dialogue, int id)
 		{
+		Debug.Log (gameObject.name + " is calling Dialog System, type2");
 				dsObj = GameObject.Find ("DialogSystem").GetComponent<DialogSystem> ();
 				dsObj.startOptionDialog (c, dialogue, this, id);
 		}
@@ -26,6 +28,7 @@ public abstract class DialogInterface : MonoBehaviour
 		//However, you can still provide the character who is speaking and its content
 		public void showBigIcon (DialogSystem.character[] c, string[] dialogue, int id, Sprite s)
 		{
+		Debug.Log (gameObject.name + " is calling Dialog System, type3");
 				dsObj = GameObject.Find ("DialogSystem").GetComponent<DialogSystem> ();
 				dsObj.startShowBigIcon (c, dialogue, this, id, s);
 		}
