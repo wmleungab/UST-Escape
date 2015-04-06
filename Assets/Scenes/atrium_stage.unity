@@ -3756,8 +3756,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1979a958da4f34b8b450b5e4fd86a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogPrefab: {fileID: 0}
-  dialogPrincipal: {fileID: 0}
+  dialogPrefab: {fileID: 159672, guid: a4f5142f1e804034ca0104581f933bb2, type: 2}
+  dialogPrincipal: {fileID: 21300000, guid: 82bec03c58b24f04380313881a69f533, type: 3}
   dialogPlayer: {fileID: 0}
   dialogDembeater_Flag: {fileID: 0}
   dialogDembeater_Leg: {fileID: 0}
@@ -5779,6 +5779,7 @@ GameObject:
   - 4: {fileID: 2077985249}
   - 114: {fileID: 2077985252}
   - 114: {fileID: 2077985251}
+  - 114: {fileID: 2077985250}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -5798,6 +5799,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1507093362}
   m_RootOrder: 1
+--- !u!114 &2077985250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 2056061643}
+  m_GameObject: {fileID: 2077985248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658cd93822bf4d441ab92f56f168d4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2077985251
 MonoBehaviour:
   m_ObjectHideFlags: 0

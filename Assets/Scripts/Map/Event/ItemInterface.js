@@ -23,6 +23,7 @@ function Start(){
  //find an item from the inventory (IT DOESN'T DROP IT).
 function findKey(keyName : String) : Transform
 {
+	Debug.Log("finding key with " + keyName);
 	for(var i:Transform in associatedInventory.Contents) //Loop through the Items in the Inventory:
 	{
 		if(i.name == keyName) //When a match is found, return the Item.
