@@ -4,6 +4,8 @@ static var playersinv : Inventory;
 private var isOpened : boolean = false;
 private var doorObj : GameObject;
 
+var firstTouch=true;
+
 function Start () {
 
 	playersinv = FindObjectOfType(Inventory); //finding the players inv.
@@ -37,9 +39,16 @@ function openDoor(){
 
 function OnTriggerEnter() {
 	
-	Debug.Log("trigger enters");
+	
 	
 	if(!isOpened) {
+		Debug.Log("In touch with door, but not it is not open");
+		if(firstTouch){
+		this.GetComponent("DoorDialogInterface").SendMessage("firstTouchingDoor");
+		firstTouch=false;
+		}else{
+		this.GetComponent("DoorDialogInterface").SendMessage("subsequentTouchingDoor");
+		}
 /*		// find if the player has the key
 		var keyChild : Transform;
 		
@@ -55,6 +64,7 @@ function OnTriggerEnter() {
 */
 	}
 	else {
+		Debug.Log("In touch with door, and it is open");
 		goToNextScene();
 	}
 	

@@ -8,6 +8,7 @@ public class TablesScript : BigTableScript {
 	TableDialogInterface dialogInterface;
 	public Sprite pcOn;
 	public Sprite pcOff;
+	public Sprite doorOpenPic;
 
 	// Use this for initialization
 	void Start () {
@@ -23,11 +24,14 @@ public class TablesScript : BigTableScript {
 		if(tableNo >= 0 && tableNo < tablesOpen.Length){
 			tablesOpen[tableNo] = !tablesOpen[tableNo];
 			Debug.Log("Big Table Array: " + this.getTablesOpen());
-			issueDialog(tableNo);
+
+			issueTurnOnOffDialog(tableNo);
 
 			if(checkArray()){
 				Debug.Log("get it right!");
 				GameObject.Find("Door").gameObject.SendMessage("openDoor", true, SendMessageOptions.DontRequireReceiver);
+
+				issueSuccessPuzzlingDialog();
 				return true;
 			}
 		}
@@ -59,7 +63,7 @@ public class TablesScript : BigTableScript {
 		return result;
 	}
 
-	void issueDialog(int tableNo){
+	void issueTurnOnOffDialog(int tableNo){
 		dialogInterface = gameObject.GetComponents<TableDialogInterface> ()[0];
 		DialogSystem.character[] c = {DialogSystem.character.SYSTEM};
 		string tableState;
@@ -72,5 +76,16 @@ public class TablesScript : BigTableScript {
 		if (tablesOpen [tableNo])
 						dialogInterface.showBigIcon (c, s, 111, pcOn);
 		else dialogInterface.showBigIcon (c, s, 111, pcOff);
+	}
+
+	void issueSuccessPuzzlingDialog(){
+		dialogInterface = gameObject.GetComponents<TableDialogInterface> ()[0];
+		DialogSystem.character[] c = {DialogSystem.character.SYSTEM};
+		string[] s = {"The door is opened."};
+		dialogInterface.showBigIcon (c, s, 222, doorOpenPic);
+
+		DialogSystem.character[] c2 = {DialogSystem.character.PLAYER};
+		string[] s2 = {"Yes! “NO EATING!” That is the clue! I can leave now!"};
+		dialogInterface.conversation (c2, s2, 333);
 	}
 }

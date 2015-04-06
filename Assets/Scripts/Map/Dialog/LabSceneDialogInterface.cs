@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lab_BeginningDialog : DialogInterface {
+public class LabSceneDialogInterface : DialogInterface {
 
-	public Sprite spriteToShow;
+
 
 	// Use this for initialization
 	void Start () {
 
-		StartCoroutine ("startMyDia");
+		StartCoroutine ("startBeginningDialog");
 
 	}
 
-	IEnumerator  startMyDia(){
+	IEnumerator  startBeginningDialog(){
 		GamePause.pauseGame ();
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (1f);
 		GamePause.continueGame ();
 		DialogSystem.character[] cArr={
 			DialogSystem.character.PLAYER,
@@ -32,20 +32,34 @@ public class Lab_BeginningDialog : DialogInterface {
 	}
 
 
-	void  startOp(){
-
-		DialogSystem.character c=
-
+	IEnumerator  startLoopHint1(){
+		Debug.Log ("Lab scene: Hint1 will be show after 180s");
+		yield return new WaitForSeconds (180f);
+		DialogSystem.character[] cArr={
 			DialogSystem.character.PLAYER
-		;
+		};
 		
-		string dialog = 
-			"Am I handsome?";
-
+		string[] dialog = new string[]{
+			"There are some words on the white boards, it is useful?"
+		};
 		
-		optionSelect(c,dialog,2);
+		conversation(cArr,dialog,2);
 	}
 
+	IEnumerator  startLoopHint2(){
+		Debug.Log ("Lab scene: Hint2 will be show after 180s");
+		yield return new WaitForSeconds (180f);
+		DialogSystem.character[] cArr={
+			DialogSystem.character.PLAYER
+		};
+		
+		string[] dialog = new string[]{
+			"So many computers here, let me check them out."
+		};
+		
+		conversation(cArr,dialog,3);
+	}
+	/*
 	void  startBp(){
 		
 		DialogSystem.character[] cArr={
@@ -63,11 +77,13 @@ public class Lab_BeginningDialog : DialogInterface {
 		showBigIcon(cArr,dialog,3,spriteToShow);
 
 	}
-
+*/
 	override public void  onDialogFinish(int id, int selection){
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finished with selection result "+selection);
-		if(id==1)StartCoroutine ("startOp");
-		if(id==2)StartCoroutine ("startBp");
+		if(id==1)StartCoroutine ("startLoopHint1");
+		if(id==2)StartCoroutine ("startLoopHint2");
+		if(id==3)StartCoroutine ("startLoopHint1");
+
 	}
 }
