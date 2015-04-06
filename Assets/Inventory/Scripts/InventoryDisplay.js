@@ -167,7 +167,7 @@ function Update()
 					targetPos.z = Camera.main.transform.position.y;  //camera to floor value
 					targetPos = Camera.main.ScreenToWorldPoint(targetPos);
 					targetPos.y = 2;
-					associatedInventory.DropItemToLocation(itemBeingDragged, targetPos);
+					associatedInventory.startDropping(itemBeingDragged, targetPos);
 				}
  		   }
 		   ClearDraggedItem(); //Stop dragging

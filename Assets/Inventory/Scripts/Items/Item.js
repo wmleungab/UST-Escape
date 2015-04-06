@@ -75,7 +75,7 @@ function PickUpItem ()
 	
 	playersinv.gameObject.SendMessage ("PlayPickUpSound", SendMessageOptions.DontRequireReceiver); //Play sound
 	//GameObject.Find("DialogSystem").SendMessage("startDialog");
-	gameObject.GetComponent("DialogInterface").SendMessage("getItemDialog");
+	gameObject.GetComponent("DialogInterface").SendMessage("getItemDialog", SendMessageOptions.DontRequireReceiver);
 	
 		if(stackable){
 			var locatedit:Item;
@@ -192,7 +192,7 @@ function DropMeFromThePlayer(makeDuplicate : boolean)
 //Drops the Item from the Inventory.
 function DropMeToLocation(makeDuplicate : boolean, pos : Vector3)
 {
-	gameObject.GetComponent("DialogInterface").SendMessage("dropItemDialog");
+	gameObject.GetComponent("DialogInterface").SendMessage("dropItemDialog", SendMessageOptions.DontRequireReceiver);
 	if (makeDuplicate == false) //We use this if the object is not stacked and so we can just drop it.
 	{
 		canGet = true;

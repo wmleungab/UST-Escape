@@ -6,6 +6,8 @@ var MaxContent : int = 12; //The maximum number of items the Player can carry.
 var DebugMode = true; //If this is turned on the Inventory script will output the base of what it's doing to the Console window.
 
 private var playersInvDisplay : InventoryDisplay; //Keep track of the InventoryDisplay script.
+private var dropItem : Item;
+private var dropPos : Vector3;
 
 static var itemHolderObject : Transform; //The object the unactive items are going to be parented to. In most cases this is going to be the Inventory object itself.
 
@@ -97,6 +99,20 @@ function DropItem(item:Item)
 	{
 		Debug.Log(item.name + " has been dropped");
 	}
+}
+
+function startDropping (item:Item, pos:Vector3) 
+{
+	Debug.Log("Inventory start dropping item");
+	dropItem = item;
+	dropPos = pos;
+	GetComponent("InventoryDialogInterface").SendMessage("dropItemDialog", item.name);
+}
+
+function fireDropping ()
+{
+	Debug.Log("Inventory callback dropping item");
+	DropItemToLocation(dropItem, dropPos);
 }
 
 //Dropping an Item from the Inventory
