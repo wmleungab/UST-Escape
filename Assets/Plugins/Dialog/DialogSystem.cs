@@ -17,8 +17,13 @@ public class DialogSystem : MonoBehaviour
 		int myId = -1;
 		bool option_Mode = false;
 		bool playerOption = false;
+		bool bigIcon_Mode = false;
 		DialogInterface curDi = null;
-		//If there is 3 people in a conservation. Main Character will not appear in pic.
+		Sprite bigIconSprite=null;
+		
+
+
+		
 
 		public GameObject dialogPrefab;
 		public Queue<string>cnameString = new Queue<string> ();
@@ -71,18 +76,33 @@ public class DialogSystem : MonoBehaviour
 				dialogString = new string[]{_dialogString};
 
 		}*/
+		public void startShowBigIcon (character[] _nameString, string[] _dialogString, DialogInterface di, int id, Sprite s)
+		{
+				myId = -1;
+				curDi = null;
+				toCreateDialog = true;
+
+				nameString = _nameString;
+				dialogString = _dialogString;
+				myId = id;
+				curDi = di;
+				option_Mode = false;
+				bigIcon_Mode = true;
+				bigIconSprite = s;
+		}
 
 		public void startOptionDialog (character _nameString, string _dialogString, DialogInterface di, int id)
 		{
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
+
 				nameString = new character[]{_nameString};
 				dialogString = new string[]{_dialogString};
 				myId = id;
 				curDi = di;
-	
 				option_Mode = true;
+				bigIcon_Mode = false;
 
 		}
 
@@ -91,11 +111,12 @@ public class DialogSystem : MonoBehaviour
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
-				nameString = _nameString;
-				dialogString = _dialogString;
+		nameString = _nameString;
+		dialogString = _dialogString;
 				myId = id;
 				curDi = di;
 				option_Mode = false;
+				bigIcon_Mode = false;
 		}
 
 		public void onFinish ()
@@ -104,15 +125,14 @@ public class DialogSystem : MonoBehaviour
 				pic [0] = character.NOPIC;
 				pic [1] = character.NOPIC;
 				dialog_counter = 0;
-
+				bigIconSprite = null;
 
 
 
 				if (!option_Mode)
 						curDi.onDialogFinish (myId, -1);
 				else {
-						if (curDi == null)
-								
+	
 						if (playerOption)
 								curDi.onDialogFinish (myId, 1);
 						else
@@ -201,7 +221,10 @@ public class DialogSystem : MonoBehaviour
 
 		private void setPic ()
 		{
-				
+				if (bigIcon_Mode) {
+						dialogInstance.transform.GetChild (7).GetComponent<SpriteRenderer> ().sprite = bigIconSprite;
+						return;
+				}
 				character[] myCStr = nameString.Distinct ().ToArray ();
 
 

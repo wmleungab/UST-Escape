@@ -90,7 +90,7 @@ GameObject:
   - 114: {fileID: 45442054}
   - 114: {fileID: 45442055}
   - 114: {fileID: 45442056}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Victim
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -901,6 +901,7 @@ GameObject:
   - 208: {fileID: 163933632}
   - 114: {fileID: 163933631}
   - 114: {fileID: 163933633}
+  - 114: {fileID: 163933634}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1046,6 +1047,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &163933634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 747356992}
+  m_GameObject: {fileID: 163933623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &166466231
@@ -2318,6 +2331,7 @@ GameObject:
   - 208: {fileID: 432274092}
   - 114: {fileID: 432274091}
   - 114: {fileID: 432274093}
+  - 114: {fileID: 432274094}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -2463,6 +2477,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &432274094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1696886731}
+  m_GameObject: {fileID: 432274083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &471528722
@@ -7129,6 +7155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e6808782043e6044aaedea3768e6afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteToShow: {fileID: 21300000, guid: 739801d718a3f064d8b4e141ff370781, type: 3}
 --- !u!4 &1534480998
 Transform:
   m_ObjectHideFlags: 0
@@ -7322,6 +7349,7 @@ GameObject:
   - 208: {fileID: 1589096559}
   - 114: {fileID: 1589096558}
   - 114: {fileID: 1589096567}
+  - 114: {fileID: 1589096568}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -7467,6 +7495,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1589096568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1921887518}
+  m_GameObject: {fileID: 1589096557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1606171801
@@ -8776,6 +8816,7 @@ GameObject:
   - 208: {fileID: 1799930666}
   - 114: {fileID: 1799930665}
   - 114: {fileID: 1799930673}
+  - 114: {fileID: 1799930674}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -8921,6 +8962,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1799930674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1757002804}
+  m_GameObject: {fileID: 1799930663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1802197925
@@ -10127,6 +10180,7 @@ GameObject:
   - 208: {fileID: 2068508566}
   - 114: {fileID: 2068508565}
   - 114: {fileID: 2068508573}
+  - 114: {fileID: 2068508574}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -10272,6 +10326,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2068508574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa,
+    type: 2}
+  m_PrefabInternal: {fileID: 1578750316}
+  m_GameObject: {fileID: 2068508563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2131284768
