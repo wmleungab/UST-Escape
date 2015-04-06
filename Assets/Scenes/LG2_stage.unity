@@ -211,7 +211,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 11808219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7e32ec0da098b4f89480626aed3d8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3771ae3f7ff9566439c288cb7a4fa6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &114382042
@@ -231,6 +231,7 @@ GameObject:
   - 208: {fileID: 114382044}
   - 114: {fileID: 114382043}
   - 114: {fileID: 114382052}
+  - 114: {fileID: 114382053}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -377,6 +378,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff712e8e1bcbbd439e6b5e1273fc7c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114382053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 524648281}
+  m_GameObject: {fileID: 114382042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &155069062
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +407,7 @@ GameObject:
   - 208: {fileID: 155069065}
   - 114: {fileID: 155069064}
   - 114: {fileID: 155069063}
+  - 114: {fileID: 155069073}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -540,6 +554,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1464879304}
   m_RootOrder: 0
+--- !u!114 &155069073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 220297633}
+  m_GameObject: {fileID: 155069062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &220297633
 Prefab:
   m_ObjectHideFlags: 0
@@ -646,7 +672,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 249894947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7e32ec0da098b4f89480626aed3d8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3771ae3f7ff9566439c288cb7a4fa6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &249894949
@@ -926,6 +952,56 @@ Prefab:
   m_RootGameObject: {fileID: 890500306}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &467631360
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467631362}
+  - 212: {fileID: 467631361}
+  m_Layer: 0
+  m_Name: FYP LG2 treasure box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &467631361
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467631360}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 72ab60a5c7df3d04e951fa99b5d802f2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &467631362
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 467631360}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &485670506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1371,7 @@ GameObject:
   - 208: {fileID: 792870327}
   - 114: {fileID: 792870326}
   - 114: {fileID: 792870325}
+  - 114: {fileID: 792870334}
   m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
@@ -1441,6 +1518,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 430225069}
   m_GameObject: {fileID: 792870323}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &792870334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 430225069}
+  m_GameObject: {fileID: 792870323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &863600544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1691,7 @@ GameObject:
   - 114: {fileID: 895819180}
   - 114: {fileID: 895819179}
   - 114: {fileID: 895819187}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1803,6 +1892,7 @@ GameObject:
   - 4: {fileID: 1054835487}
   - 114: {fileID: 1054835490}
   - 114: {fileID: 1054835489}
+  - 114: {fileID: 1054835488}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -1822,6 +1912,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 895819186}
   m_RootOrder: 1
+--- !u!114 &1054835488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054835486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658cd93822bf4d441ab92f56f168d4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1054835489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,8 +2079,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1979a958da4f34b8b450b5e4fd86a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogpf: {fileID: 159672, guid: a4f5142f1e804034ca0104581f933bb2, type: 2}
-  DialogPrecident: {fileID: 21300000, guid: 82bec03c58b24f04380313881a69f533, type: 3}
+  dialogPrefab: {fileID: 159672, guid: a4f5142f1e804034ca0104581f933bb2, type: 2}
+  dialogPrincipal: {fileID: 21300000, guid: 82bec03c58b24f04380313881a69f533, type: 3}
+  dialogPlayer: {fileID: 0}
+  dialogDembeater_Flag: {fileID: 0}
+  dialogDembeater_Leg: {fileID: 0}
+  dialogVoldemort: {fileID: 0}
+  dialogCleaningLady: {fileID: 0}
+  dialogDimjack: {fileID: 0}
+  dialogGirlGod: {fileID: 0}
 --- !u!4 &1195861902
 Transform:
   m_ObjectHideFlags: 0
@@ -2551,7 +2659,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1893552953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac7e32ec0da098b4f89480626aed3d8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3771ae3f7ff9566439c288cb7a4fa6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2057060787

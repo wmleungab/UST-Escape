@@ -12,7 +12,7 @@ public class InventoryDialogInterface : DialogInterface {
 		;
 		
 		string dialog = 
-			"Dropping item " + " ?";
+			"Dropping item " + itemName + " ?";
 
 		
 		optionSelect(c,dialog,1);
