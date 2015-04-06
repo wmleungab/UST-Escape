@@ -13,12 +13,12 @@ function Start () {
 
 }
 
-//Removed an item from the inventory (IT DOESN'T DROP IT).
+//find an item from the inventory (IT DOESN'T DROP IT).
 function findKey() : Transform
 {
 	for(var i:Transform in playersinv.Contents) //Loop through the Items in the Inventory:
 	{
-		if(i.name == keyName) //When a match is found, remove the Item.
+		if(i.name == keyName) //When a match is found, return the Item.
 		{
 			Debug.Log("Key found");
 			return i;

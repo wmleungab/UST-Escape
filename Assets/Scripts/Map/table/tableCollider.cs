@@ -10,4 +10,8 @@ public class tableCollider : MonoBehaviour {
 		
 	}
 
+	void OnTriggerStay(Collider Other){
+		Debug.Log("collider receive");
+			transform.parent.gameObject.SendMessage("colliderTriggerStay", Other);
+	}
 }
