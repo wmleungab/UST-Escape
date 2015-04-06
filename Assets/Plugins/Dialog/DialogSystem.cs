@@ -272,11 +272,12 @@ public class DialogSystem : MonoBehaviour
 				switch (name) {
 				case "yesBtn":
 						Debug.Log ("Yes clicked");
-						isClick = true;
+		
+			playerOption = true;
 						break;
 				case "noBtn":
 						Debug.Log ("No clicked");
-						isClick = false;
+			playerOption = false;
 						break;
 				}
 
