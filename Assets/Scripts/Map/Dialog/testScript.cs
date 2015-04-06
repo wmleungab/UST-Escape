@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lab_BeginningDialog : DialogInterface {
-
+public class testScript : DialogInterface {
 	public Sprite spriteToShow;
-
+	
 	// Use this for initialization
 	void Start () {
-
+		
 		StartCoroutine ("startMyDia");
-
+		
 	}
-
+	
 	IEnumerator  startMyDia(){
 		GamePause.pauseGame ();
 		yield return new WaitForSeconds (2f);
@@ -23,29 +22,29 @@ public class Lab_BeginningDialog : DialogInterface {
 		};
 		
 		string[] dialog = new string[]{
-			"……??? Where is here? Lab 4221? Why it looks so dim and old?",
-			"I remember I fall at sleep in the lab during class, have I slept too long?", 
-			"By the way, I think it is evening already. \nI better leave UST and go back home."
+			"…2dialog?",
+			"I rememberat the same time!?", 
+			"work ng work?"
 		};
 		
 		conversation(cArr,dialog,1);
 	}
-
-
+	
+	
 	void  startOp(){
-
+		
 		DialogSystem.character c=
-
+			
 			DialogSystem.character.PLAYER
-		;
+				;
 		
 		string dialog = 
-			"Am I handsome?";
-
+			"ng work?";
+		
 		
 		optionSelect(c,dialog,2);
 	}
-
+	
 	void  startBp(){
 		
 		DialogSystem.character[] cArr={
@@ -55,15 +54,15 @@ public class Lab_BeginningDialog : DialogInterface {
 		};
 		
 		string[] dialog = new string[]{
-			"……??? Where is here? Lab 4221? Why it looks so dim and old?",
-			"I remember I fall at sleep in the lab during class, have I slept too long?", 
-			"By the way, I think it is evening already. \nI better leave UST and go back home."
+			"…2dialog?",
+			"I rememberat the same time!?", 
+			"work ng work?"
 		};
-
+		
 		showBigIcon(cArr,dialog,3,spriteToShow);
-
+		
 	}
-
+	
 	override public void  onDialogFinish(int id, int selection){
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finished with selection result "+selection);

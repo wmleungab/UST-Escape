@@ -19,12 +19,7 @@ public class DialogSystem : MonoBehaviour
 		bool playerOption = false;
 		bool bigIcon_Mode = false;
 		DialogInterface curDi = null;
-		Sprite bigIconSprite=null;
-		
-
-
-		
-
+		Sprite bigIconSprite = null;
 		public GameObject dialogPrefab;
 		public Queue<string>cnameString = new Queue<string> ();
 		public Queue<string> cdialogString = new Queue<string> ();
@@ -37,6 +32,33 @@ public class DialogSystem : MonoBehaviour
 		public Sprite dialogDimjack;
 		public Sprite dialogGirlGod;
 
+
+
+		struct DialogGroup
+		{
+				public int type;
+				public character[] nameString;
+				public		string[] contentString;
+				public	DialogInterface di;
+				public		int id;
+				public		Sprite sprite;
+
+				public DialogGroup (int a1, character[] a2, string[] a3, DialogInterface a4, int a5, Sprite a6)
+				{
+						type = a1;
+						nameString = a2;
+						contentString = a3;
+						di = a4;
+						id = a5;
+						sprite = a6;
+				}
+		
+
+		};	
+
+		Queue<DialogGroup>bufferedDialog = new Queue<DialogGroup> ();
+	
+	
 		public enum character
 		{
 				PLAYER=0,
@@ -63,11 +85,7 @@ public class DialogSystem : MonoBehaviour
 //				dialogString = new string[]{"Hello","Hello"};
 
 		}
-		
-		public void startDialogs ()
-		{
-				toCreateDialog = true;
-		}
+
 
 /*		public void startDialog (string _nameString, string _dialogString)
 		{ 
@@ -78,6 +96,14 @@ public class DialogSystem : MonoBehaviour
 		}*/
 		public void startShowBigIcon (character[] _nameString, string[] _dialogString, DialogInterface di, int id, Sprite s)
 		{
+				if (dialogisOn) {
+			Debug.Log("buffering type3 dialog");
+						DialogGroup dg = new DialogGroup (3, _nameString, _dialogString, di, id, s);
+						bufferedDialog.Enqueue (dg);
+						return;
+				}
+
+
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
@@ -88,11 +114,23 @@ public class DialogSystem : MonoBehaviour
 				curDi = di;
 				option_Mode = false;
 				bigIcon_Mode = true;
+
+
 				bigIconSprite = s;
+
 		}
 
 		public void startOptionDialog (character _nameString, string _dialogString, DialogInterface di, int id)
 		{
+
+				if (dialogisOn) {
+			Debug.Log("buffering type2 dialog");
+						nameString = new character[]{_nameString};
+						dialogString = new string[]{_dialogString};
+						DialogGroup dg = new DialogGroup (2, nameString, dialogString, di, id, null);
+						bufferedDialog.Enqueue (dg);
+						return;
+				}
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
@@ -108,11 +146,17 @@ public class DialogSystem : MonoBehaviour
 
 		public void startDialogs (character[] _nameString, string[] _dialogString, DialogInterface di, int id)
 		{
+				if (dialogisOn) {
+			Debug.Log("buffering type1 dialog");
+						DialogGroup dg = new DialogGroup (1, _nameString, _dialogString, di, id, null);
+						bufferedDialog.Enqueue (dg);
+						return;
+				}
 				myId = -1;
 				curDi = null;
 				toCreateDialog = true;
-		nameString = _nameString;
-		dialogString = _dialogString;
+				nameString = _nameString;
+				dialogString = _dialogString;
 				myId = id;
 				curDi = di;
 				option_Mode = false;
@@ -122,10 +166,11 @@ public class DialogSystem : MonoBehaviour
 		public void onFinish ()
 		{
 
+	
 				pic [0] = character.NOPIC;
 				pic [1] = character.NOPIC;
 				dialog_counter = 0;
-				bigIconSprite = null;
+				
 
 
 
@@ -148,12 +193,30 @@ public class DialogSystem : MonoBehaviour
 		void Update ()
 		{
 				if (!dialogisOn) {
+
 						if (toCreateDialog) {
 								CreateDialog ();
 								toCreateDialog = false;
 								dialogisOn = true;
+						} else if (bufferedDialog.Count != 0) {
+								DialogGroup dg = bufferedDialog.Dequeue ();
+								switch (dg.type) {
+								case 3:
+										startShowBigIcon (dg.nameString, dg.contentString, dg.di, dg.id, dg.sprite);
+										break;
+								case 2:
+										startOptionDialog (dg.nameString [0], dg.contentString [0], dg.di, dg.id);
+										break;
+								case 1:
+										startDialogs (dg.nameString, dg.contentString, dg.di, dg.id);
+										break;
+								return;
+								}
 						}
+				
+							
 						
+
 				}
 				if (dialogisOn) {
 						if (waitForClick)
@@ -216,13 +279,16 @@ public class DialogSystem : MonoBehaviour
 						}
 				
 				}
-
+			
 		}
 
 		private void setPic ()
 		{
 				if (bigIcon_Mode) {
+
 						dialogInstance.transform.GetChild (7).GetComponent<SpriteRenderer> ().sprite = bigIconSprite;
+
+
 						return;
 				}
 				character[] myCStr = nameString.Distinct ().ToArray ();
@@ -273,19 +339,19 @@ public class DialogSystem : MonoBehaviour
 				case "yesBtn":
 						Debug.Log ("Yes clicked");
 		
-			playerOption = true;
+						playerOption = true;
 						break;
 				case "noBtn":
 						Debug.Log ("No clicked");
-			playerOption = false;
+						playerOption = false;
 						break;
 				}
 
 			
-				dialogisOn = false;
+				
 				Destroy (dialogInstance);
 				onFinish ();
-				
+				dialogisOn = false;
 				GamePause.continueGame ();
 		}
 
