@@ -117,7 +117,8 @@ public class SaveLoadSystem : MonoBehaviour
 
 		void Update ()
 		{
-				if (setCurrentSceneType ()) {
+
+		if (setCurrentSceneType ()&& !GamePause.isPause()) {
 						if (Input.GetKeyDown (KeyCode.Escape)) {
 								Debug.Log ("SaveLoadSystem:Saving the game");
 								save ();

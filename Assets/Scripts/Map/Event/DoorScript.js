@@ -4,7 +4,6 @@ static var playersinv : Inventory;
 private var isOpened : boolean = false;
 private var doorObj : GameObject;
 
-var firstTouch=true;
 
 function Start () {
 
@@ -43,12 +42,7 @@ function OnTriggerEnter() {
 	
 	if(!isOpened) {
 		Debug.Log("In touch with door, but not it is not open");
-		if(firstTouch){
-		this.GetComponent("DoorDialogInterface").SendMessage("firstTouchingDoor");
-		firstTouch=false;
-		}else{
-		this.GetComponent("DoorDialogInterface").SendMessage("subsequentTouchingDoor");
-		}
+		this.GetComponent("DoorSaveInterface").SendMessage("trackleSaveAndDialog");
 /*		// find if the player has the key
 		var keyChild : Transform;
 		

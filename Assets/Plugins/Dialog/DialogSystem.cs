@@ -85,6 +85,10 @@ public class DialogSystem : MonoBehaviour
 
 		}
 
+	public bool isOperating(){
+		return occupied;
+	}
+
 
 /*		public void startDialog (string _nameString, string _dialogString)
 		{ 
