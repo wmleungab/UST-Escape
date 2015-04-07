@@ -7,11 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 0
     path: Assets/Scenes/multiplayerBattle.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/lab_stage.unity
   - enabled: 1
     path: Assets/Scenes/battle.unity
   - enabled: 0
     path: Assets/Scenes/sundial.unity
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/atrium_stage.unity
+  - enabled: 1
+    path: Assets/Scenes/LG2_stage.unity
