@@ -22,7 +22,7 @@ public abstract class EventScript : MonoBehaviour {
 	}
 	
 	virtual public void colliderOnClick(){
-		if (Vector3.Distance(playerObj.transform.position, transform.position) < maxTouchingDistance){
+		if (Mathf.Abs(Vector3.Distance(playerObj.transform.position, transform.position)) < maxTouchingDistance){
 			
 			Debug.Log("collider Clicked (Event)");
 			startFindKey(keyItemName);
