@@ -5,6 +5,8 @@ public class Void : MonoBehaviour {
 	public GameObject defendSheildpf;
 	
 	public AudioClip defendsound;
+	
+	public GameObject prompt;
 
 	GameObject defendSheild;
 	public bool defendState=false;
@@ -57,6 +59,8 @@ public class Void : MonoBehaviour {
 	}
 
 	void Attack(){
+		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0f , transform.position.y+3.2f, transform.position.z-1),Quaternion.identity)as GameObject;
+
 		GameObject mb = Instantiate (magicball, new Vector3 (pos.x+magicballoffset.x , pos.y+magicballoffset.y , pos.z), Quaternion.identity)as GameObject;
 		mb.transform.parent = 	GameObject.Find("Weapons").transform;
 		mb.GetComponent<Magicball> ().parentMon = gameObject;

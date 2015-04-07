@@ -15,6 +15,9 @@ public class BattleController : MonoBehaviour {
 	public GameObject PlayerSpace;
 
 	public GameObject LabCorridor;
+	public GameObject Atrium;
+	public GameObject LG2;
+	public GameObject Turkey;
 
 	public GameObject Fryer;
 	public GameObject Cleaner;
@@ -40,6 +43,9 @@ public class BattleController : MonoBehaviour {
 		GameObject o=null;
 		switch (GlobalValues.BattleData.battleBackgroundID) {
 		case 1: o=LabCorridor; break;			
+		case 2: o=Atrium; break;		
+		case 3: o=LG2; break;		
+		case 4: o=Turkey; break;		
 				}
 		if (o != null) {
 						GameObject s = Instantiate (o, BackgroundSpace.transform.position, Quaternion.identity)as GameObject;

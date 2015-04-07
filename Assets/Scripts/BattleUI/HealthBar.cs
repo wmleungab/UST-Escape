@@ -26,6 +26,12 @@ public class HealthBar : MonoBehaviour {
 
 	}
 
+	void Addhp(int hp){
+		HP += hp;
+		if (HP > fullHP)
+						HP = fullHP;
+	}
+
 	void healthbar(){
 		if (HP < 0)
 						HP = 0;

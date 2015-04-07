@@ -16,6 +16,8 @@ public class Cleaner : MonoBehaviour
 	public float defendlength=2;
 	public float defendTimer;
 	public float sheildsize=0.5f;
+	
+	public GameObject prompt;
 
 		public bool startFlag = true;
 		public bool dieFlag = true;
@@ -72,6 +74,8 @@ public class Cleaner : MonoBehaviour
 
 		void readyTofight ()
 		{
+		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0.3f , transform.position.y+3.7f, transform.position.z-1),Quaternion.identity)as GameObject;
+
 		time = readyTime;
 		AudioSource.PlayClipAtPoint (warningsound, gameObject.transform.position);
 				anim.SetTrigger ("ReadyToFight");

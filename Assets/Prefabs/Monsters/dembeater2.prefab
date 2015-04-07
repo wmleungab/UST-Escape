@@ -263,6 +263,7 @@ MonoBehaviour:
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
+  prompt: {fileID: 197920, guid: 1f67a3fc9bcb64548bc730079419abe9, type: 2}
   explosion: {fileID: 157332, guid: 066094bba0e38724396f700b30098924, type: 2}
   startFlag: 1
   dieFlag: 1
@@ -274,7 +275,7 @@ MonoBehaviour:
   damage: 5
   fingTimeThreshold: 0
   lastAttack: 0
-  canAttackRange: .5
+  canAttackRange: .25
 --- !u!114 &11474236
 MonoBehaviour:
   m_ObjectHideFlags: 1

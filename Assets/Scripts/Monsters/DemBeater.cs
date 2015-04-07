@@ -17,7 +17,8 @@ public class DemBeater : MonoBehaviour {
 	public float defendlength=2;
 	public float defendTimer;
 	public float sheildsize=0.5f;
-
+	
+	public GameObject prompt;
 	
 	public float lastAttack=0;
 	public float canAttackRange=0.5f;
@@ -85,6 +86,8 @@ public class DemBeater : MonoBehaviour {
 
 	void readyTofight ()
 	{
+		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+1.1f , transform.position.y+2.1f, transform.position.z-1),Quaternion.identity)as GameObject;
+
 		AudioSource.PlayClipAtPoint (warningsound, transform.position);
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");

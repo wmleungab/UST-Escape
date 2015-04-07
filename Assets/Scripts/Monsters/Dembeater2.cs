@@ -21,6 +21,7 @@ public class Dembeater2 : MonoBehaviour {
 	public float sheildsize=0.5f;
 
 	
+	public GameObject prompt;
 	public GameObject explosion;
 	
 	public bool startFlag = true;
@@ -87,7 +88,8 @@ public class Dembeater2 : MonoBehaviour {
 	}
 	
 	void readyTofight ()
-	{
+	{		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+1.1f , transform.position.y+2.1f, transform.position.z-1),Quaternion.identity)as GameObject;
+
 		AudioSource.PlayClipAtPoint (warningsound, pos);
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
@@ -116,6 +118,7 @@ public class Dembeater2 : MonoBehaviour {
 	
 	void invokeReadyToFight ()
 	{
+		print ("h");
 		if (dieFlag && BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			float r = Random.value;
 			Invoke ("readyTofight", frequency * (min + factor * r));
