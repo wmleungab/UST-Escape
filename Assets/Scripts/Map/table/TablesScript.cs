@@ -85,7 +85,7 @@ public class TablesScript : BigTableScript {
 		dialogInterface.showBigIcon (c, s, 222, doorOpenPic);
 
 		DialogSystem.character[] c2 = {DialogSystem.character.PLAYER};
-		string[] s2 = {"Yes! “NO EATING!” That is the clue! I can leave now!"};
+		string[] s2 = {"Yes! “Dun EAT”! That is the clue! I can leave now!"};
 		dialogInterface.conversation (c2, s2, 333);
 	}
 }
