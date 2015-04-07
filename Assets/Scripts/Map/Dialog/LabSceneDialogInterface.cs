@@ -81,7 +81,11 @@ public class LabSceneDialogInterface : DialogInterface {
 	override public void  onDialogFinish(int id, int selection){
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finished with selection result "+selection);
-		if(id==1)StartCoroutine ("startLoopHint1");
+		if (id == 1) {
+						StartCoroutine ("startLoopHint1");
+						SaveLoadSystem.getInstance().labSceneState[(int)SaveLoadSystem.LabSceneState.BEGANDIALOG]=true;
+						SaveLoadSystem.getInstance().save ();
+				}
 		if(id==2)StartCoroutine ("startLoopHint2");
 		if(id==3)StartCoroutine ("startLoopHint1");
 

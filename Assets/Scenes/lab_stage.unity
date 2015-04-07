@@ -7639,6 +7639,7 @@ GameObject:
   - 4: {fileID: 1606171802}
   - 114: {fileID: 1606171804}
   - 114: {fileID: 1606171803}
+  - 114: {fileID: 1606171805}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -7698,6 +7699,18 @@ MonoBehaviour:
   Contents: []
   MaxContent: 12
   DebugMode: 0
+--- !u!114 &1606171805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 1989305921}
+  m_GameObject: {fileID: 1606171801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658cd93822bf4d441ab92f56f168d4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1608007176
 GameObject:
   m_ObjectHideFlags: 0
@@ -8598,6 +8611,99 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bigTableNo: 5
   noOfTables: 4
+--- !u!1 &1741109344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1741109346}
+  - 114: {fileID: 1741109345}
+  m_Layer: 0
+  m_Name: SLSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1741109345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741109344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef052acccaccc984fae640fb92961962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventoryList:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  mapItemList:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  currentSceneType: 0
+  labSceneState: 000000
+--- !u!4 &1741109346
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741109344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1001 &1757002804
 Prefab:
   m_ObjectHideFlags: 0
