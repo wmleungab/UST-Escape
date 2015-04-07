@@ -37,7 +37,8 @@ public class Cleaner : MonoBehaviour
 	
 	public float lastAttack=0;
 	public float canAttackRange=0.5f;
-
+	
+	bool endFlag=false;
 		// Use this for initialization
 		void Start ()
 		{
@@ -166,6 +167,14 @@ public class Cleaner : MonoBehaviour
 						}
 				}
 
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
 
 	
 
@@ -194,7 +203,11 @@ public class Cleaner : MonoBehaviour
 		void die ()
 		{
 				StartCoroutine ("dieAnim");
-		}
+		CancelInvoke ("Defend");
+		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("readyTofight");
+		CancelInvoke ("counting");
+	}
 	
 		IEnumerator dieAnim ()
 		{

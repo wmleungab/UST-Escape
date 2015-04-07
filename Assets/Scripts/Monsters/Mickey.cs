@@ -39,7 +39,8 @@ public class Mickey : MonoBehaviour {
 	public GameObject box;
 	
 	Animator anim;
-	
+
+	bool endFlag=false;
 	// Use this for initialization
 	void Start () {
 		
@@ -83,6 +84,15 @@ public class Mickey : MonoBehaviour {
 				dieFlag=false;
 			}
 		}
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
+
 	}
 	void init(){
 		pos = gameObject.transform.position;
@@ -122,6 +132,7 @@ public class Mickey : MonoBehaviour {
 		StartCoroutine ("dieAnim");
 		CancelInvoke ("Defend");
 		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("attack");
 	}
 	IEnumerator dieAnim ()
 	{

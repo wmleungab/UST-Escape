@@ -23,7 +23,7 @@ public class DimJack : MonoBehaviour {
 	public float canAttackRange=0.5f;
 
 
-
+	bool endFlag=false;
 
 	public bool startFlag=true;
 	public bool dieFlag=true;
@@ -86,6 +86,15 @@ public class DimJack : MonoBehaviour {
 				dieFlag=false;
 			}
 		}
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
+
 	}
 	void init(){
 		pos = gameObject.transform.position;
@@ -130,6 +139,7 @@ public class DimJack : MonoBehaviour {
 		StartCoroutine ("dieAnim");
 		CancelInvoke ("Defend");
 		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("attack1");
 
 	}
 

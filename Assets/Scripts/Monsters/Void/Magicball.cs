@@ -42,7 +42,7 @@ public class Magicball : MonoBehaviour {
 	}
 
 	void magicballDisappear(){
-		transform.parent.gameObject.GetComponent<Void> ().invokeAttack(); //call the parent that the magic ball is finished and invoke attack
+		parentMon.gameObject.GetComponent<Void> ().invokeAttack(); //call the parent that the magic ball is finished and invoke attack
 
 		Destroy (gameObject);
 	}
@@ -80,8 +80,9 @@ public class Magicball : MonoBehaviour {
 
 
 	void ToDestroy(){
-		Destroy (gameObject);
+
 		parentMon.gameObject.GetComponent<Void> ().invokeAttack(); //call the parent that the magic ball is finished and invoke attack
+		Destroy (gameObject);
 	}
 	void OnGUI(){
 		GUILayout.Label ("fingFrameTime:" + fingFrameTime + "\n"

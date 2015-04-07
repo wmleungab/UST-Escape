@@ -88,8 +88,8 @@ MonoBehaviour:
   explosion: {fileID: 157332, guid: 066094bba0e38724396f700b30098924, type: 2}
   parentMon: {fileID: 0}
   threshold: 1.29999995
-  fingTimeThreshold: 20
-  damage: 3
+  fingTimeThreshold: 15
+  damage: 13
 --- !u!212 &21250394
 SpriteRenderer:
   m_ObjectHideFlags: 1

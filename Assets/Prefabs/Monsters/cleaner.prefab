@@ -198,7 +198,7 @@ MonoBehaviour:
   factor: 2
   frequency: 1
   threshold: 5
-  damage: 20
+  damage: 15
   lastAttack: 0
   canAttackRange: .25
 --- !u!114 &11454818

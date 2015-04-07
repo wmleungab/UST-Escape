@@ -91,6 +91,13 @@ AnimationClip:
   m_EditorCurves: []
   m_EulerEditorCurves: []
   m_Events:
+  - time: 0
+    functionName: toNotAllowFing
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: .166666672
     functionName: playerdamage
     data: 

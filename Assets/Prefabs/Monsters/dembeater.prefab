@@ -253,8 +253,8 @@ MonoBehaviour:
   min: 2
   factor: 2
   frequency: 1
-  threshold: 1.29999995
-  damage: 10
+  threshold: 6
+  damage: 15
   fingTimeThreshold: 20
 --- !u!114 &11413714
 MonoBehaviour:

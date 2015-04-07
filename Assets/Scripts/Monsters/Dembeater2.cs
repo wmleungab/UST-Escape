@@ -42,9 +42,10 @@ public class Dembeater2 : MonoBehaviour {
 	
 	public int fingTimeThreshold;
 	
-	bool allowFing=true;
+	bool allowFing=false;
 	int fingFrameTime=0;
-	
+	bool endFlag=false;
+
 	public float lastAttack=0;
 	public float canAttackRange=0.5f;
 
@@ -115,10 +116,15 @@ public class Dembeater2 : MonoBehaviour {
 		anim.SetTrigger ("ToFight");
 		resetVar ();
 	}
-	
+	void toAllowFing(){
+		allowFing = true;
+		fingFrameTime=0;
+	}
+	void toNotAllowFing(){
+		allowFing = false;
+	}
 	void invokeReadyToFight ()
 	{
-		print ("h");
 		if (dieFlag && BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			float r = Random.value;
 			Invoke ("readyTofight", frequency * (min + factor * r));
@@ -169,9 +175,15 @@ public class Dembeater2 : MonoBehaviour {
 				dieFlag = false;
 			}
 		}
-		
-		
-		
+
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
 		
 	}
 	
@@ -197,12 +209,17 @@ public class Dembeater2 : MonoBehaviour {
 		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;
 		exp2.transform.localScale = new Vector3 (2f, 2f, 1);
 	}
-	
+	void OnGUI(){
+		GUILayout.Label ("fingFrameTime:" + fingFrameTime + "\n"
+		                 +"d:"+allowFing);
+	}
 	void die ()
 	{
 		StartCoroutine ("dieAnim");
 		CancelInvoke ("Defend");
 		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("readyTofight");
+		CancelInvoke ("counting");
 	}
 
 

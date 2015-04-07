@@ -17,7 +17,8 @@ public class DemBeater : MonoBehaviour {
 	public float defendlength=2;
 	public float defendTimer;
 	public float sheildsize=0.5f;
-	
+	public bool allowSlide=false;
+
 	public GameObject prompt;
 	
 	public float lastAttack=0;
@@ -42,8 +43,8 @@ public class DemBeater : MonoBehaviour {
 	bool allowShake = false;
 
 	public int fingTimeThreshold;
-	
-	bool allowFing=true;
+	bool endFlag=false;
+	bool allowFing=false;
 	int fingFrameTime=0;
 
 	Vector3 pos;
@@ -92,7 +93,7 @@ public class DemBeater : MonoBehaviour {
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
 		InvokeRepeating ("counting", 1, 1f);
-		allowShake = true;
+		allowSlide = true;
 		mouseStart = Vector3.zero;
 		mouseCurrent = Vector3.zero;
 		
@@ -119,6 +120,7 @@ public class DemBeater : MonoBehaviour {
 		if (dieFlag && BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			float r = Random.value;
 			Invoke ("readyTofight", frequency * (min + factor * r));
+	
 		}
 	}
 	// Update is called once per frame
@@ -133,7 +135,7 @@ public class DemBeater : MonoBehaviour {
 	
 	void resetVar ()
 	{
-		allowShake = false;
+		allowSlide = false;
 		mouseStart = Vector3.zero;
 		mouseCurrent = Vector3.zero;
 	}
@@ -142,17 +144,28 @@ public class DemBeater : MonoBehaviour {
 	{
 		
 		//cursor
-		if (allowShake) {
-
-			if (Vector3.Distance (Vector3.zero, Input.acceleration) > threshold)
-				fingFrameTime++;
-			
-			if (fingFrameTime > fingTimeThreshold){
-				
-				defendSucceed ();
-				allowFing=false;
+		if (allowSlide) {
+			if (Input.touchCount > 0) {
+				if (Input.GetTouch (0).phase == TouchPhase.Began) {	
+					mouseStart = Input.GetTouch (0).position;
+					mouseCurrent = Input.GetTouch (0).position;
+				} else if (Input.GetTouch (0).phase == TouchPhase.Moved) {	
+					mouseCurrent = Input.GetTouch (0).position;
+				} else if (Input.GetTouch (0).phase == TouchPhase.Ended) {	
+					mouseCurrent = Input.GetTouch (0).position;
+				}
 			}
-
+			
+			//transfering screen to world
+			ms = Camera.main.ScreenToWorldPoint (new Vector3 (mouseStart.x, mouseStart.y, 0));
+			mc = Camera.main.ScreenToWorldPoint (new Vector3 (mouseCurrent.x, mouseCurrent.y, 0));
+			
+			
+			
+			if (Vector3.Distance (mc, ms) > threshold) {
+				if (Mathf.Abs (ms.x - gameObject.transform.position.x) < 1f && Mathf.Abs (ms.y - gameObject.transform.position.y) < 2.8f)
+					defendSucceed ();
+			}
 		}
 		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			if (startFlag) {
@@ -166,6 +179,16 @@ public class DemBeater : MonoBehaviour {
 			}
 		}
 		
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
+
+
 		
 		
 		
@@ -201,6 +224,7 @@ public class DemBeater : MonoBehaviour {
 		CancelInvoke ("Defend");
 		CancelInvoke ("DefendDisappear");
 	}
+
 
 
 	IEnumerator dieAnim ()

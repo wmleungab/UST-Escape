@@ -32,7 +32,8 @@ public class Fryer : MonoBehaviour {
 	public float min=2f;
 	public float factor=4f;
 	Vector3 pos;
-
+	
+	bool endFlag=false;
 
 	// Use this for initialization
 	void Start () {
@@ -80,6 +81,7 @@ public class Fryer : MonoBehaviour {
 						float ran = Random.value;
 						Invoke ("Attack", frequency * (min + ran * factor));
 				}
+
 	}
 
 	void Update(){
@@ -94,6 +96,16 @@ public class Fryer : MonoBehaviour {
 				dieFlag=false;
 			}
 				}
+
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
+
 	}
 
 	void OnMouseDown(){
@@ -108,10 +120,12 @@ public class Fryer : MonoBehaviour {
 
 	}
 
+
 	void die()
 	{
 		CancelInvoke ("Defend");
 		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("Attack");
 		StartCoroutine ("dieAnim");
 	}
 	

@@ -29,7 +29,8 @@ public class Void : MonoBehaviour {
 
 	public GameObject magicball;
 	public Vector2 magicballoffset;
-
+	
+	bool endFlag=false;
 	Vector3 pos;
 	void init(){
 		pos = gameObject.transform.position;
@@ -83,6 +84,14 @@ public class Void : MonoBehaviour {
 				dieFlag=false;
 			}
 		}
+		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_LOST &&!endFlag) {
+			
+			CancelInvoke ("Defend");
+			CancelInvoke ("DefendDisappear");
+			CancelInvoke ("readyTofight");
+			CancelInvoke ("counting");
+			endFlag=true;
+		}
 
 	}
 	void OnMouseDown(){
@@ -97,8 +106,13 @@ public class Void : MonoBehaviour {
 	}
 	void die()
 	{
+
 		StartCoroutine ("dieAnim");
+		CancelInvoke ("Defend");
+		CancelInvoke ("DefendDisappear");
+		CancelInvoke ("Attack");
 	}
+
 
 	IEnumerator dieAnim ()
 	{

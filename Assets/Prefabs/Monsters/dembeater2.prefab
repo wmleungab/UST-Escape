@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.22328901, y: .740995526, z: 0}
+  m_LocalPosition: {x: .0105499877, y: .300087184, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -263,7 +263,7 @@ MonoBehaviour:
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
-  prompt: {fileID: 197920, guid: 1f67a3fc9bcb64548bc730079419abe9, type: 2}
+  prompt: {fileID: 106006, guid: 2096182feaaecac4e84933729af529cb, type: 2}
   explosion: {fileID: 157332, guid: 066094bba0e38724396f700b30098924, type: 2}
   startFlag: 1
   dieFlag: 1
@@ -271,9 +271,9 @@ MonoBehaviour:
   min: 2
   factor: 2
   frequency: 1.29999995
-  threshold: 20
-  damage: 5
-  fingTimeThreshold: 0
+  threshold: 1.29999995
+  damage: 6
+  fingTimeThreshold: 15
   lastAttack: 0
   canAttackRange: .25
 --- !u!114 &11474236
