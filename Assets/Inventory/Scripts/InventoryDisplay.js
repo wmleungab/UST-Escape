@@ -76,27 +76,34 @@ function Awake()
 }
 
 function toBattleMode(){
-	Debug.Log("Inventory change to battle mode");
-	isBattle = true;
-	windowTitle = "";
-	WindowOffset.y = spaceTemp/2;
-	windowSize = Vector2(Screen.width - spaceTemp * 2, Screen.height / 4 );
-	windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
-	canBeDragged = false;
 
-	openDisplay();
+	if(!isBattle){
+		Debug.Log("Inventory change to battle mode");
+		isBattle = true;
+		windowTitle = "";
+		WindowOffset.y = spaceTemp/2;
+		windowSize = Vector2(Screen.width - spaceTemp * 2, Screen.height / 4 );
+		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
+		canBeDragged = false;
+
+		openDisplay();
+	}
 }
 
 function toMapMode(){
-	Debug.Log("Inventory change to map mode");
-	isBattle = false;
-	windowTitle = "Inventory";
-	WindowOffset.y = spaceTemp/2;
-	windowSize = Vector2(Screen.width/4, Screen.height);
-	windowRect=Rect(0,0,windowSize.x,windowSize.y);
-	canBeDragged = true;
 
-	closeDisplay();
+	if(isBattle){
+		Debug.Log("Inventory change to map mode");
+		isBattle = false;
+		windowTitle = "Inventory";
+		WindowOffset.y = spaceTemp/2;
+		windowSize = Vector2(Screen.width/4, Screen.height);
+		windowRect=Rect(0,0,windowSize.x,windowSize.y);
+		canBeDragged = true;
+
+		closeDisplay();
+	}
+	
 }
 
 //Update the inv list

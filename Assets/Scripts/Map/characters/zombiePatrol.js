@@ -67,6 +67,7 @@ function attacking() {
 
 function patrolling() {
 
+	//Debug.Log(this.transform.parent.name);
 	if (navComponent.remainingDistance <= navComponent.stoppingDistance) {
 		if(patrolIndex >= patrolPoints.Length - 1)
 			patrolIndex = 0;
