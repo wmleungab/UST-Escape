@@ -390,6 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 1
+  monsterId: 06000000
 --- !u!1 &140062732
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 1
+  monsterId: 06000000
 --- !u!1 &178074900
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!4 &420395317
 Transform:
   m_ObjectHideFlags: 0
@@ -2064,6 +2070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 1
+  monsterId: 06000000
 --- !u!1 &863600544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,6 +2408,7 @@ GameObject:
   - 114: {fileID: 1054835490}
   - 114: {fileID: 1054835489}
   - 114: {fileID: 1054835488}
+  - 114: {fileID: 1054835491}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2471,6 +2480,17 @@ MonoBehaviour:
   Contents: []
   MaxContent: 12
   DebugMode: 0
+--- !u!114 &1054835491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054835486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46bca43e0aa84d87aa8525b6af476dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1103133370
 GameObject:
   m_ObjectHideFlags: 0

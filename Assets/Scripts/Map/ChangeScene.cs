@@ -8,7 +8,6 @@ public class ChangeScene : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		if(control == null) {
-			DontDestroyOnLoad(gameObject);
 			control = this;
 		}
 		else if (control != this) {

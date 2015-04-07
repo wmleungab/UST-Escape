@@ -10,11 +10,25 @@ public class InventorySaveInterface : MonoBehaviour {
 			//child is your child transform
 			childString += child.name + ",";
 		}
-		childString = childString.Remove(childString.Length - 1);
+		if(childString.Length>0) childString = childString.Remove(childString.Length - 1);
+		Debug.Log (childString);
 
 		string[] result = childString.Split (',');
-		Debug.Log (result);
+		Debug.Log (array2String(result));
 		return result;
 	}
 
+	string array2String(string[] strArray) {
+		string result = "InventoryList={";
+		
+		foreach (string arrayItem in strArray){
+			result += (arrayItem + ",");
+		}
+		
+		result = result.Remove(result.Length - 1);
+		result += "}";
+		
+		return result;
+	}
+	
 }

@@ -43,6 +43,8 @@ function AddItem(Item:Transform)
 	{
 		playersInvDisplay.UpdateInventoryList();
 	}
+	
+	DelaySave();
 }
 
 //Removed an item from the inventory (IT DOESN'T DROP IT).
@@ -137,6 +139,13 @@ function DropItemToLocation(item:Item, pos:Vector3)
 	{
 		Debug.Log(item.name + " has been dropped");
 	}
+	DelaySave ();
+}
+
+function DelaySave ()
+{
+		yield WaitForSeconds (1);
+		gameObject.SendMessage("outputSaveList");
 }
 
 //This will tell you everything that is in the inventory.

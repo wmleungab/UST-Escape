@@ -3,17 +3,26 @@ using System.Collections;
 
 public class sceneInterface : MonoBehaviour {
 
+	public int monsterNumber;
+	public int[] monsterId;
+
 	public void gotoBattle(){
 			
-			GameObject dynamicObj = GameObject.Find("Dynamic");
-			DontDestroyOnLoad(dynamicObj);
-			Application.LoadLevel("battle");
-			GlobalValues.BattleData.returnScene = Application.loadedLevelName;
+		GameObject playerpObj = GameObject.FindWithTag("Player");
+		DontDestroyOnLoad(playerpObj);
+		GameObject dynamicObj = GameObject.Find("Dynamic");
+		DontDestroyOnLoad(dynamicObj);
+		GlobalValues.BattleData.numOfMonsters = monsterNumber;
+		GlobalValues.BattleData.monsterID=monsterId;
+		GlobalValues.BattleData.returnScene = Application.loadedLevelName;
+		Application.LoadLevel("battle");
 	}
 	
 	public void changeScene(string levelName){
-			Application.LoadLevel("battle");
-			GlobalValues.BattleData.returnScene = levelName;
+		GameObject playerpObj = GameObject.FindWithTag("Player");
+		DontDestroyOnLoad(playerpObj);
+		Application.LoadLevel("battle");
+		GlobalValues.BattleData.returnScene = levelName;
 	}
 	
 }
