@@ -105,14 +105,14 @@ public class SaveLoadSystem : MonoBehaviour
 		}
 
 		void Start ()
-		{
+		{/*
 				Debug.Log ("SaveLoadSystem: Loading the previous save");
 				
 				load ();
 				Debug.Log (currentSceneType);
 				Debug.Log ("Loading: " + labSceneState [0]);
 				Debug.Log ("Loading: " + labSceneState [1]);
-				Debug.Log ("Loading: " + labSceneState [2]);
+				Debug.Log ("Loading: " + labSceneState [2]);*/
 		}
 
 		void Update ()
@@ -121,9 +121,11 @@ public class SaveLoadSystem : MonoBehaviour
 						if (Input.GetKeyDown (KeyCode.Escape)) {
 								Debug.Log ("SaveLoadSystem:Saving the game");
 								save ();
+								Application.LoadLevel ("mainmenu"); 
 						} else if (Input.GetKeyDown (KeyCode.E)) {
 								Debug.Log ("SaveLoadSystem:Saving the game");
 								save ();
+								Application.LoadLevel ("mainmenu"); 
 						} else if (Input.GetKeyDown (KeyCode.L)) {
 								Debug.Log ("SaveLoadSystem: Loading the previous save");
 
@@ -160,7 +162,7 @@ public class SaveLoadSystem : MonoBehaviour
 
 		}
 
-		void resetSave ()
+		public void resetSave ()
 		{
 				playerInventoryList = new string[20];
 				mapItemList = new string[20];
