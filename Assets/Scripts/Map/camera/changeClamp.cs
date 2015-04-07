@@ -7,26 +7,37 @@ public class changeClamp : MonoBehaviour {
 	public float mapY = 20.0f;
 	public Vector2 centerPoint = new Vector2(0,0);
 	
-	private bool onLeft = false;
+	private bool cameraOnRight = true;
 	
 	ClampCamera ccObj;
 	
 	void Start() {
 		ccObj=Camera.main.GetComponent<ClampCamera>();
 	}
-
+	
 	void OnTriggerEnter(Collider other){
 
-		if (!onLeft && (other.transform.position.x > this.transform.position.x)){
-			onLeft = true;
-			swapPara();
-			ccObj.setClamp();
-		}
-		else if (onLeft && (other.transform.position.x < this.transform.position.x)){
-			onLeft = false;
-			swapPara();
-			ccObj.setClamp();
+		if (!(other.bounds.max.x > collider.bounds.max.x)){
+			// enter on right
+			if(!cameraOnRight){
+				swapPara();
+				ccObj.setClamp();
+				cameraOnRight = true;
+			}
 		}			
+		
+	}
+	
+	void OnTriggerExit(Collider other){
+
+		if (!(other.bounds.max.x > collider.bounds.max.x)){
+			// exit on right
+			if(cameraOnRight){
+				swapPara();
+				ccObj.setClamp();
+				cameraOnRight = false;
+			}
+		}
 		
 	}
 	
