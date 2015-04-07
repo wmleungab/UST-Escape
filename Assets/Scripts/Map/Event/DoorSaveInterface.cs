@@ -14,10 +14,10 @@ public class DoorSaveInterface : MonoBehaviour {
 	}
 
 	void trackleSaveAndDialog(){
-		if(!SaveLoadSystem.getInstance ().labSceneState [(int)SaveLoadSystem.LabSceneState.DOORIVD]){
+		if(!SaveLoadSystem.getInstance ().labSceneStateArr [(int)SaveLoadSystem.LabSceneState.DOORIVD]){
 			this.GetComponent<DoorDialogInterface>().firstTouchingDoor();
 			
-			SaveLoadSystem.getInstance ().labSceneState [(int)SaveLoadSystem.LabSceneState.DOORIVD] = true;
+			SaveLoadSystem.getInstance ().labSceneStateArr [(int)SaveLoadSystem.LabSceneState.DOORIVD] = true;
 			SaveLoadSystem.getInstance ().save ();
 		}else{
 			this.GetComponent<DoorDialogInterface>().subsequentTouchingDoor();

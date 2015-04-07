@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.05000019, y: .150000006, z: 0}
+  m_LocalPosition: {x: -2.65632296, y: 1.10128856, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 15
-  HP: 15
+  fullHP: 8
+  HP: 8
   offset: {x: -.400000006, y: 2.4000001, z: 0}
   hpLengthFactor: 1
 --- !u!114 &11469010
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyfrysound: {fileID: 8300000, guid: 5f6fb194d034b63439cbfeaa3c088566, type: 3}
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
+  prompt: {fileID: 155682, guid: bbbcd4e1bed3c7b42915023650732b85, type: 2}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
   defendmin: 2
@@ -246,7 +247,7 @@ MonoBehaviour:
   startFlag: 1
   dieFlag: 1
   lastAttack: 0
-  canAttackRange: .5
+  canAttackRange: .25
   fry: {fileID: 122406, guid: 2f97e286c266afd4d9fc57a297099ca3, type: 2}
   attacking: 1
   frequency: 1

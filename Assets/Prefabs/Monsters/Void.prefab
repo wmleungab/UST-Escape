@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
+  prompt: {fileID: 106006, guid: 2096182feaaecac4e84933729af529cb, type: 2}
   defendState: 0
   defendmin: 2
   defendfactor: 2
@@ -273,7 +274,7 @@ MonoBehaviour:
   defendTimer: 0
   sheildsize: .5
   lastAttack: 0
-  canAttackRange: .5
+  canAttackRange: .25
   startFlag: 1
   dieFlag: 1
   min: 1
@@ -293,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 50
-  HP: 50
+  fullHP: 20
+  HP: 20
   offset: {x: -1.20000005, y: 3.20000005, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21220570

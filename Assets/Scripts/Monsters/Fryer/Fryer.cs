@@ -5,6 +5,8 @@ public class Fryer : MonoBehaviour {
 	public AudioClip flyfrysound;
 	public AudioClip defendsound;
 
+	public GameObject prompt;
+
 	public GameObject defendSheildpf;
 	
 	 GameObject defendSheild;
@@ -61,6 +63,8 @@ public class Fryer : MonoBehaviour {
 	}
 
 	void Attack(){
+		GameObject p = Instantiate (prompt, new Vector3 (pos.x+0.3f , pos.y+3.2f, pos.z-1),Quaternion.identity)as GameObject;
+	
 		GameObject s = Instantiate (fry, new Vector3 (pos.x + 0.43f, pos.y + 0.78f, pos.z),Quaternion.identity)as GameObject;
 		s.transform.parent = 	GameObject.Find("Weapons").transform;
 		//continue attack

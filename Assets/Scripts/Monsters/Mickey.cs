@@ -8,6 +8,7 @@ public class Mickey : MonoBehaviour {
 	public AudioClip flyboxsound;
 	public AudioClip defendsound;
 	
+	public GameObject prompt;
 
 	GameObject defendSheild;
 	public bool defendState=false;
@@ -104,13 +105,15 @@ public class Mickey : MonoBehaviour {
 
 
 	void attack(){
+		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0f , transform.position.y+3.5f, -49),Quaternion.identity)as GameObject;
+
 		anim.SetTrigger ("attack");
 		AudioSource.PlayClipAtPoint (flyboxsound, pos);
 	}
 	
 	void attack_createbox(){
 		GameObject w = GameObject.Find ("Weapons");
-		GameObject s = Instantiate (box, new Vector3 (pos.x , pos.y+2.3f , w.transform.position.z),Quaternion.identity)as GameObject;
+		GameObject s = Instantiate (box, new Vector3 (pos.x , pos.y+2.3f , w.transform.position.z-3),Quaternion.identity)as GameObject;
 		s.transform.parent = w.transform;
 	}
 

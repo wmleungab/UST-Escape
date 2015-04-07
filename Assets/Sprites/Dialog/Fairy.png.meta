@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 2a65ab7ab83d31d4ebc9f126b89e65fb
+guid: 8b1a7fb287879e845888b475b45d21cc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: rubbish bin new
+    21300000: Fairy
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -28,7 +28,7 @@ TextureImporter:
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -41,11 +41,7 @@ TextureImporter:
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
-  buildTargetSettings:
-  - buildTarget: Android
-    maxTextureSize: 1024
-    textureFormat: -3
-    compressionQuality: 50
+  buildTargetSettings: []
   spriteSheet:
     sprites: []
   spritePackingTag: 

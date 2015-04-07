@@ -25,7 +25,12 @@ function Awake ()
 function UseEffect () 
 {
 	Debug.LogWarning("<INSERT CUSTOM ACTION HERE>"); //INSERT CUSTOM CODE HERE!
-	
+	if(this.name=="potion")
+GameObject.Find("Player").GetComponent("HealthBar").SendMessage("Addhp",40);
+else if(this.name=="beautifulKey");
+else if(this.name=="key");
+else if(this.name=="knife");
+else if(this.name=="mace");
 	//Play a sound
 	playersInv.gameObject.SendMessage("PlayDropItemSound", SendMessageOptions.DontRequireReceiver);
 	

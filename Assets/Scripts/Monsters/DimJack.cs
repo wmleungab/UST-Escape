@@ -3,7 +3,8 @@ using System.Collections;
 
 public class DimJack : MonoBehaviour {
 	public GameObject defendSheildpf;
-
+	
+	public GameObject prompt;
 	
 	public AudioClip hitsound;
 	public AudioClip defendsound;
@@ -97,6 +98,8 @@ public class DimJack : MonoBehaviour {
 
 	void attack1(){
 		anim.SetTrigger ("attack1");
+		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0.3f , transform.position.y+3.7f, transform.position.z-1),Quaternion.identity)as GameObject;
+
 	}
 
 	void attack1_createmaclok(){

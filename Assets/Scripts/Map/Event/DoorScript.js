@@ -8,7 +8,7 @@ public var next_stage = "atrium_stage";
 var firstTouch=true;
 
 function Start () {
-
+	Debug.Log("DoorScript's start function is called");
 	playersinv = FindObjectOfType(Inventory); //finding the players inv.
 	isOpened = false;
 	doorObj = GameObject.Find("opendoor");
@@ -44,12 +44,7 @@ function OnTriggerEnter() {
 	
 	if(!isOpened) {
 		Debug.Log("In touch with door, but not it is not open");
-		if(firstTouch){
-		this.GetComponent("DoorDialogInterface").SendMessage("firstTouchingDoor");
-		firstTouch=false;
-		}else{
-		this.GetComponent("DoorDialogInterface").SendMessage("subsequentTouchingDoor");
-		}
+		GetComponent("DoorSaveInterface").SendMessage("trackleSaveAndDialog");
 
 	}
 	else {

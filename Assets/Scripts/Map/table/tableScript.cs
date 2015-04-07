@@ -35,5 +35,10 @@ public class tableScript : MonoBehaviour {
 			allCanOpen = !(transform.parent.GetComponent<BigTableScript>().openTable(tableNo));
 		}
 	}
-
+	public void flip(){
+		if (tableSprite==null) Debug.LogError("on update: tableSprite not found");
+		Sprite temp = tableSprite.sprite;
+		tableSprite.sprite = spriteChanged;
+		spriteChanged = temp;
+		}
 }

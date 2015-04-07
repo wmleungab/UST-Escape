@@ -6,10 +6,10 @@ public class LoadGameButton : MonoBehaviour {
 	void OnMouseUp(){
 		renderer.material.color = new Color (renderer.material.color.r, renderer.material.color.g, renderer.material.color.b, 1f);
 
-		SaveLoadSystem.getInstance ().load ();
+		SaveLoadSystem.getInstance ().loadSceneTypeOnly();
 		if (SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.LAB) {
 			Debug.Log ("MainMenu: Loading Lab scene");
-			Application.LoadLevel ("lab_stage"); 
+			Application.LoadLevel ("lab_stage");
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.ATRIUM) {
 			Application.LoadLevel ("atrium_stage"); 
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.LG2) {
