@@ -629,7 +629,7 @@ MonoBehaviour:
   - 
   - 
   currentSceneType: 0
-  labSceneState: 000000
+  labSceneStateArr: 00000000
 --- !u!4 &2007600110
 Transform:
   m_ObjectHideFlags: 0
