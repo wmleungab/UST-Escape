@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 080ca735489042845b6c96db093d1b9d
+guid: 86bd4a99cedbf814b90a8e5e6215b541
 TextureImporter:
   fileIDToRecycleName:
-    21300000: atrium floor new
+    21300000: grey rail
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -23,12 +23,12 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
