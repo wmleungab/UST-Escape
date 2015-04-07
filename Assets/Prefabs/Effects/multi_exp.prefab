@@ -56,6 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4f3dd44c67bfb49be67155a840a11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitsound: {fileID: 8300000, guid: bff28f6747597584296ef45aaee2cf80, type: 3}
 --- !u!212 &21276574
 SpriteRenderer:
   m_ObjectHideFlags: 1

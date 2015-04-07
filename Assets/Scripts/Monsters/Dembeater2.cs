@@ -4,6 +4,11 @@ using System.Collections;
 public class Dembeater2 : MonoBehaviour {
 	public AudioClip fightsound;
 
+	
+	public AudioClip warningsound;
+	public AudioClip hitsound;
+	public AudioClip defendsound;
+
 	public GameObject defendSheildpf;
 	
 	GameObject defendSheild;
@@ -39,6 +44,10 @@ public class Dembeater2 : MonoBehaviour {
 	bool allowFing=true;
 	int fingFrameTime=0;
 	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
+
+
 	Vector3 pos;
 	
 	// Use this for initialization
@@ -79,6 +88,7 @@ public class Dembeater2 : MonoBehaviour {
 	
 	void readyTofight ()
 	{
+		AudioSource.PlayClipAtPoint (warningsound, pos);
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
 		InvokeRepeating ("counting", 1, 1f);
@@ -164,14 +174,19 @@ public class Dembeater2 : MonoBehaviour {
 	
 	void OnMouseDown ()
 	{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState&& Time.time-lastAttack>canAttackRange) {
 			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
+			lastAttack=Time.time;
+		}
+		if (defendState) {
+			AudioSource.PlayClipAtPoint (defendsound, pos);
 		}
 	}
 	
 	void playerdamage ()
 	{
+		AudioSource.PlayClipAtPoint (hitsound, pos);
 		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
 		AudioSource.PlayClipAtPoint (fightsound, pos);
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;

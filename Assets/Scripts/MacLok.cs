@@ -17,7 +17,7 @@ public class MacLok : MonoBehaviour {
 	void destroyMacLok (){
 		
 		playerdamage ();
-		Instantiate (exp, new Vector3 (transform.position.x, transform.position.y-0.7f, -50),Quaternion.identity);
+		Instantiate (exp, new Vector3 (transform.position.x, transform.position.y-0.7f, -40),Quaternion.identity);
 		Destroy (transform.parent.gameObject);
 
 	}

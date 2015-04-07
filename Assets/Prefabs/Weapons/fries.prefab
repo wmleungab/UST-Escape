@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8a90e6d008dc0428f18d091417025f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutfrysound: {fileID: 8300000, guid: dfeff5354b804664c92a3a72a34f42b0, type: 3}
   parent: {fileID: 122406}
 --- !u!114 &11443440
 MonoBehaviour:

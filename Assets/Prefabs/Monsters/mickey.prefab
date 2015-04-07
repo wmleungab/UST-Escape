@@ -240,6 +240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
+  flyboxsound: {fileID: 8300000, guid: ab6ea90a960c6c14eb87e850b9edaf0f, type: 3}
+  defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
   defendmin: 2
   defendfactor: 2
@@ -247,6 +249,8 @@ MonoBehaviour:
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
+  lastAttack: 0
+  canAttackRange: .5
   startFlag: 1
   dieFlag: 1
   min: 2
@@ -267,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
   fullHP: 30
-  HP: 100
+  HP: 30
   offset: {x: -.600000024, y: 3, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21234878

@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class Magicball : MonoBehaviour {
+	public AudioClip magicsound;
+
 	public GameObject explosion;
 	public GameObject parentMon;
 
@@ -17,6 +19,7 @@ public class Magicball : MonoBehaviour {
 	void Start () {
 		allowFing=true;
 		fingFrameTime=0;
+		AudioSource.PlayClipAtPoint (magicsound, gameObject.transform.position);
 	}
 
 	// Update is called once per frame

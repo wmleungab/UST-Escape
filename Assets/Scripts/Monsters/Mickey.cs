@@ -3,7 +3,12 @@ using System.Collections;
 
 public class Mickey : MonoBehaviour {
 	public GameObject defendSheildpf;
+
+
+	public AudioClip flyboxsound;
+	public AudioClip defendsound;
 	
+
 	GameObject defendSheild;
 	public bool defendState=false;
 	public float defendmin=2;
@@ -13,7 +18,10 @@ public class Mickey : MonoBehaviour {
 	public float defendTimer;
 	public float sheildsize=0.5f;
 
-
+	
+	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
 
 	public bool startFlag=true;
 	public bool dieFlag=true;
@@ -84,15 +92,20 @@ public class Mickey : MonoBehaviour {
 	
 	void OnMouseDown ()
 	{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState && Time.time-lastAttack>canAttackRange) {
 			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
+			lastAttack=Time.time;
+		}
+		if (defendState) {
+			AudioSource.PlayClipAtPoint (defendsound, pos);
 		}
 	}
 
 
 	void attack(){
 		anim.SetTrigger ("attack");
+		AudioSource.PlayClipAtPoint (flyboxsound, pos);
 	}
 	
 	void attack_createbox(){

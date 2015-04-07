@@ -3,7 +3,12 @@ using System.Collections;
 
 public class DemBeater : MonoBehaviour {
 	public GameObject defendSheildpf;
+
 	
+	public AudioClip warningsound;
+	public AudioClip hitsound;
+	public AudioClip defendsound;
+
 	GameObject defendSheild;
 	public bool defendState=false;
 	public float defendmin=2;
@@ -13,7 +18,9 @@ public class DemBeater : MonoBehaviour {
 	public float defendTimer;
 	public float sheildsize=0.5f;
 
-
+	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
 
 	public GameObject explosion;
 	
@@ -78,6 +85,7 @@ public class DemBeater : MonoBehaviour {
 
 	void readyTofight ()
 	{
+		AudioSource.PlayClipAtPoint (warningsound, transform.position);
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
 		InvokeRepeating ("counting", 1, 1f);
@@ -162,15 +170,21 @@ public class DemBeater : MonoBehaviour {
 	
 	void OnMouseDown ()
 	{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState &&Time.time-lastAttack>canAttackRange) {
 			audio.Play();
 			gameObject.GetComponent<HealthBar> ().HP--;
+			lastAttack=Time.time;
 			
+		}
+		if (defendState) {
+			AudioSource.PlayClipAtPoint (defendsound, pos);
 		}
 	}
 	
 	void playerdamage ()
 	{
+		
+		AudioSource.PlayClipAtPoint (hitsound, transform.position);
 		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.2f, pos.y-2.5f, pos.z),Quaternion.identity)as GameObject;
 		exp.transform.localScale = new Vector3 (1.5f, 1.5f, 1);

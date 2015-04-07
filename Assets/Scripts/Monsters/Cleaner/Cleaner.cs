@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Cleaner : MonoBehaviour
 {
+	public AudioClip warningsound;
+	public AudioClip hitsound;
+	public AudioClip defendsound;
 	public GameObject defendSheildpf;
 	
 	GameObject defendSheild;
@@ -29,6 +32,9 @@ public class Cleaner : MonoBehaviour
 		Vector3 ms;
 		Vector3 mc;
 		bool allowSlide = false;
+	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
 
 		// Use this for initialization
 		void Start ()
@@ -66,7 +72,8 @@ public class Cleaner : MonoBehaviour
 
 		void readyTofight ()
 		{
-				time = readyTime;
+		time = readyTime;
+		AudioSource.PlayClipAtPoint (warningsound, gameObject.transform.position);
 				anim.SetTrigger ("ReadyToFight");
 				InvokeRepeating ("counting", 1, 1f);
 				allowSlide = true;
@@ -86,7 +93,8 @@ public class Cleaner : MonoBehaviour
 		}
 
 		void fight ()
-		{
+	{
+		AudioSource.PlayClipAtPoint (hitsound, gameObject.transform.position);
 				anim.SetTrigger ("ToFight");
 				resetVar ();
 		}
@@ -161,10 +169,17 @@ public class Cleaner : MonoBehaviour
 
 		void OnMouseDown ()
 		{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
-						gameObject.GetComponent<HealthBar> ().HP--;
+
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState && Time.time-lastAttack>canAttackRange) {
+
+			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
+			lastAttack=Time.time;
 				}
+		if (defendState) {
+			AudioSource.PlayClipAtPoint (defendsound, transform.position);
+		}
+
 		}
 
 		void playerdamage ()

@@ -179,6 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888dccca3e21dde4097adc0f960c5a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warningsound: {fileID: 8300000, guid: 22536ca6bce19ee47ac23407a63091ef, type: 3}
+  hitsound: {fileID: 8300000, guid: cedaf40b4a2ce624b8e9040ee3801d84, type: 3}
+  defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
   defendmin: 2
@@ -195,6 +198,8 @@ MonoBehaviour:
   frequency: 1
   threshold: 5
   damage: 20
+  lastAttack: 0
+  canAttackRange: .5
 --- !u!114 &11454818
 MonoBehaviour:
   m_ObjectHideFlags: 1

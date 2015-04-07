@@ -31,7 +31,9 @@ public class Ender : MonoBehaviour {
 		CancelInvoke ();
 	}
 	void returnScene(){
+		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		Application.LoadLevel(GlobalValues.BattleData.returnScene);
+
 	}
 
 	IEnumerator fadein (GameObject o)

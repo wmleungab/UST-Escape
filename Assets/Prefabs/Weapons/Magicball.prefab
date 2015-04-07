@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e555f6b0b7f9d4bb23bc1cf6b0c761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicsound: {fileID: 8300000, guid: 45f4edc02b6486f4abc211ff5431bac1, type: 3}
   explosion: {fileID: 157332, guid: 066094bba0e38724396f700b30098924, type: 2}
   parentMon: {fileID: 0}
   threshold: 1.29999995

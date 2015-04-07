@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class Fryer : MonoBehaviour {
+	public AudioClip flyfrysound;
+	public AudioClip defendsound;
+
 	public GameObject defendSheildpf;
 	
 	 GameObject defendSheild;
@@ -15,6 +18,10 @@ public class Fryer : MonoBehaviour {
 
 	public bool startFlag=true;
 	public bool dieFlag=true;
+
+	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
 
 	public GameObject fry;
 
@@ -57,6 +64,7 @@ public class Fryer : MonoBehaviour {
 		GameObject s = Instantiate (fry, new Vector3 (pos.x + 0.43f, pos.y + 0.78f, pos.z),Quaternion.identity)as GameObject;
 		s.transform.parent = 	GameObject.Find("Weapons").transform;
 		//continue attack
+		AudioSource.PlayClipAtPoint (flyfrysound, pos);
 		if (attacking) {
 			invokeAttack();
 				}
@@ -85,16 +93,21 @@ public class Fryer : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState) {
-						gameObject.GetComponent<HealthBar> ().HP--;
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState&& Time.time-lastAttack>canAttackRange) {
+			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
+			lastAttack=Time.time;
 		}
-
+		if (defendState) {
+				AudioSource.PlayClipAtPoint (defendsound, pos);
+				}
 
 	}
 
 	void die()
 	{
+		CancelInvoke ("Defend");
+		CancelInvoke ("DefendDisappear");
 		StartCoroutine ("dieAnim");
 	}
 	

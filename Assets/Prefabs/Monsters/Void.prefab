@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
+  defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
   defendmin: 2
   defendfactor: 2
@@ -271,6 +272,8 @@ MonoBehaviour:
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
+  lastAttack: 0
+  canAttackRange: .5
   startFlag: 1
   dieFlag: 1
   min: 1

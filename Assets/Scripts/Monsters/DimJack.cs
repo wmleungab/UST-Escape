@@ -3,7 +3,11 @@ using System.Collections;
 
 public class DimJack : MonoBehaviour {
 	public GameObject defendSheildpf;
+
 	
+	public AudioClip hitsound;
+	public AudioClip defendsound;
+
 	GameObject defendSheild;
 	public bool defendState=false;
 	public float defendmin=2;
@@ -12,6 +16,12 @@ public class DimJack : MonoBehaviour {
 	public float defendlength=2;
 	public float defendTimer;
 	public float sheildsize=0.5f;
+
+	
+	public float lastAttack=0;
+	public float canAttackRange=0.5f;
+
+
 
 
 	public bool startFlag=true;
@@ -90,6 +100,7 @@ public class DimJack : MonoBehaviour {
 	}
 
 	void attack1_createmaclok(){
+		AudioSource.PlayClipAtPoint (hitsound, transform.position);
 		GameObject w = GameObject.Find ("Weapons");
 		GameObject s = Instantiate (maclok1, new Vector3 (pos.x + 1, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
 		GameObject s2 = Instantiate (maclok2, new Vector3 (pos.x - 1.3f, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
@@ -101,10 +112,14 @@ public class DimJack : MonoBehaviour {
 
 	void OnMouseDown ()
 	{
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag&& !defendState&& Time.time-lastAttack>canAttackRange) {
 			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
+			lastAttack=Time.time;
 			
+		}
+		if (defendState) {
+			AudioSource.PlayClipAtPoint (defendsound, pos);
 		}
 	}
 	void die()

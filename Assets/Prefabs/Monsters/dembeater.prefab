@@ -484,6 +484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
+  warningsound: {fileID: 8300000, guid: 22536ca6bce19ee47ac23407a63091ef, type: 3}
+  hitsound: {fileID: 8300000, guid: bff28f6747597584296ef45aaee2cf80, type: 3}
+  defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
   defendmin: 2
   defendfactor: 2
@@ -491,6 +494,8 @@ MonoBehaviour:
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
+  lastAttack: 0
+  canAttackRange: .5
   explosion: {fileID: 157332, guid: 066094bba0e38724396f700b30098924, type: 2}
   startFlag: 1
   dieFlag: 1

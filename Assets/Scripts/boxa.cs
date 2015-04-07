@@ -18,7 +18,7 @@ public class boxa : MonoBehaviour {
 	
 	void destroyBox (){
 		playerdamage ();
-	GameObject s= Instantiate (exp, new Vector3 (transform.position.x, transform.position.y, -50),Quaternion.identity) as GameObject;
+	GameObject s= Instantiate (exp, new Vector3 (transform.position.x, transform.position.y, -40),Quaternion.identity) as GameObject;
 		s.transform.localScale = new Vector3 (5, 5, 1);
 		Destroy (transform.parent.gameObject);
 	}
