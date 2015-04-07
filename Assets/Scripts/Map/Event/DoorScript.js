@@ -4,6 +4,7 @@ static var playersinv : Inventory;
 private var isOpened : boolean = false;
 private var doorObj : GameObject;
 
+public var next_stage = "atrium_stage";
 var firstTouch=true;
 
 function Start () {
@@ -49,19 +50,7 @@ function OnTriggerEnter() {
 		}else{
 		this.GetComponent("DoorDialogInterface").SendMessage("subsequentTouchingDoor");
 		}
-/*		// find if the player has the key
-		var keyChild : Transform;
-		
-		keyChild = findKey();
-		
-		// if player has the key
-		if(keyChild) {
-			Debug.Log ("Key used");
-			isOpened = true;
-			playersinv.RemoveItem(keyChild);
-			goToNextScene();
-		}
-*/
+
 	}
 	else {
 		Debug.Log("In touch with door, and it is open");
@@ -72,5 +61,5 @@ function OnTriggerEnter() {
 
 function goToNextScene() {
 		Debug.Log("go to next scene");	
-		//sceneInterface.changeScene("atrium_stage");
+		gameObject.SendMessage("changeScene",next_stage);
 }

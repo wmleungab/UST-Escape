@@ -1061,6 +1061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!1 &166466231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!1 &471528722
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,6 +6223,7 @@ GameObject:
   - 23: {fileID: 1209790551}
   - 114: {fileID: 1209790550}
   - 114: {fileID: 1209790554}
+  - 114: {fileID: 1209790555}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -6251,6 +6256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyName: Key
+  next_stage: atrium_stage
   firstTouch: 1
 --- !u!23 &1209790551
 Renderer:
@@ -6302,6 +6308,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9d5037b08074e4f8b611a1ae00d29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1209790555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209790548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterNumber: 3
+  monsterId: 010000000200000001000000
 --- !u!1 &1215338102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7629,6 +7648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!1 &1606171801
 GameObject:
   m_ObjectHideFlags: 0
@@ -9109,6 +9130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!1 &1802197925
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,6 +10621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterNumber: 0
+  monsterId: 
 --- !u!1 &2131284768
 GameObject:
   m_ObjectHideFlags: 0

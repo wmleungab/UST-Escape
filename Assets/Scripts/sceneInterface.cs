@@ -21,6 +21,8 @@ public class sceneInterface : MonoBehaviour {
 	public void changeScene(string levelName){
 		GameObject playerpObj = GameObject.FindWithTag("Player");
 		DontDestroyOnLoad(playerpObj);
+		GlobalValues.BattleData.numOfMonsters = monsterNumber;
+		GlobalValues.BattleData.monsterID=monsterId;
 		Application.LoadLevel("battle");
 		GlobalValues.BattleData.returnScene = levelName;
 	}

@@ -22,7 +22,8 @@
      // Update is called once per frame
      void Update () 
      {
-		 if (viewDrag == null || (viewDrag && !viewDrag.isDragging)) {
+		 //if (viewDrag == null || (viewDrag && !viewDrag.isDragging)) {
+		if( !GamePause.isPause() ){
 			 if (target)
 			 {
 				 Vector3 point = camera.WorldToViewportPoint(target.position);
