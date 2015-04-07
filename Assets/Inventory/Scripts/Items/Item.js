@@ -214,6 +214,7 @@ function DropMeToLocation(makeDuplicate : boolean, pos : Vector3)
 		transform.parent = null;
 		transform.position = pos;
 		DelayPhysics();
+		DelayDelete(this.gameObject);
 	}
 	else //If the object is stacked we need to make a clone of it and drop the clone instead.
 	{
@@ -238,6 +239,7 @@ function DropMeToLocation(makeDuplicate : boolean, pos : Vector3)
 		clone.transform.parent = null;
 		clone.name = gameObject.name;
 		clone.transform.position = pos;
+		DelayDelete(clone);
 	}
 }
 
@@ -248,6 +250,13 @@ function DelayPhysics ()
 		Physics.IgnoreCollision(playersinv.transform.parent.collider, collider, true);
 		yield WaitForSeconds (1);
 		Physics.IgnoreCollision(playersinv.transform.parent.collider, collider, false);
+	}
+}
+
+function DelayDelete(item:GameObject){
+	yield WaitForSeconds (0.5);
+	if(item) {
+		Destroy(item.gameObject);
 	}
 }
 

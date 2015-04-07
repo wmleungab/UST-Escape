@@ -8712,7 +8712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next_stage: LG2_stage
-  player_pos: {x: 22.7502995, y: .5, z: 4}
+  player_pos: {x: 22.7502995, y: 1, z: 5}
 --- !u!114 &1678943830
 MonoBehaviour:
   m_ObjectHideFlags: 0
