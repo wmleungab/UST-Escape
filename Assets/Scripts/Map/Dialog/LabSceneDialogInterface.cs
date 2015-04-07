@@ -19,7 +19,7 @@ public class LabSceneDialogInterface : DialogInterface
 				GamePause.pauseGame ();
 				yield return new WaitForSeconds (0.7f);
 				GamePause.continueGame ();
-				if (!SaveLoadSystem.getInstance ().labSceneState [(int)SaveLoadSystem.LabSceneState.BEGANDIALOG])
+				if (!SaveLoadSystem.getInstance ().labSceneStateArr [(int)SaveLoadSystem.LabSceneState.BEGANDIALOG])
 						StartCoroutine ("startBeginningDialog");
 				else {
 						StartCoroutine ("startLoopHint1");
@@ -99,7 +99,7 @@ public class LabSceneDialogInterface : DialogInterface
 				Debug.Log ("Dialog with id " + id + "has finished with selection result " + selection);
 				if (id == 1) {
 						StartCoroutine ("startLoopHint1");
-						SaveLoadSystem.getInstance ().labSceneState [(int)SaveLoadSystem.LabSceneState.BEGANDIALOG] = true;
+						SaveLoadSystem.getInstance ().labSceneStateArr [(int)SaveLoadSystem.LabSceneState.BEGANDIALOG] = true;
 						SaveLoadSystem.getInstance ().save ();
 				}
 				if (id == 2)

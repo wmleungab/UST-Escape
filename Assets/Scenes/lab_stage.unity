@@ -6224,6 +6224,7 @@ GameObject:
   - 114: {fileID: 1209790550}
   - 114: {fileID: 1209790554}
   - 114: {fileID: 1209790555}
+  - 114: {fileID: 1209790556}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -6321,6 +6322,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterNumber: 3
   monsterId: 010000000200000001000000
+--- !u!114 &1209790556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1209790548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d460b8e373f092468071608f7065b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215338102
 GameObject:
   m_ObjectHideFlags: 0
@@ -7158,7 +7170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTouchingDistance: 2
   spriteChanged: {fileID: 0}
-  ascIITable: {fileID: 21300000, guid: 739801d718a3f064d8b4e141ff370781, type: 3}
+  ascIITable: {fileID: 21300000, guid: b69279c150369e64ebbc6d4e7fa3845f, type: 3}
 --- !u!1 &1501200453
 GameObject:
   m_ObjectHideFlags: 0
