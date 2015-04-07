@@ -3,8 +3,14 @@ using System.Collections;
 
 public class sceneInterface : MonoBehaviour {
 
+	public bool withBattle = true;
 	public int monsterNumber;
 	public int[] monsterId;
+	static Hashtable dynamicHT;
+
+	void Start() {
+		if(dynamicHT==null) dynamicHT = new Hashtable ();
+		}
 
 	public void gotoBattle(){
 			
@@ -21,10 +27,34 @@ public class sceneInterface : MonoBehaviour {
 	public void changeScene(string levelName){
 		GameObject playerpObj = GameObject.FindWithTag("Player");
 		DontDestroyOnLoad(playerpObj);
+		if (!dynamicHT.ContainsKey(Application.loadedLevelName)) {
+						GameObject dynamicObj = GameObject.Find ("Dynamic");
+						if (dynamicObj) {
+								DontDestroyOnLoad (dynamicObj);
+								//dynamicObj.name += Application.loadedLevelName;
+								dynamicHT.Add (Application.loadedLevelName, dynamicObj);
+								dynamicObj.SetActive (false);
+						}
+				} else {
+					((GameObject)dynamicHT [Application.loadedLevelName]).SetActive(false);
+				}
+
+		if (dynamicHT.ContainsKey(levelName)) {
+			GameObject nextLevelDy = (GameObject)dynamicHT[levelName];//GameObject.Find (("Dynamic" + levelName));
+			//nextLevelDy.name = "Dynamic";
+			nextLevelDy.SetActive(true);
+		}
+
 		GlobalValues.BattleData.numOfMonsters = monsterNumber;
 		GlobalValues.BattleData.monsterID=monsterId;
-		Application.LoadLevel("battle");
-		GlobalValues.BattleData.returnScene = levelName;
+
+		if (withBattle) {
+			Application.LoadLevel ("battle");
+			GlobalValues.BattleData.returnScene = levelName;
+		} else {
+			Application.LoadLevel (levelName);
+		}
+
 	}
 	
 }

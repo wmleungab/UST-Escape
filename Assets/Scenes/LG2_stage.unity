@@ -214,6 +214,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3771ae3f7ff9566439c288cb7a4fa6f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &86674933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 86674939}
+  - 33: {fileID: 86674938}
+  - 65: {fileID: 86674937}
+  - 23: {fileID: 86674936}
+  - 114: {fileID: 86674935}
+  - 114: {fileID: 86674934}
+  m_Layer: 0
+  m_Name: Door2Atrium
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &86674934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ca25f51fe6a48febc29c762dfa3966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  next_stage: atrium_stage
+  player_pos: {x: -15.83393, y: .5, z: -7.74274111}
+--- !u!114 &86674935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  withBattle: 0
+  monsterNumber: 0
+  monsterId: 
+--- !u!23 &86674936
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &86674937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &86674938
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &86674939
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 23.9315491, y: 0, z: 7.29233932}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1 &114382042
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withBattle: 1
   monsterNumber: 1
   monsterId: 06000000
 --- !u!1 &140062732
@@ -597,6 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withBattle: 1
   monsterNumber: 1
   monsterId: 06000000
 --- !u!1 &178074900
@@ -973,6 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withBattle: 1
   monsterNumber: 0
   monsterId: 
 --- !u!4 &420395317
@@ -1640,7 +1741,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 636102159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21fff9e227f74504caf12221f29bf8c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d8ed9b883b024bd88eb7f912fd8ccc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &648820876
@@ -2070,6 +2171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce5a6601f1691f4a8669355c8fb8ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withBattle: 1
   monsterNumber: 1
   monsterId: 06000000
 --- !u!1 &863600544
@@ -2349,7 +2451,7 @@ Transform:
   m_PrefabInternal: {fileID: 2093321635}
   m_GameObject: {fileID: 895819178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.1018295, y: .5, z: 3.76243782}
+  m_LocalPosition: {x: 22.7502975, y: .5, z: 3.76243782}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1103133371}
@@ -4040,7 +4142,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b558e570e838845129d9dc7e8bfc7372, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -17.1018295
+      value: 22.7502975
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b558e570e838845129d9dc7e8bfc7372, type: 2}
       propertyPath: m_LocalPosition.y

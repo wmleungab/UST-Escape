@@ -8,10 +8,9 @@ public class ChangeSceneDy : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		if(control == null) {
-			DontDestroyOnLoad(gameObject);
 			control = this;
 		}
-		else if (control != this) {
+		else if (control != this && control.gameObject.name == this.gameObject.name) {
 			Destroy(gameObject);
 		}
 	}

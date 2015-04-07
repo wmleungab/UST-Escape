@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/sundial.unity
   - enabled: 1
     path: Assets/Scenes/atrium_stage.unity
+  - enabled: 1
+    path: Assets/Scenes/LG2_stage.unity

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof (CreateItem))]
 public class InventorySaveInterface : MonoBehaviour {
 
 	string[] outputSaveList(){
@@ -29,6 +30,13 @@ public class InventorySaveInterface : MonoBehaviour {
 		result += "}";
 		
 		return result;
+	}
+
+	void loadFromList(string[] itemList) {
+		CreateItem ciObj = GetComponent<CreateItem> ();
+			foreach(string itemName in itemList){
+			StartCoroutine (ciObj.giveItemToPlayer (itemName));
+		}
 	}
 	
 }
