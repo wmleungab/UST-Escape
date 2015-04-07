@@ -11,6 +11,10 @@ public class InventorySaveInterface : MonoBehaviour {
 			childString += child.name + ",";
 		}
 		childString = childString.Remove(childString.Length - 1);
+
+		string[] result = childString.Split (',');
+		Debug.Log (result);
+		return result;
 	}
 
 }
