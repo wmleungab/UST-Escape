@@ -44,12 +44,12 @@ MonoBehaviour:
   dialogPlayer: {fileID: 0}
   dialogDembeater_Flag: {fileID: 21300000, guid: 4ce955c4849ff2e479ba3f8d209362ab,
     type: 3}
-  dialogDembeater_Leg: {fileID: 21300000, guid: 0b35f84ae94c9d94082112735a03f7b6,
+  dialogDembeater_Leg: {fileID: 21300000, guid: e1cd77a17663c9745a5d5fc6586822a8,
     type: 3}
   dialogVoldemort: {fileID: 21300000, guid: e2050394c63e4d14b81b62dcf90cd616, type: 3}
-  dialogCleaningLady: {fileID: 21300000, guid: 37acfb3bca0a94744bc5d21d7aa009ac, type: 3}
+  dialogCleaningLady: {fileID: 21300000, guid: c360a43a54fcc204ab6e2ecfde590f69, type: 3}
   dialogDimjack: {fileID: 21300000, guid: 7d7c38f8f8be482448b4b3459eb59555, type: 3}
-  dialogGirlGod: {fileID: 21300000, guid: 8b1a7fb287879e845888b475b45d21cc, type: 3}
+  dialogGirlGod: {fileID: 21300000, guid: aeb5886f79016e243a07c6bdc6db71b1, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

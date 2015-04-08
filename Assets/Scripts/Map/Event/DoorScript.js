@@ -48,15 +48,16 @@ function OnTriggerEnter() {
 
 	}
 	else {
+	GetComponent("DoorDialogInterface").SendMessage("goToNextSceneDialog");
 		Debug.Log("In touch with door, and it is open");
-		goToNextScene();
+		//goToNextScene();
 	}
 	
 }
 
 function goToNextScene() {
 
-		GetComponent("DoorDialogInterface").SendMessage("goToNextSceneDialog");
+		
 		Debug.Log("go to next scene");	
 		gameObject.SendMessage("changeScene",next_stage);
 }

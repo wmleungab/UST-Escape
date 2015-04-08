@@ -288,6 +288,18 @@ public class DialogSystem : MonoBehaviour
 				}
 			
 		}
+		private void swapPlayer(character[] myCStr){
+
+		if (myCStr [0] == character.PLAYER) {
+			myCStr [0]=myCStr [1];
+			myCStr [1]=myCStr [2];
+			myCStr [2]=character.PLAYER;
+		}else if(myCStr [1] == character.PLAYER) {
+			myCStr [1]=myCStr [2];
+			myCStr [2]=character.PLAYER;
+		}
+
+		}
 
 		private void setPic ()
 		{
@@ -299,6 +311,7 @@ public class DialogSystem : MonoBehaviour
 						return;
 				}
 				character[] myCStr = nameString.Distinct ().ToArray ();
+				swapPlayer (myCStr);
 
 
 				for (int i=0; i<myCStr.Length; i++) {

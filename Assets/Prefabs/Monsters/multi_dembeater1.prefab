@@ -69,7 +69,7 @@ AudioSource:
   m_GameObject: {fileID: 149710}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 4d0ac008e6b110b42b152965b21c31ee, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d7435f09447295c4687810a554144a2a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 176574, guid: 552e7047a608a254c882e6bfaeda9522, type: 2}
-  attackSound: {fileID: 8300000, guid: bff28f6747597584296ef45aaee2cf80, type: 3}
+  attackSound: {fileID: 8300000, guid: d7435f09447295c4687810a554144a2a, type: 3}
   startFlag: 0
   dieFlag: 1
   readyTime: 2

@@ -33,7 +33,7 @@ public class DoorDialogInterface : DialogInterface
 			"No! I didn't!",
 			"No excuse!"
 		};
-		conversation (nameString, dialogString, 444);
+		conversation (nameString, dialogString, 1331);
 	}
 
 		public void subsequentTouchingDoor ()
@@ -52,6 +52,8 @@ public class DoorDialogInterface : DialogInterface
 		{
 				//selection -1: No selection carried out 0; false or no 1: true or yes
 				Debug.Log ("DoorDialogInterface: Dialog with id " + id + "has finished with selection " + selection);
+		if (id == 1331)
+			gameObject.SendMessage ("goToNextScene");
 		}
 
 

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Multi_Ender : MonoBehaviour
 {
-	public AudioClip winAudio;
-	public AudioClip loseAudio;
+		public AudioClip winAudio;
+		public AudioClip loseAudio;
 		public GameObject Win;
 		public GameObject Lost;
 		public GameObject stat;
@@ -51,23 +51,22 @@ public class Multi_Ender : MonoBehaviour
 		void 	win ()
 		{
 				StartCoroutine ("fadein", Win);
-		gameObject.audio.clip = winAudio;
-		gameObject.audio.Play ();
+
 				done = true;
 		}
 
 		void 	lost ()
 		{
 				StartCoroutine ("fadein2", Lost);
-		gameObject.audio.clip = loseAudio;
-		gameObject.audio.Play ();
+
 				done = true;
 		}
 	
 		IEnumerator fadein (GameObject o)
 		{
-				yield return new WaitForSeconds (0.1f);
-		
+				yield return new WaitForSeconds (1f);
+		gameObject.audio.clip = winAudio;
+		gameObject.audio.Play ();
 				Vector3 ols = o.transform.localScale;
 				for (float i=0; i<=1; i+=0.05f) {
 						o.renderer.material.color = new Vector4 (o.renderer.material.color.r, o.renderer.material.color.g, o.renderer.material.color.b, i);
@@ -80,7 +79,9 @@ public class Multi_Ender : MonoBehaviour
 		IEnumerator fadein2 (GameObject o)
 		{
 
-				yield return new WaitForSeconds (0.1f);
+				yield return new WaitForSeconds (1f);
+		gameObject.audio.clip = loseAudio;
+		gameObject.audio.Play ();
 				Lost.SetActive (true);
 				Vector3 op = o.transform.position;
 				for (float i=0; i<=1; i+=0.05f) {
