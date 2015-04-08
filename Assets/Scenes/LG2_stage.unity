@@ -227,6 +227,7 @@ GameObject:
   - 23: {fileID: 86674936}
   - 114: {fileID: 86674935}
   - 114: {fileID: 86674934}
+  - 114: {fileID: 86674940}
   m_Layer: 0
   m_Name: Door2Atrium
   m_TagString: Untagged
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next_stage: atrium_stage
+  next_stage_name: Atrium
   player_pos: {x: -15.83393, y: .5, z: -7.74274111}
 --- !u!114 &86674935
 MonoBehaviour:
@@ -312,6 +314,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &86674940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 86674933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468bb3bd8422dde41b068bd3febc6fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114382042
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +961,7 @@ GameObject:
   - 114: {fileID: 283234091}
   - 114: {fileID: 283234092}
   - 114: {fileID: 283234093}
+  - 114: {fileID: 283234094}
   m_Layer: 0
   m_Name: Lake
   m_TagString: Untagged
@@ -1042,6 +1056,18 @@ MonoBehaviour:
   objList:
   - {fileID: 100000, guid: b2f9eaa3f06e048489731d26a761783b, type: 2}
   - {fileID: 100000, guid: abcb29add37ed5149b735097f444ba9d, type: 2}
+--- !u!114 &283234094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283234086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4612b2f2b44133445b9d02fccf8ef895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyItemName: knife
 --- !u!1 &420395315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &547460692
 Transform:
   m_ObjectHideFlags: 0
@@ -2478,6 +2504,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 957965420}
+  - 114: {fileID: 957965422}
+  - 114: {fileID: 957965421}
   m_Layer: 0
   m_Name: president
   m_TagString: Untagged
@@ -2499,6 +2527,29 @@ Transform:
   - {fileID: 685934070}
   m_Father: {fileID: 636102160}
   m_RootOrder: 3
+--- !u!114 &957965421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 957965419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef036387d803c7e45bd924822d8065ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTouchingDistance: 5
+--- !u!114 &957965422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 957965419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a328947776ff6c3439a5f38904e040e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1054835486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2561,8 @@ GameObject:
   - 114: {fileID: 1054835490}
   - 114: {fileID: 1054835489}
   - 114: {fileID: 1054835488}
+  - 114: {fileID: 1054835493}
+  - 114: {fileID: 1054835492}
   - 114: {fileID: 1054835491}
   m_Layer: 0
   m_Name: Inventory
@@ -2593,6 +2646,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46bca43e0aa84d87aa8525b6af476dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1054835492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400014, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 2093321635}
+  m_GameObject: {fileID: 1054835486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46bca43e0aa84d87aa8525b6af476dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1054835493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400016, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 2093321635}
+  m_GameObject: {fileID: 1054835486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 256ffd719a94d0742aa476dc388d2151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objList: []
 --- !u!1 &1103133370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2969,12 +3047,14 @@ MonoBehaviour:
   dialogPrefab: {fileID: 159672, guid: a4f5142f1e804034ca0104581f933bb2, type: 2}
   dialogPrincipal: {fileID: 21300000, guid: 82bec03c58b24f04380313881a69f533, type: 3}
   dialogPlayer: {fileID: 0}
-  dialogDembeater_Flag: {fileID: 0}
-  dialogDembeater_Leg: {fileID: 0}
-  dialogVoldemort: {fileID: 0}
-  dialogCleaningLady: {fileID: 0}
-  dialogDimjack: {fileID: 0}
-  dialogGirlGod: {fileID: 0}
+  dialogDembeater_Flag: {fileID: 21300000, guid: 4ce955c4849ff2e479ba3f8d209362ab,
+    type: 3}
+  dialogDembeater_Leg: {fileID: 21300000, guid: 0b35f84ae94c9d94082112735a03f7b6,
+    type: 3}
+  dialogVoldemort: {fileID: 21300000, guid: e2050394c63e4d14b81b62dcf90cd616, type: 3}
+  dialogCleaningLady: {fileID: 21300000, guid: 37acfb3bca0a94744bc5d21d7aa009ac, type: 3}
+  dialogDimjack: {fileID: 21300000, guid: 7d7c38f8f8be482448b4b3459eb59555, type: 3}
+  dialogGirlGod: {fileID: 21300000, guid: 8b1a7fb287879e845888b475b45d21cc, type: 3}
 --- !u!4 &1195861902
 Transform:
   m_ObjectHideFlags: 0
@@ -3263,6 +3343,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba664db9c07050e408ba651ead893294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  introNameString: 0800000000000000
+  introDialogString:
+  - There is a big gap between
+  - I need something to help me through the gap
 --- !u!1 &1627364127
 GameObject:
   m_ObjectHideFlags: 0

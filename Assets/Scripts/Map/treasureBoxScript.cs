@@ -25,8 +25,8 @@ public class treasureBoxScript : MonoBehaviour {
 	}
 	
 	void colliderOnClick(){
-		if (Vector3.Distance(playerObj.transform.position, transform.position) < maxTouchingDistance){
-			if(dialogCount==0){
+		if (!GamePause.isPause() && (Mathf.Abs(Vector3.Distance(playerObj.transform.position, transform.position)) < maxTouchingDistance)){
+			if(dialogCount<5){
 				startFindKey("key");
 			}
 			else{
@@ -51,7 +51,12 @@ public class treasureBoxScript : MonoBehaviour {
 			}
 		}
 	}
-	
+	void findKeyFailCallback(){
+		if(startFK){
+			startFK = false;
+			GetComponent<TBDialogInterface>().startIntroDialog();
+		}
+	}	
 	public void dialogCallback(int dialogID, Transform keyObj){
 		TBKey keyUsed = 0;
 		if(dialogID==1) keyUsed = TBKey.SIMPLEKEY;

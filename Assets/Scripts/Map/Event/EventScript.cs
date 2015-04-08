@@ -22,7 +22,7 @@ public abstract class EventScript : MonoBehaviour {
 	}
 	
 	virtual public void colliderOnClick(){
-		if (Mathf.Abs(Vector3.Distance(playerObj.transform.position, transform.position)) < maxTouchingDistance){
+		if (!GamePause.isPause() && (Mathf.Abs(Vector3.Distance(playerObj.transform.position, transform.position)) < maxTouchingDistance)){
 			
 			Debug.Log("collider Clicked (Event)");
 			startFindKey(keyItemName);
@@ -45,6 +45,13 @@ public abstract class EventScript : MonoBehaviour {
 			}
 		}
 	}
+	void findKeyFailCallback(){
+		if(startFK){
+			startFK = false;
+			Debug.Log ("Key Not found");
+			GetComponent<EventDialogInterface>().startIntroDialog();
+		}
+	}	
 	
 	public void dialogCallback(int dialogID, Transform keyObj){
 		startEvent(keyObj);

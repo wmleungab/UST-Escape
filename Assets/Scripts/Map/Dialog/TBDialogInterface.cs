@@ -28,6 +28,17 @@ public class TBDialogInterface : DialogInterface {
 		optionSelect(c,dialog,dialogID);
 	}
 	
+	public void startIntroDialog(){
+		DialogSystem.character[] nameString ={
+			DialogSystem.character.SYSTEM
+			};
+		string[] dialogString = new string[]{
+			"A locked treasure box"
+		};
+
+		conversation (nameString, dialogString, 4);
+	}
+	
 	override public void  onDialogFinish(int id, int selection){
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finish with selection " + selection);
