@@ -67,7 +67,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149710}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 4d0ac008e6b110b42b152965b21c31ee, type: 3}
   m_PlayOnAwake: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 176574, guid: 552e7047a608a254c882e6bfaeda9522, type: 2}
+  attackSound: {fileID: 8300000, guid: bff28f6747597584296ef45aaee2cf80, type: 3}
   startFlag: 0
   dieFlag: 1
   readyTime: 2
@@ -166,6 +167,7 @@ MonoBehaviour:
   HP: 100
   offset: {x: -2.20000005, y: 4, z: 0}
   hpLengthFactor: 6
+  beingAttack: {fileID: 8300000, guid: 4d0ac008e6b110b42b152965b21c31ee, type: 3}
 --- !u!212 &21215206
 SpriteRenderer:
   m_ObjectHideFlags: 1

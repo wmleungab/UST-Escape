@@ -96,13 +96,16 @@ public class Multi_NetworkManager : MonoBehaviour
 				myButtonStyle.font = myFont;
 
 				if (!Network.isClient && !Network.isServer) {
-						if (GUI.Button (new Rect (100, 100, 250, 100), "Start Server", myButtonStyle))
-								StartServer ();
 
-						if (GUI.Button (new Rect (100, 250, 250, 100), "Refresh Hosts", myButtonStyle))
+						if (GUI.Button (new Rect (100, 100, 250, 100), "Start Server", myButtonStyle)){
+				gameObject.audio.Play();
+								StartServer ();
+			}
+			if (GUI.Button (new Rect (100, 250, 250, 100), "Refresh Hosts", myButtonStyle)){gameObject.audio.Play();
 								RefreshHostList ();
-						
+			}
 						if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+				gameObject.audio.Play();
 								Network.Disconnect ();
 								MasterServer.UnregisterHost ();
 								Application.LoadLevel ("mainmenu"); 
@@ -111,7 +114,7 @@ public class Multi_NetworkManager : MonoBehaviour
 						if (hostList != null) {
 								for (int i = 0; i < hostList.Length; i++) {
 										if (GUI.Button (new Rect (400, 100 + (110 * i), 300, 100), hostList [i].gameName, myButtonStyle)) {
-						
+						gameObject.audio.Play();
 												JoinServer (hostList [i]);
 
 										}
@@ -126,10 +129,11 @@ public class Multi_NetworkManager : MonoBehaviour
 				if (myFields.stateInfo [(int)Multi_Fields.States.CONNECTION_ESTABLISHED]) {
 			
 						if (Network.isClient && !myFields.stateInfo [(int)Multi_Fields.States.CLIENT_READY_TO_START]) {
-								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle)) 
-					
-										myFields.syncState (Multi_Fields.States.CLIENT_READY_TO_START, true);
+								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle)) {
+								gameObject.audio.Play();
+					myFields.syncState (Multi_Fields.States.CLIENT_READY_TO_START, true);}
 								if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+					gameObject.audio.Play();
 										Network.Disconnect ();
 										MasterServer.UnregisterHost ();
 										Application.LoadLevel ("mainmenu"); 
@@ -137,10 +141,11 @@ public class Multi_NetworkManager : MonoBehaviour
 										
 						}
 						if (Network.isServer && !myFields.stateInfo [(int)Multi_Fields.States.SERVER_READY_TO_START]) {
-								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle))
-					
-										myFields.syncState (Multi_Fields.States.SERVER_READY_TO_START, true);
+								if (GUI.Button (new Rect (100, 100, 250, 100), "Start game", myButtonStyle)){
+					gameObject.audio.Play();
+					myFields.syncState (Multi_Fields.States.SERVER_READY_TO_START, true);}
 								if (GUI.Button (new Rect (Screen.width - 350, 100, 250, 100), "Back", myButtonStyle)) {
+					gameObject.audio.Play();
 										Network.Disconnect ();
 										MasterServer.UnregisterHost ();
 										Application.LoadLevel ("mainmenu"); 

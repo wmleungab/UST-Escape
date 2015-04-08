@@ -8,7 +8,7 @@ public class Multi_dembeater1 : MonoBehaviour {
 	
 	private Multi_Fields myFields;
 	public GameObject explosion;
-	
+	public AudioClip attackSound;
 	public bool startFlag = false;
 	public bool dieFlag = true;
 	public float readyTime;
@@ -38,7 +38,8 @@ public class Multi_dembeater1 : MonoBehaviour {
 		InvokeRepeating ("counting", 1, 1f);
 
 	}
-	
+	void toAllowFing(){}
+	void toNotAllowFing(){}
 	void counting ()
 	{
 		time--;
@@ -51,7 +52,12 @@ public class Multi_dembeater1 : MonoBehaviour {
 	void fight ()
 	{
 		anim.SetTrigger ("ToFight");
-		
+		if ( gameObject.audio != null) {
+			AudioClip ac=gameObject.audio.clip;
+			gameObject.audio.clip=attackSound;
+			gameObject.audio.Play ();
+			gameObject.audio.clip=ac;
+		}
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;
 		exp.transform.localScale = new Vector3 (2f, 2f, 1);
 		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;

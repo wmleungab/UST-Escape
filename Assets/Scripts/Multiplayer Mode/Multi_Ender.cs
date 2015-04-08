@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Multi_Ender : MonoBehaviour
 {
+	public AudioClip winAudio;
+	public AudioClip loseAudio;
 		public GameObject Win;
 		public GameObject Lost;
 		public GameObject stat;
@@ -49,12 +51,16 @@ public class Multi_Ender : MonoBehaviour
 		void 	win ()
 		{
 				StartCoroutine ("fadein", Win);
+		gameObject.audio.clip = winAudio;
+		gameObject.audio.Play ();
 				done = true;
 		}
 
 		void 	lost ()
 		{
 				StartCoroutine ("fadein2", Lost);
+		gameObject.audio.clip = loseAudio;
+		gameObject.audio.Play ();
 				done = true;
 		}
 	

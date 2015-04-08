@@ -8,7 +8,7 @@ public class Multi_dembeater2 : MonoBehaviour
 		public bool startFlag = false;
 		public bool dieFlag = true;
 		public float readyTime;
-
+	public AudioClip attackSound;
 		float time;
 		Animator anim;
 		Vector3 pos;
@@ -47,7 +47,14 @@ public class Multi_dembeater2 : MonoBehaviour
 	
 		void fight ()
 		{
+
 				anim.SetTrigger ("ToFight");
+		if ( gameObject.audio != null) {
+			AudioClip ac=gameObject.audio.clip;
+			gameObject.audio.clip=attackSound;
+			gameObject.audio.Play ();
+			gameObject.audio.clip=ac;
+		}
 				GameObject exp = Instantiate (explosion, new Vector3 (pos.x - 0.2f, pos.y - 2.5f, pos.z), Quaternion.identity)as GameObject;
 				exp.transform.localScale = new Vector3 (1.5f, 1.5f, 1);
 				GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x, pos.y - 2.6f, pos.z), Quaternion.identity)as GameObject;

@@ -12,7 +12,10 @@ public class Multi_HealthBar : MonoBehaviour
 		float hpInitScaleX;
 		Vector3 pos;
 		GameObject s;
-	
+
+	public AudioClip beingAttack;
+
+	int lastHP;
 		// Use this for initialization
 		void Start ()
 		{
@@ -28,6 +31,7 @@ public class Multi_HealthBar : MonoBehaviour
 	
 		void healthbar ()
 		{
+		lastHP = HP;
 				if (Network.isClient) {
 						if (name == "Enemy")
 								HP = myFields.ServerHP;
@@ -37,7 +41,12 @@ public class Multi_HealthBar : MonoBehaviour
 						if(name=="Player")HP = myFields.ServerHP;
 						else	HP = myFields.ClientHP;
 				}
-
+				if (lastHP > HP && gameObject.audio != null) {
+			AudioClip ac=gameObject.audio.clip;
+			gameObject.audio.clip=beingAttack;
+						gameObject.audio.Play ();
+			gameObject.audio.clip=ac;
+				}
 				if (HP < 0)
 						HP = 0;
 		

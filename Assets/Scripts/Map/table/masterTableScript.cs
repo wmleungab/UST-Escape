@@ -32,7 +32,7 @@ public class masterTableScript : DialogInterface {
 			allCanOpen = !(transform.parent.GetComponent<BigTableScript>().openTable(tableNo));
 		*/
 			DialogSystem.character[] c={DialogSystem.character.PLAYER};
-			string[] s={"A table? What does it means?"};
+			string[] s={"A table? What does it mean?"};
 			showBigIcon(c,s,555,ascIITable);
 		}
 	}

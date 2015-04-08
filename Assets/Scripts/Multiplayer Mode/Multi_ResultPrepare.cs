@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Multi_ResultPrepare : MonoBehaviour
 {
-
+	public AudioClip otherClip;
 		public GameObject success;
 		public GameObject fail;
 		public Multi_Fields myFields;
@@ -25,7 +25,11 @@ public class Multi_ResultPrepare : MonoBehaviour
 	
 		IEnumerator startanim ()
 		{
-				yield return new WaitForSeconds (2.5f);
+
+		yield return new WaitForSeconds (0.65f);
+		gameObject.audio.clip = otherClip;
+		gameObject.audio.Play ();
+		yield return new WaitForSeconds (1.85f);
 				if (myFields.stateInfo [(int)Multi_Fields.States.SERVER_SUCCESS]) {
 		
 						if (Network.isServer) {

@@ -28,6 +28,7 @@ public class Multi_StarterScript : MonoBehaviour
 		IEnumerator startanim ()
 		{
 
+		gameObject.audio.Play ();
 				float ReadyYPos = Ready.transform.position.y;
 
 				for (float i=0; i<=1; i+=0.1f) {
