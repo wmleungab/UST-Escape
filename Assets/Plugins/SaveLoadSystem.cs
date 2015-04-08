@@ -12,6 +12,8 @@ public class SaveLoadSystem : MonoBehaviour
 		public bool[] labSceneStateArr = new bool[4];
 		SceneType lastSceneType = SceneType.MENU;
 
+		//SaveLoadSystemInterface slInterface=null;
+
 		public enum LabSceneState
 		{
 				BEGANDIALOG=0,
@@ -56,8 +58,18 @@ public class SaveLoadSystem : MonoBehaviour
 								Destroy (this.gameObject);
 				}
 		}
-		//Please set the value of the bool array before calling this function
-		
+
+		public void saveWithCallBack(SaveLoadSystemInterface sli){
+			save ();
+			sli.onSaveComplete (currentSceneType);
+		}	
+
+		public void loadWithCallBack(SaveLoadSystemInterface sli){
+			load ();
+			sli.onLoadComplete (currentSceneType);
+		}	
+	
+	//Please set the value of the bool array before calling this function
 		public void save ()
 		{
 				PlayerPrefs.SetInt ("sceneNum", (int)currentSceneType);
@@ -146,6 +158,9 @@ public class SaveLoadSystem : MonoBehaviour
 		{
 			
 		}
+		
+
+
 
 		void Update ()
 		{
@@ -155,8 +170,8 @@ public class SaveLoadSystem : MonoBehaviour
 								save ();
 						
 						}
-				}
-			*/
+					}
+*/
 				if (isMenu2OtherSceneTransaction ()) {
 						Debug.Log ("SaveLoadSystem: A scene transaction from MainMenu to some scene was detected.");
 						lastSceneType = currentSceneType;
