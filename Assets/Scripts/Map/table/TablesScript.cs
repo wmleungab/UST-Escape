@@ -53,6 +53,7 @@ public class TablesScript : BigTableScript
 						tablesOpen [tableNo] = !tablesOpen [tableNo];
 						Debug.Log ("Big Table Array: " + this.getTablesOpen ());
 
+			sl_OpenDoorChecker=false;
 						issueTurnOnOffDialog (tableNo);
 
 						if (checkArray ()) {

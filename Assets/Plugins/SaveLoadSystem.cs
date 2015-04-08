@@ -64,10 +64,6 @@ public class SaveLoadSystem : MonoBehaviour
 			sli.onSaveComplete (currentSceneType);
 		}	
 
-		public void loadWithCallBack(SaveLoadSystemInterface sli){
-			load ();
-			sli.onLoadComplete (currentSceneType);
-		}	
 	
 	//Please set the value of the bool array before calling this function
 		public void save ()
@@ -148,11 +144,6 @@ public class SaveLoadSystem : MonoBehaviour
 				return;
 		}
 
-		public SceneType loadSceneTypeOnly ()
-		{
-				currentSceneType = (SceneType)PlayerPrefs.GetInt ("sceneNum");
-				return currentSceneType;
-		}
 
 		void Start ()
 		{
@@ -164,7 +155,7 @@ public class SaveLoadSystem : MonoBehaviour
 
 		void Update ()
 		{
-				/*	if (isSavableScenesTransaction()) {
+		/*	if (isSavableScenesTransaction()) {
 						if (!GamePause.isPause ()) {
 								lastSceneType = currentSceneType;
 								save ();
@@ -172,11 +163,11 @@ public class SaveLoadSystem : MonoBehaviour
 						}
 					}
 */
-				if (isMenu2OtherSceneTransaction ()) {
+			/*		if (isMenu2OtherSceneTransaction ()) {
 						Debug.Log ("SaveLoadSystem: A scene transaction from MainMenu to some scene was detected.");
 						lastSceneType = currentSceneType;
 						load ();
-				}
+				}*/
 
 				if (setnCheckCurrentSceneType () && !GamePause.isPause ()) {
 						if (Input.GetKeyDown (KeyCode.Escape)) {
