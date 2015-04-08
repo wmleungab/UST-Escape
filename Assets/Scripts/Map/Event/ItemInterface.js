@@ -36,5 +36,6 @@ function findKey(keyName : String) : Transform
 		}
 	}
 	
+	gameObject.SendMessage("findKeyFailCallback");
 	return null;
 }
