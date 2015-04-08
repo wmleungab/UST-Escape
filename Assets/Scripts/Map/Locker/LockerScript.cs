@@ -67,11 +67,14 @@ public class LockerScript : MonoBehaviour
 				} else if (name == "cal_9") {
 						addNo (9);
 				} else if (name == "cal_OK") { 
+					closePanel();
 						if (checkCorrect ()) {
 								//pw matched do sth
-								transform.parent.gameObject.SendMessage("openLocker");
+								transform.parent.gameObject.SendMessage("successOpen");
 						}
-						closePanel();
+						else {
+							transform.parent.gameObject.SendMessage("failOpen");
+						}
 				} else if (name == "cal_c") {
 						resetPw ();
 				}

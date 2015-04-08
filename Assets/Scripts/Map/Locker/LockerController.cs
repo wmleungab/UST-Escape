@@ -6,6 +6,7 @@ public class LockerController : MonoBehaviour {
 	private LockerScript numberInputObj;
 	private static bool isOpened = false;
 	private GameObject playerObj;
+	private LockerDialogInterface dialogComponent;
 	
 	public float maxTouchingDistance = 5.0f;
 
@@ -19,6 +20,7 @@ public class LockerController : MonoBehaviour {
 		
 		playerObj = GameObject.FindWithTag("Player");
 		if (playerObj==null) Debug.LogError("Player Object not found");
+		dialogComponent = GetComponent<LockerDialogInterface>();
 	}
 	
 	// Update is called once per frame
@@ -38,7 +40,30 @@ public class LockerController : MonoBehaviour {
 	
 	void colliderOnClick(){
 		if (Vector3.Distance(playerObj.transform.position, transform.position) < maxTouchingDistance){
-			numberInputObj.showPanel();
+			if(!isOpened){
+				dialogComponent.startCloseIntroDialog(this);
+			}
+			else{
+				dialogComponent.startOpenIntroDialog(this);
+			}
 		}
+	}
+	
+	void successOpen(){
+		dialogComponent.startSuccessDialog(this);
+	}
+	
+	void failOpen(){
+		dialogComponent.startFailDialog(this);
+	}
+	
+	public void closeIntroDialogCallBack()
+	{
+		numberInputObj.showPanel();
+	}
+	
+	public void successDialogCallBack()
+	{
+		openLocker();
 	}
 }

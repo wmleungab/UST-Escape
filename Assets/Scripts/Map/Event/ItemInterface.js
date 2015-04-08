@@ -18,6 +18,7 @@ function Start(){
  function removeItem(item:Transform){
  	 Debug.Log("itemInterface.removeItem(" + item + ")");
 		associatedInventory.RemoveItem(item);
+		Destroy(item.gameObject);
 }
  
  //find an item from the inventory (IT DOESN'T DROP IT).

@@ -5,6 +5,7 @@ using System.Collections;
 public class DoorObject : MonoBehaviour {
 
 	public string next_stage = "atrium_stage";
+	public string next_stage_name = "Atrium";
 	public Vector3 player_pos = new Vector3(0,0,0);
 
 	// Use this for initialization
@@ -19,9 +20,10 @@ public class DoorObject : MonoBehaviour {
 
 	void OnTriggerEnter() {
 		
-		goToNextScene();
+		GetComponent<LevelDialogInterface>().startDialog(this, next_stage_name);
 
 	}
+	
 	void goToNextScene() {
 		Debug.Log("go to next scene");	
 		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -29,6 +31,10 @@ public class DoorObject : MonoBehaviour {
 		playerObj.transform.localPosition = player_pos;
 		playerObj.GetComponent<NavMeshAgent>().enabled = true;
 		gameObject.SendMessage("changeScene",next_stage);
+	}
+	
+	public void dialogCallBack(){
+		goToNextScene();
 	}
 
 
