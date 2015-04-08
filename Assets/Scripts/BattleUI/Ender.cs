@@ -25,15 +25,16 @@ public class Ender : MonoBehaviour {
 	void 	win(){
 		StartCoroutine ("fadein", Win);
 		Invoke ("returnScene", 5);
+		Win.audio.Play ();
 	}
 	void 	lost(){
 		StartCoroutine ("fadein2", Lost);
+
 		CancelInvoke ();
 	}
 	void returnScene(){
 		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		Application.LoadLevel(GlobalValues.BattleData.returnScene);
-
 	}
 
 	IEnumerator fadein (GameObject o)
@@ -53,6 +54,7 @@ public class Ender : MonoBehaviour {
 	{
 		yield return new WaitForSeconds (0.1f);
 		Lost.SetActive (true);
+		Lost.audio.Play ();
 		Vector3 op = o.transform.position;
 		for (float i=0; i<=1; i+=0.05f) {
 			o.renderer.material.color = new Vector4 (o.renderer.material.color.r, o.renderer.material.color.g, o.renderer.material.color.b, i);

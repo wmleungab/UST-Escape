@@ -284,8 +284,8 @@ MonoBehaviour:
   hitsound: {fileID: 8300000, guid: 3c464b0781cd2a6429ef5f9ba32ea30e, type: 3}
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
-  defendmin: 2
-  defendfactor: 2
+  defendmin: .5
+  defendfactor: 1
   defendfrequency: 1
   defendlength: 2
   defendTimer: 0
@@ -312,8 +312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 25
-  HP: 25
+  fullHP: 30
+  HP: 30
   offset: {x: -.800000012, y: 4, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21276678

@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 8
-  HP: 8
+  fullHP: 12
+  HP: 12
   offset: {x: -.400000006, y: 2.4000001, z: 0}
   hpLengthFactor: 1
 --- !u!114 &11469010
@@ -238,8 +238,8 @@ MonoBehaviour:
   prompt: {fileID: 155682, guid: bbbcd4e1bed3c7b42915023650732b85, type: 2}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
-  defendmin: 2
-  defendfactor: 2
+  defendmin: .5
+  defendfactor: 1
   defendfrequency: 1
   defendlength: 2
   defendTimer: 0

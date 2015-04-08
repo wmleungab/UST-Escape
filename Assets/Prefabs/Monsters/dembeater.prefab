@@ -237,12 +237,13 @@ MonoBehaviour:
   hitsound: {fileID: 8300000, guid: bff28f6747597584296ef45aaee2cf80, type: 3}
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
-  defendmin: 2
-  defendfactor: 2
+  defendmin: .5
+  defendfactor: 1
   defendfrequency: 1
   defendlength: 2
   defendTimer: 0
   sheildsize: .5
+  allowSlide: 0
   prompt: {fileID: 197920, guid: 1f67a3fc9bcb64548bc730079419abe9, type: 2}
   lastAttack: 0
   canAttackRange: .25
@@ -268,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 15
-  HP: 15
+  fullHP: 20
+  HP: 20
   offset: {x: -.300000012, y: 3.5999999, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21213712

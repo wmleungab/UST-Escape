@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174236}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0105499877, y: .300087184, z: 0}
+  m_LocalPosition: {x: .800835848, y: 1.24019134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -257,8 +257,8 @@ MonoBehaviour:
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendSheildpf: {fileID: 143524, guid: c43da1b1a18fa1f43951a3d98032fbbf, type: 2}
   defendState: 0
-  defendmin: 2
-  defendfactor: 2
+  defendmin: .5
+  defendfactor: 1
   defendfrequency: 1
   defendlength: 2
   defendTimer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
   frequency: 1.29999995
   threshold: 1.29999995
   damage: 6
-  fingTimeThreshold: 15
+  fingTimeThreshold: 20
   lastAttack: 0
   canAttackRange: .25
 --- !u!114 &11474236
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 20
-  HP: 20
+  fullHP: 22
+  HP: 22
   offset: {x: -.639999986, y: 3.5999999, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21274236

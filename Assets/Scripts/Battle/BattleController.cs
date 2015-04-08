@@ -27,12 +27,17 @@ public class BattleController : MonoBehaviour {
 	public GameObject Mickey;
 	public GameObject DimJack;
 	
+	public GameObject []BGmusic;
+	
 	Vector3 []enemiesPos;
 
 
 	// Use this for initialization
 	void Start () {
-
+		if(GlobalValues.BattleData.isFinalStage)
+			BGmusic[0].audio.Play();
+		else
+			BGmusic[1].audio.Play();
 		setBackground ();
 		setPosition ();
 		createMonster ();
