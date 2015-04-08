@@ -20,6 +20,22 @@ public class DoorDialogInterface : DialogInterface
 				conversation (nameString, dialogString, 888);
 		}
 
+	public void goToNextSceneDialog ()
+	{
+		
+		DialogSystem.character[] nameString = {
+			DialogSystem.character.CLEANINGLADY,
+			DialogSystem.character.PLAYER,
+			DialogSystem.character.CLEANINGLADY
+		};
+		string[] dialogString = new string[] {
+			"Have you made the lab dirty!?",
+			"No! I didn't!",
+			"No excuse!"
+		};
+		conversation (nameString, dialogString, 444);
+	}
+
 		public void subsequentTouchingDoor ()
 		{
 		
@@ -37,4 +53,6 @@ public class DoorDialogInterface : DialogInterface
 				//selection -1: No selection carried out 0; false or no 1: true or yes
 				Debug.Log ("DoorDialogInterface: Dialog with id " + id + "has finished with selection " + selection);
 		}
+
+
 }

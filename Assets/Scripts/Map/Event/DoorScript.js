@@ -55,6 +55,8 @@ function OnTriggerEnter() {
 }
 
 function goToNextScene() {
+
+		GetComponent("DoorDialogInterface").SendMessage("goToNextSceneDialog");
 		Debug.Log("go to next scene");	
 		gameObject.SendMessage("changeScene",next_stage);
 }

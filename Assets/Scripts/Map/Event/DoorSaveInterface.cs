@@ -23,4 +23,7 @@ public class DoorSaveInterface : MonoBehaviour {
 			this.GetComponent<DoorDialogInterface>().subsequentTouchingDoor();
 		}
 		}
+	
+
+
 }
