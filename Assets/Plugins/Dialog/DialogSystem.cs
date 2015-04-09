@@ -289,7 +289,8 @@ public class DialogSystem : MonoBehaviour
 			
 		}
 		private void swapPlayer(character[] myCStr){
-
+		if (myCStr.Length != 3)
+						return;
 		if (myCStr [0] == character.PLAYER) {
 			myCStr [0]=myCStr [1];
 			myCStr [1]=myCStr [2];
