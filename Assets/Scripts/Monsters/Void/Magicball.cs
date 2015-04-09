@@ -83,9 +83,9 @@ public class Magicball : MonoBehaviour {
 
 		parentMon.gameObject.GetComponent<Void> ().invokeAttack(); //call the parent that the magic ball is finished and invoke attack
 		Destroy (gameObject);
-	}
+	}/*
 	void OnGUI(){
 		GUILayout.Label ("fingFrameTime:" + fingFrameTime + "\n"
 		                 +"d:"+allowFing);
-	}
+	}*/
 }

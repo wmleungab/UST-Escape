@@ -31,6 +31,12 @@ public class HealthBar : MonoBehaviour {
 		if (HP > fullHP)
 						HP = fullHP;
 	}
+	
+	void decreaseHP(int hp){
+		HP -= hp;
+		if (HP < 0)
+			HP = 0;
+	}
 
 	void healthbar(){
 		if (HP < 0)

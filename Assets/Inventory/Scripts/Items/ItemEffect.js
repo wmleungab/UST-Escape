@@ -28,6 +28,12 @@ function UseEffect ()
 	if(this.name=="potion")
 GameObject.Find("Player").GetComponent("HealthBar").SendMessage("Addhp",40);
 else if(this.name=="beautifulKey");
+else if(this.name=="midterm"){
+var i:int;
+for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dembeater"))
+GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",15);
+}
 else if(this.name=="key");
 else if(this.name=="knife");
 else if(this.name=="mace");

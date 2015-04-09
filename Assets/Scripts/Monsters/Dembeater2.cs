@@ -209,10 +209,7 @@ public class Dembeater2 : MonoBehaviour {
 		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;
 		exp2.transform.localScale = new Vector3 (2f, 2f, 1);
 	}
-	void OnGUI(){
-		GUILayout.Label ("fingFrameTime:" + fingFrameTime + "\n"
-		                 +"d:"+allowFing);
-	}
+
 	void die ()
 	{
 		StartCoroutine ("dieAnim");
@@ -221,7 +218,6 @@ public class Dembeater2 : MonoBehaviour {
 		CancelInvoke ("readyTofight");
 		CancelInvoke ("counting");
 	}
-
 
 
 	IEnumerator dieAnim ()
