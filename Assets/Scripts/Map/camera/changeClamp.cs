@@ -13,6 +13,11 @@ public class changeClamp : MonoBehaviour {
 	
 	void Start() {
 		ccObj=Camera.main.GetComponent<ClampCamera>();
+		 if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
+				swapPara();
+				ccObj.setClamp();
+				cameraOnRight = false;
+		}
 	}
 	
 	void OnTriggerEnter(Collider other){

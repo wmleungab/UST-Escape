@@ -12,7 +12,9 @@ public class President : MonoBehaviour {
 	void Start () {
 		playerObj = GameObject.FindWithTag("Player");
 		if (playerObj==null) Debug.LogError("Player Object not found");
-
+		if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.PREDDIALOG]){
+			clickCount = 1;
+		}
 	}
 	
 	public void colliderOnClick(){
@@ -37,6 +39,11 @@ public class President : MonoBehaviour {
 	void giveItem() {
 		
 		StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(giveItemName));
+		SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
+		if(slObj != null){
+			SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.PREDDIALOG] = true;
+			SaveLoadSystem.getInstance ().save ();		
+		}
 		
 	}
 }

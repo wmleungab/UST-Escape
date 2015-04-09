@@ -13,7 +13,10 @@ public class lightControl : MonoBehaviour {
 	private float startTime;
     void Start() {
         lt = lt.GetComponent<Light>();
-    }
+ 		if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
+			lt.intensity = maxIntensity;
+		}
+   }
     void Update() {
 		if(triggerEnter && ((lightup && lt.intensity < maxIntensity) || (!lightup && lt.intensity > minIntensity)) ) {
 			float deltaValue = (Time.time - startTime) / duration;

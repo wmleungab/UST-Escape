@@ -21,6 +21,11 @@ public class LockerController : MonoBehaviour {
 		playerObj = GameObject.FindWithTag("Player");
 		if (playerObj==null) Debug.LogError("Player Object not found");
 		dialogComponent = GetComponent<LockerDialogInterface>();
+		
+		if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.LOCKEROPEN]){
+			isOpened = true;
+		}
+
 	}
 	
 	// Update is called once per frame
@@ -35,6 +40,11 @@ public class LockerController : MonoBehaviour {
 			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(0));
 			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(1));
 			isOpened = true;
+			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
+			if(slObj != null){
+				SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.LOCKEROPEN] = true;
+				SaveLoadSystem.getInstance ().save ();		
+			}
 		}
 	}
 	

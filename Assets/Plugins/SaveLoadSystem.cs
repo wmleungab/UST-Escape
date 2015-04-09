@@ -10,6 +10,7 @@ public class SaveLoadSystem : MonoBehaviour
 
 		public SceneType currentSceneType = SceneType.MENU;
 		public bool[] labSceneStateArr = new bool[4];
+		public bool[] atriumSceneStateArr = new bool[5];
 		SceneType lastSceneType = SceneType.MENU;
 
 		//SaveLoadSystemInterface slInterface=null;
@@ -22,6 +23,13 @@ public class SaveLoadSystem : MonoBehaviour
 				PUZZLESOLVED
 		}
 
+		public enum AtriumSceneState
+		{
+				PREDDIALOG=0,
+				LOCKEROPEN,
+				FROMLG2
+		}
+		
 		public enum SceneType
 		{
 				MENU=0,
@@ -88,6 +96,18 @@ public class SaveLoadSystem : MonoBehaviour
 						else
 								PlayerPrefs.SetInt ("LabSceneStatePUZZLESOLVED", 0);
 				} else if (currentSceneType == SceneType.ATRIUM) {
+						if (atriumSceneStateArr [(int)AtriumSceneState.PREDDIALOG])
+								PlayerPrefs.SetInt ("AtriumSceneStatePREDDIALOG", 1);
+						else
+								PlayerPrefs.SetInt ("AtriumSceneStatePREDDIALOG", 0);
+						if (atriumSceneStateArr [(int)AtriumSceneState.LOCKEROPEN])
+								PlayerPrefs.SetInt ("AtriumSceneStateLOCKEROPEN", 1);
+						else
+								PlayerPrefs.SetInt ("AtriumSceneStateLOCKEROPEN", 0);
+						if (atriumSceneStateArr [(int)AtriumSceneState.FROMLG2])
+								PlayerPrefs.SetInt ("AtriumSceneStateFROMLG2", 1);
+						else
+								PlayerPrefs.SetInt ("AtriumSceneStateFROMLG2", 0);
 				} else if (currentSceneType == SceneType.LG2) {
 				} else if (currentSceneType == SceneType.SUNDIAL) {
 				} else if (currentSceneType == SceneType.UNDERSUN1) {
@@ -127,6 +147,18 @@ public class SaveLoadSystem : MonoBehaviour
 
 						
 				} else if (currentSceneType == SceneType.ATRIUM) {
+						if (PlayerPrefs.GetInt ("AtriumSceneStatePREDDIALOG") == 1)
+								atriumSceneStateArr [(int)AtriumSceneState.PREDDIALOG] = true;
+						else if (PlayerPrefs.GetInt ("AtriumSceneStatePREDDIALOG") == 0)
+								atriumSceneStateArr [(int)AtriumSceneState.PREDDIALOG] = false;
+						if (PlayerPrefs.GetInt ("AtriumSceneStateLOCKEROPEN") == 1)
+								atriumSceneStateArr [(int)AtriumSceneState.LOCKEROPEN] = true;
+						else if (PlayerPrefs.GetInt ("AtriumSceneStateLOCKEROPEN") == 0)
+								atriumSceneStateArr [(int)AtriumSceneState.LOCKEROPEN] = false;
+						if (PlayerPrefs.GetInt ("AtriumSceneStateFROMLG2") == 1)
+								atriumSceneStateArr [(int)AtriumSceneState.FROMLG2] = true;
+						else if (PlayerPrefs.GetInt ("AtriumSceneStateFROMLG2") == 0)
+								atriumSceneStateArr [(int)AtriumSceneState.FROMLG2] = false;
 
 				} else if (currentSceneType == SceneType.LG2) {
 
