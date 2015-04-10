@@ -4,6 +4,7 @@ using System.Collections;
 public class animationScript : MonoBehaviour {
 	
 	private Animator animator;
+	private float lastAngle;
 	public bool useOnPlayer = true;
 	public GameObject player;
 	NavMeshAgent myAgent;
@@ -32,31 +33,37 @@ public class animationScript : MonoBehaviour {
 		 }
 		 angle = (angle + 180.0f) % 360.0f;
 		
-		if(myAgent.velocity.x == 0 && myAgent.velocity.y == 0){
+		if(myAgent.velocity.magnitude == 0){
 			animator.SetInteger("Direction",0);
 		}
-		else if (angle > angleNE+angleBuffer || angle <= angleNW-angleBuffer){ //North
-			animator.SetInteger("Direction",1);
-		}
-		else if (angle > angleSW+angleBuffer && angle <= angleSE-angleBuffer){ //South
-			animator.SetInteger("Direction",2);
-		}
-		else if (angle > angleSE+angleBuffer && angle <= angleNE-angleBuffer ){ //East
-			animator.SetInteger("Direction",3);
-		}
-		else if (angle > angleNW+angleBuffer && angle <= angleSW-angleBuffer ){ //West
-			animator.SetInteger("Direction",4);
+		else if( Mathf.Abs(lastAngle - angle) > angleBuffer ){
+			if (angle > angleNE || angle <= angleNW){ //North
+				animator.SetInteger("Direction",1);
+				lastAngle = angle;
+			}
+			else if (angle > angleSW && angle <= angleSE){ //South
+				animator.SetInteger("Direction",2);
+				lastAngle = angle;
+			}
+			else if (angle > angleSE && angle <= angleNE ){ //East
+				animator.SetInteger("Direction",3);
+				lastAngle = angle;
+			}
+			else if (angle > angleNW && angle <= angleSW ){ //West
+				animator.SetInteger("Direction",4);
+				lastAngle = angle;
+			}
 		}
 		else if (animator.GetInteger("Direction") == 0) {
-			if (myAgent.velocity.x > 0){
-				animator.SetInteger("Direction",3);
-			}
-			else {
-				animator.SetInteger("Direction",4);
-			}				
+				if (myAgent.velocity.x > 0 || myAgent.velocity.y > 0){
+					animator.SetInteger("Direction",3);
+					lastAngle = angle;
+				}
+				else {
+					animator.SetInteger("Direction",4);
+					lastAngle = angle;
+				}				
 		}
-		
-		//Debug.Log("animationScript: direction: " + animator.GetInteger("Direction") +" angle: " + angle);
 	}
 }
 
