@@ -12,12 +12,23 @@ public class BridgeEvent : EventScript {
 		woodChild = transform.Find("woodplate").gameObject;
 		
 		woodChild.SetActive(false);
+		
+		if (SaveLoadSystem.getInstance ().lg2SceneStateArr [(int)SaveLoadSystem.Lg2SceneState.BRIDGE]){
+				woodChild.SetActive(true);
+				gapChild.SetActive(false);
+		}
+		
 	}
 
 	override public void startEvent (Transform keyObj) {
 		
 		woodChild.SetActive(true);
 		gapChild.SetActive(false);
+		SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
+		if(slObj != null){
+			slObj.lg2SceneStateArr [(int)SaveLoadSystem.Lg2SceneState.BRIDGE] = true;
+			slObj.save ();		
+		}
 		
 	}
 

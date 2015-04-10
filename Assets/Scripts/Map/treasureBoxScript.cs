@@ -22,6 +22,9 @@ public class treasureBoxScript : MonoBehaviour {
 	void Start () {
 		playerObj = GameObject.FindWithTag("Player");
 		if (playerObj==null) Debug.LogError("Player Object not found");
+		if (SaveLoadSystem.getInstance ().lg2SceneStateArr [(int)SaveLoadSystem.Lg2SceneState.TBOPEN]){
+			isOpened = true;
+		}
 	}
 	
 	void colliderOnClick(){
@@ -72,6 +75,11 @@ public class treasureBoxScript : MonoBehaviour {
 			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(0));
 			StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(1));
 			isOpened = true;
+			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
+			if(slObj != null){
+				slObj.lg2SceneStateArr [(int)SaveLoadSystem.Lg2SceneState.TBOPEN] = true;
+				slObj.save ();		
+			}
 		}
 		if(keyUsed == TBKey.SIMPLEKEY){
 			Debug.Log("Treasure box Monster");

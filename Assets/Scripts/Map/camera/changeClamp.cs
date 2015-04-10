@@ -3,50 +3,74 @@ using System.Collections;
 
 public class changeClamp : MonoBehaviour {
 
-	public float mapX = 25.0f;
-	public float mapY = 20.0f;
-	public Vector2 centerPoint = new Vector2(0,0);
+	public float LmapX = 25.0f;
+	public float LmapY = 20.0f;
+	public Vector2 LcenterPoint = new Vector2(0,0);
+
+	public float RmapX = 25.0f;
+	public float RmapY = 20.0f;
+	public Vector2 RcenterPoint = new Vector2(0,0);
 	
-	private bool cameraOnRight = true;
+	public bool cameraOnRight = true;
 	
 	ClampCamera ccObj;
 	
 	void Start() {
+		Debug.Log("changeClamp start");
 		ccObj=Camera.main.GetComponent<ClampCamera>();
-		 if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
-				swapPara();
+		Debug.Log("cameraOnRight: " + cameraOnRight);
+		 if (cameraOnRight && SaveLoadSystem.getInstance().atriumSceneStateArr[(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
+		Debug.Log("Load camera");
+				moveToLeft();
 				ccObj.setClamp();
-				cameraOnRight = false;
 		}
 	}
 	
 	void OnTriggerEnter(Collider other){
 
-		if (!(other.bounds.max.x > collider.bounds.max.x)){
-			// enter on right
-			if(!cameraOnRight){
-				swapPara();
-				ccObj.setClamp();
-				cameraOnRight = true;
-			}
+		if(other.tag == "Player"){
+			if (!(other.bounds.max.x > collider.bounds.max.x)){
+				// enter on right
+				if(!cameraOnRight){
+					moveToRight();
+					ccObj.setClamp();
+				}
+			}		
 		}			
 		
 	}
 	
 	void OnTriggerExit(Collider other){
 
-		if (!(other.bounds.max.x > collider.bounds.max.x)){
-			// exit on right
-			if(cameraOnRight){
-				swapPara();
-				ccObj.setClamp();
-				cameraOnRight = false;
+		if(other.tag == "Player"){
+			if (!(other.bounds.max.x > collider.bounds.max.x)){
+				// exit on right
+				if(cameraOnRight){
+					moveToLeft();
+					ccObj.setClamp();
+				}
 			}
 		}
 		
 	}
 	
-	void swapPara(){
+	void moveToLeft(){
+		ccObj.mapX = LmapX;
+		ccObj.mapY = LmapY;
+		ccObj.centerPoint = LcenterPoint;
+		cameraOnRight = false;
+		Debug.Log("moveCamera to left");
+	}
+	
+	void moveToRight(){
+		ccObj.mapX = RmapX;
+		ccObj.mapY = RmapY;
+		ccObj.centerPoint = RcenterPoint;
+		cameraOnRight = true;
+		Debug.Log("moveCamera to Right");
+	}
+	
+/*	void swapPara(){
 		
 		swap (ref ccObj.mapX , ref mapX);
 		swap (ref ccObj.mapY , ref mapY);
@@ -72,5 +96,5 @@ public class changeClamp : MonoBehaviour {
 		y=temp;
 
 	}
-	
+	*/
 }

@@ -42,8 +42,8 @@ public class LockerController : MonoBehaviour {
 			isOpened = true;
 			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
 			if(slObj != null){
-				SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.LOCKEROPEN] = true;
-				SaveLoadSystem.getInstance ().save ();		
+				slObj.atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.LOCKEROPEN] = true;
+				slObj.save ();		
 			}
 		}
 	}

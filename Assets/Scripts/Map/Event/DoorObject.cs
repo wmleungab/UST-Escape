@@ -26,10 +26,17 @@ public class DoorObject : MonoBehaviour {
 	
 	void goToNextScene() {
 		Debug.Log("go to next scene");	
+		if(next_stage == "LG2_stage"){
+			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
+			if(slObj != null){
+				slObj.atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
+				slObj.save ();		
+			}
+		}
 		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-		playerObj.GetComponent<NavMeshAgent>().enabled = false;
+		playerObj.SetActive(false);
 		playerObj.transform.localPosition = player_pos;
-		playerObj.GetComponent<NavMeshAgent>().enabled = true;
+		playerObj.SetActive(true);
 		gameObject.SendMessage("changeScene",next_stage);
 	}
 	
