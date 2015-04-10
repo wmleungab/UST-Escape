@@ -49,12 +49,13 @@ public abstract class EventScript : MonoBehaviour {
 		if(startFK){
 			startFK = false;
 			Debug.Log ("Key Not found");
-			GetComponent<EventDialogInterface>().startIntroDialog();
+			if(!isFinished) GetComponent<EventDialogInterface>().startIntroDialog();
 		}
 	}	
 	
 	public void dialogCallback(int dialogID, Transform keyObj){
 		startEvent(keyObj);
+		isFinished = true;
 		gameObject.SendMessage("removeItem", keyObj);
 	}
 	
@@ -67,6 +68,7 @@ public abstract class EventScript : MonoBehaviour {
 			Debug.Log(other.name);
 			if (other.name == keyItemName){
 					startEvent(other.transform);
+					isFinished = true;
 					Destroy(other.gameObject);    
 			}
 		}
