@@ -36,12 +36,13 @@ public class LabSceneDialogInterface : DialogInterface
 			DialogSystem.character.PLAYER
 			};
 		
-				string[] dialog = new string[]{
+			string[] dialog = new string[]{
 			"……??? Where is here? Lab 4221? Why it looks so dim and old?",
 			"I remember I fall at sleep in the lab during class, have I slept too long?", 
 			"By the way, I think it is evening already. \nI better leave UST and go back home."
 			};
-		
+
+
 			conversation (cArr, dialog, 1);
 		}
 

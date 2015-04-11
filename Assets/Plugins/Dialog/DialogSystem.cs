@@ -85,9 +85,10 @@ public class DialogSystem : MonoBehaviour
 
 		}
 
-	public bool isOperating(){
-		return occupied;
-	}
+		public bool isOperating ()
+		{
+				return occupied;
+		}
 
 
 /*		public void startDialog (string _nameString, string _dialogString)
@@ -288,17 +289,19 @@ public class DialogSystem : MonoBehaviour
 				}
 			
 		}
-		private void swapPlayer(character[] myCStr){
-		if (myCStr.Length != 3)
+
+		private void swapPlayer (character[] myCStr)
+		{
+				if (myCStr.Length != 3)
 						return;
-		if (myCStr [0] == character.PLAYER) {
-			myCStr [0]=myCStr [1];
-			myCStr [1]=myCStr [2];
-			myCStr [2]=character.PLAYER;
-		}else if(myCStr [1] == character.PLAYER) {
-			myCStr [1]=myCStr [2];
-			myCStr [2]=character.PLAYER;
-		}
+				if (myCStr [0] == character.PLAYER) {
+						myCStr [0] = myCStr [1];
+						myCStr [1] = myCStr [2];
+						myCStr [2] = character.PLAYER;
+				} else if (myCStr [1] == character.PLAYER) {
+						myCStr [1] = myCStr [2];
+						myCStr [2] = character.PLAYER;
+				}
 
 		}
 
@@ -423,8 +426,17 @@ public class DialogSystem : MonoBehaviour
 				Vector3 position = Camera.mainCamera.gameObject.transform.position;
 				position.y -= 3;
 				position.z -= 3.5f;
-				dialogInstance = Instantiate (dialogPrefab, position, Quaternion.Euler (90, 0, 0))as GameObject;
+				if (Application.loadedLevelName == "SecretChamberBefore") {
+						Debug.Log ("Detect SecretChamberBefore by DS");
 
+			position.x = 0;
+			position.z = 0;
+			dialogInstance = Instantiate (dialogPrefab,position, Quaternion.Euler (0, 0, 0))as GameObject;
+				} else {
+
+						dialogInstance = Instantiate (dialogPrefab, position, Quaternion.Euler (90, 0, 0))as GameObject;
+
+				}
 				if (!option_Mode)
 						dialogInstance.transform.GetChild (5).gameObject.SetActive (false);
 				if (!option_Mode)
