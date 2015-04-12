@@ -111,7 +111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18064f1f01ddbe743a80bdc5b5ce7c72, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 18064f1f01ddbe743a80bdc5b5ce7c72, type: 2}
       propertyPath: itemIcon
@@ -3155,6 +3155,7 @@ GameObject:
   - 54: {fileID: 559663092}
   - 114: {fileID: 559663091}
   - 114: {fileID: 559663097}
+  - 114: {fileID: 559663098}
   m_Layer: 0
   m_Name: midterm
   m_TagString: Item
@@ -3279,7 +3280,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b666d1a7165164b8e80a65056eed505d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deleteOnUse: 1
+  deleteOnUse: 0
+--- !u!114 &559663098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11491370, guid: a39bbeb0c280e084284a0dbd754e50ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1206235521}
+  m_GameObject: {fileID: 559663089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dd58bff6c25114eb6f66864f36db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &569500641
 GameObject:
   m_ObjectHideFlags: 0
@@ -6801,7 +6814,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a39bbeb0c280e084284a0dbd754e50ef, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a39bbeb0c280e084284a0dbd754e50ef, type: 2}

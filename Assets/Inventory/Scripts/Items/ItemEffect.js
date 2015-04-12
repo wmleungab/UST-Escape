@@ -32,20 +32,25 @@ else if(this.name=="beautifulKey");
 else if(this.name=="midterm"){
 var i:int;
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
-if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dembeater"))
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dembeater")){
 GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",11);
+SendMessage("findKey","midterm");
+}
 }
 else if(this.name=="salad"){
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
-if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dimJACK"))
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dimJACK")){
 GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",15);
+SendMessage("findKey","salad");
+}
 }
 else if(this.name=="key");
 else if(this.name=="nose"){
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
-if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("void"))
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("void")){
 GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",12);
-
+SendMessage("findKey","nose");
+}
 }
 else if(this.name=="knife");
 else if(this.name=="mace");
@@ -57,6 +62,10 @@ else if(this.name=="mace");
 	{
 		DeleteUsedItem();
 	}
+}
+
+function findKeyCallback(item:Transform){
+SendMessage("removeItem",item);
 }
 
 //This takes care of deletion

@@ -41,6 +41,8 @@ public class BattleController : MonoBehaviour {
 
 
 	// Use this for initialization
+
+
 	void Start () {
 		if(GlobalValues.BattleData.isFinalStage)
 			BGmusic[0].audio.Play();
