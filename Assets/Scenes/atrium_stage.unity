@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: 449adc150f5134c4d95f481411ef9ff2, type: 2}
 --- !u!1 &19260247
 GameObject:
@@ -5838,6 +5839,7 @@ GameObject:
   - 114: {fileID: 896635297}
   - 54: {fileID: 896635296}
   - 114: {fileID: 896635295}
+  - 114: {fileID: 896635302}
   m_Layer: 0
   m_Name: bucket
   m_TagString: Item
@@ -5892,7 +5894,7 @@ MonoBehaviour:
   stackable: 0
   maxStack: 20
   stack: 1
-  isEquipment: 1
+  isEquipment: 0
   isAlsoWeapon: 0
   equippedWeaponVersion: {fileID: 0}
   playersinv: {fileID: 0}
@@ -5950,6 +5952,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &896635302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11467724, guid: 8aadad659a6d2df40a794c19477722f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413008745}
+  m_GameObject: {fileID: 896635294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b666d1a7165164b8e80a65056eed505d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteOnUse: 1
 --- !u!1 &900315908
 GameObject:
   m_ObjectHideFlags: 0
@@ -11843,6 +11858,7 @@ GameObject:
   - 81: {fileID: 1898259242}
   - 114: {fileID: 1898259247}
   - 114: {fileID: 1898259249}
+  - 114: {fileID: 1898259248}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11927,6 +11943,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: .150000006
+--- !u!114 &1898259248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898259241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f54e0d93f444394aad753490cb7dae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1898259249
 MonoBehaviour:
   m_ObjectHideFlags: 0

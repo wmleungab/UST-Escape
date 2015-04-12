@@ -23,6 +23,7 @@ public class Ender : MonoBehaviour {
 	}
 
 	void 	win(){
+		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		StartCoroutine ("fadein", Win);
 		Invoke ("returnScene", 5);
 		Win.audio.Play ();

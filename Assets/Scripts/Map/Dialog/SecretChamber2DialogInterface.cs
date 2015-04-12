@@ -69,7 +69,7 @@ public class SecretChamber2DialogInterface : DialogInterface {
 		Debug.Log ("Dialog with id " + id + "has finished with selection result " + selection);
 		if (id == 732) {
 			GamePause.pauseGame();
-			Application.LoadLevel("mainmenu");
+			AutoFade.LoadLevel("end_scene",1f,1f,Color.black);
 		}
 		
 	}

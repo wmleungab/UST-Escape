@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: e482c53c63024e54882024c796edba28, type: 2}
 --- !u!1001 &39638611
 Prefab:
@@ -3045,6 +3046,8 @@ GameObject:
   - 81: {fileID: 516334103}
   - 114: {fileID: 516334108}
   - 114: {fileID: 516334109}
+  - 114: {fileID: 516334110}
+  - 114: {fileID: 516334111}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3143,6 +3146,28 @@ MonoBehaviour:
   mapX: 25
   mapY: 20
   centerPoint: {x: 0, y: 0}
+--- !u!114 &516334110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516334102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f54e0d93f444394aad753490cb7dae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &516334111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 516334102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f54e0d93f444394aad753490cb7dae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &538537447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5421,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 830953185}
   - 114: {fileID: 830953184}
+  - 82: {fileID: 830953186}
   m_Layer: 0
   m_Name: DialogSystem
   m_TagString: Untagged
@@ -5438,6 +5464,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!82 &830953186
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8203744, guid: 52ea663e4cddbec4b94abe5520182173,
+    type: 2}
+  m_PrefabInternal: {fileID: 299084378}
+  m_GameObject: {fileID: 830953183}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 5563b76e5651ba94b809a2e65204f24e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &837300580
 Prefab:
   m_ObjectHideFlags: 0
