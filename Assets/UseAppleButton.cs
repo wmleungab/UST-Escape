@@ -10,7 +10,7 @@ public class UseAppleButton : MonoBehaviour {
 
 	void findKeyCallback(Transform item){
 		if (item != null) {
-			gameObject.SendMessage("removeItem","greenapple");
+			gameObject.SendMessage("removeItem",item);
 			AutoFade.LoadLevel("battle",0.5f,0.5f,Color.black);
 		}
 	}
