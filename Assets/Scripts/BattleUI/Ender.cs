@@ -7,8 +7,8 @@ public class Ender : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Win.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
-		Lost.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
-		Lost.SetActive (false);
+	//	Lost.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
+		Lost.transform.localScale = new Vector3(0,0,1);
 	}
 	
 	// Update is called once per frame
@@ -29,9 +29,18 @@ public class Ender : MonoBehaviour {
 	}
 	void 	lost(){
 		GameObject.Find("Inventory").SendMessage ("toMapMode");
+		Lost.transform.GetChild(1).GetComponent<TextMesh>().text="X0";
+		gameObject. SendMessage ("findKey", "greenapple");
 		StartCoroutine ("fadein2", Lost);
 		CancelInvoke ();
 	}
+
+	void findKeyCallback(Transform item){
+		if (item != null) {
+			Lost.transform.GetChild(1).GetComponent<TextMesh>().text="X1";
+		}
+	}
+
 	void returnScene(){
 		if(GlobalValues.BattleData.isFinalStage)
 			Application.LoadLevel("SecretChamberAfter");
@@ -56,12 +65,13 @@ public class Ender : MonoBehaviour {
 	IEnumerator fadein2 (GameObject o)
 	{
 		yield return new WaitForSeconds (0.1f);
-		Lost.SetActive (true);
 		Lost.audio.Play ();
 		Vector3 op = o.transform.position;
+		Lost.transform.localScale = new Vector3 (1.4f, 1.4f, 1);
+
+
 		for (float i=0; i<=1; i+=0.05f) {
-			o.renderer.material.color = new Vector4 (o.renderer.material.color.r, o.renderer.material.color.g, o.renderer.material.color.b, i);
-			o.transform.position=new Vector3(op.x,op.y-3*(1-i),op.z);
+			o.transform.position=new Vector3(op.x,op.y-5*(1-i),op.z);
 			yield return new WaitForSeconds (0.01f);
 		}
 		
