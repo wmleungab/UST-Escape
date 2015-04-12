@@ -7,6 +7,7 @@ public class President : MonoBehaviour {
 	public float maxTouchingDistance = 5.0f;
 	public string giveItemName = "apple";
 	int clickCount = 1;
+	private GameObject zombies;
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,8 @@ public class President : MonoBehaviour {
 		}
 	}
 
-	public void startGiveItem(){
+	public void startGiveItem(GameObject _zombies){
+		zombies = _zombies;
 		GetComponent<PresidDialogInterface>().startGiveItemDialog(this);
 	}
 
@@ -43,6 +45,8 @@ public class President : MonoBehaviour {
 			SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.PREDDIALOG] = true;
 			SaveLoadSystem.getInstance ().save ();		
 		}
+		if (zombies)
+			zombies.SetActive(true);
 		
 	}
 }

@@ -43,9 +43,9 @@ public class AtriumDialogInterface : DialogInterface {
 					SaveLoadSystem.getInstance ().save ();
 					GameObject president = GameObject.Find ("president");
 					if (president) {
-						president.SendMessage ("startGiveItem");
+						president.SendMessage ("startGiveItem", zombies);
 					}
-			if(zombies) zombies.SetActive(true);
+			//if(zombies) zombies.SetActive(true);
 			Destroy (this.gameObject);
 			}
 	}
