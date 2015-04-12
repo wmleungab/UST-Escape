@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35df79cf94921b47ba78165a5640379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStageName: sundial
+  startStageName: LG2_stage
 --- !u!82 &1460736407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -813,31 +813,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef052acccaccc984fae640fb92961962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryList:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  playerInventoryList: $
   currentSceneType: 0
   labSceneStateArr: 00000000
-  atriumSceneStateArr: 0000000000
-  lg2SceneStateArr: 000000
+  atriumSceneStateArr: 00000000000000000000
+  lg2SceneStateArr: 00000000000000000000
 --- !u!4 &2007600110
 Transform:
   m_ObjectHideFlags: 0

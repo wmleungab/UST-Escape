@@ -36,6 +36,6 @@ function findKey(keyName : String) : Transform
 		}
 	}
 	
-	gameObject.SendMessage("findKeyFailCallback");
+	gameObject.SendMessage("findKeyFailCallback", true, SendMessageOptions.DontRequireReceiver);
 	return null;
 }

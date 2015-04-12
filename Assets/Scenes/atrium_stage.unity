@@ -2765,7 +2765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cf6128d0d354a4384c71d7907624f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombies: {fileID: 0}
+  zombies: {fileID: 128128164}
 --- !u!1 &391904143
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,6 +2972,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
+      propertyPath: battleBackgroundID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
   m_RootGameObject: {fileID: 1843640918}
@@ -3153,7 +3157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
-  battleBackgroundID: 1
+  battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
 --- !u!1001 &414675781
@@ -8645,6 +8649,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
+      propertyPath: battleBackgroundID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
   m_RootGameObject: {fileID: 1891440565}
@@ -11002,6 +11010,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
+      propertyPath: battleBackgroundID
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
   m_RootGameObject: {fileID: 2074796705}
@@ -11118,6 +11130,10 @@ Prefab:
     - target: {fileID: 100002, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400012, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
+      propertyPath: battleBackgroundID
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 79838f6b9a4ef2248a1dc978da7025a5, type: 2}
@@ -11581,7 +11597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
-  battleBackgroundID: 1
+  battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
 --- !u!4 &1843640920
@@ -11627,7 +11643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
-  battleBackgroundID: 1
+  battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
 --- !u!4 &1891440567
@@ -12900,7 +12916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
-  battleBackgroundID: 1
+  battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
 --- !u!1 &2077985248

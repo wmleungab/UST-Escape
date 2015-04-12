@@ -191,12 +191,13 @@ public class SaveLoadSystem : MonoBehaviour
 			
 		}
 		
-		void setnSaveInventoryList(string il){
+		public void setnSaveInventoryList(string il){
 		this.playerInventoryList =il;
 		PlayerPrefs.SetString ("PlayerInventoryList",this.playerInventoryList);
 		}
-		void getnLoadInventoryList(string[] il){
+		public string getnLoadInventoryList(){
 		this.playerInventoryList = PlayerPrefs.GetString ("PlayerInventoryList");
+		return this.playerInventoryList;
 		}
 
 		void Start ()

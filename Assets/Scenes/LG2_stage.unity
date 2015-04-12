@@ -689,6 +689,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 178074901}
+  - 114: {fileID: 178074902}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -714,6 +715,17 @@ Transform:
   - {fileID: 768680802}
   m_Father: {fileID: 636102160}
   m_RootOrder: 2
+--- !u!114 &178074902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178074900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98865b575f824240b039fc58953efad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &220297633
 Prefab:
   m_ObjectHideFlags: 0
@@ -2536,7 +2548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &890500307
 Transform:
   m_ObjectHideFlags: 0
@@ -2783,6 +2795,7 @@ GameObject:
   - 82: {fileID: 1054835495}
   - 114: {fileID: 1054835494}
   - 114: {fileID: 1054835491}
+  - 114: {fileID: 1054835496}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2966,6 +2979,17 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &1054835496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1054835486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dd58bff6c25114eb6f66864f36db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1093384865
 Prefab:
   m_ObjectHideFlags: 0
@@ -3422,7 +3446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1216505137
 Transform:
   m_ObjectHideFlags: 0
@@ -3431,7 +3455,7 @@ Transform:
   m_GameObject: {fileID: 1216505136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.987984657, y: .0391473658, z: .337192267}
-  m_LocalScale: {x: .152997956, y: 1.01010096, z: .291357785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 114382051}
   - {fileID: 1854203475}
@@ -3532,7 +3556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1464879304
 Transform:
   m_ObjectHideFlags: 0
