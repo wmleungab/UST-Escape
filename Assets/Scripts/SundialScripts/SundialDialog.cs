@@ -63,6 +63,7 @@ public class SundialDialog : MonoBehaviour
 								break;}
 				case 7:
 						{
+			Application.LoadLevel("SecretChamberBefore");
 								dialogue.GetComponent<TextMesh> ().text = "Change sense";
 								break;}
 				}

@@ -168,7 +168,9 @@ public class SaveLoadSystem : MonoBehaviour
 				} else if (currentSceneType == SceneType.SUNDIAL) {
 
 				} else if (currentSceneType == SceneType.UNDERSUN1) {
+
 				} else if (currentSceneType == SceneType.UNDERSUN2) {
+
 				}
 
 				string tempS = "playerInventoryList_index";
@@ -267,7 +269,13 @@ public class SaveLoadSystem : MonoBehaviour
 				} else if (name == "sundial") {
 						currentSceneType = SceneType.SUNDIAL;
 						return true;
-				} 
+				} else if (name == "SecretChamberBefore") {
+						currentSceneType = SceneType.SUNDIAL;
+						return true;
+				} else if (name == "SecretChamberBefore") {
+						currentSceneType = SceneType.SUNDIAL;
+						return true;
+				}
 				return false;
 
 		}

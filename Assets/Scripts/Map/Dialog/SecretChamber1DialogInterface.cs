@@ -62,6 +62,7 @@ public class SecretChamber1DialogInterface : DialogInterface {
 			GlobalValues.BattleData.battleBackgroundID=5;
 			GlobalValues.BattleData.numOfMonsters=1;
 			GlobalValues.BattleData.monsterID=new int[]{7};
+			GlobalValues.BattleData.isFinalStage=true;
 			AutoFade.LoadLevel("battle",0.5f,0.5f,Color.black);
 		}
 		
