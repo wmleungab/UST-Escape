@@ -284,7 +284,7 @@ MonoBehaviour:
   hitsound: {fileID: 8300000, guid: 3c464b0781cd2a6429ef5f9ba32ea30e, type: 3}
   defendsound: {fileID: 8300000, guid: fc4789df4bf38024c8e109bac619ffa1, type: 3}
   defendState: 0
-  defendmin: .5
+  defendmin: 1
   defendfactor: 1
   defendfrequency: 1
   defendlength: 2

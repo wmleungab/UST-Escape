@@ -33,13 +33,18 @@ else if(this.name=="midterm"){
 var i:int;
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
 if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dembeater"))
+GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",11);
+}
+else if(this.name=="salad"){
+for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("dimJACK"))
 GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",15);
 }
 else if(this.name=="key");
 else if(this.name=="nose"){
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
 if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("void"))
-GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",15);
+GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",12);
 
 }
 else if(this.name=="knife");
