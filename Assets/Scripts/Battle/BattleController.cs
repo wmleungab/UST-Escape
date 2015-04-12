@@ -29,8 +29,10 @@ public class BattleController : MonoBehaviour {
 	public GameObject DimJack;
 	
 	public GameObject ppic;
+	public GameObject usepic;
 	public GameObject midterm;
 	public GameObject nose;
+	public GameObject salad;
 
 
 	public GameObject []BGmusic;
@@ -60,11 +62,17 @@ public class BattleController : MonoBehaviour {
 			else if(i==4 ||i==5){
 				o=midterm;break;
 			}
+			else if(i==7 ){
+				o=salad;break;
+			}
 		}
 		if (o != null) {
 			GameObject s = Instantiate (o, ppic.transform.position, Quaternion.identity)as GameObject;
+			usepic.SetActive(true);
 			s.transform.parent = ppic.transform;
 		}
+		else
+			usepic.SetActive(false);
 	}
 	void 		setBackground (){
 

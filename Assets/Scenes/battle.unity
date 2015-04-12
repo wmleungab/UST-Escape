@@ -902,7 +902,7 @@ Transform:
   m_GameObject: {fileID: 919790346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.70000005, y: 1.70000005, z: 1}
   m_Children: []
   m_Father: {fileID: 1266551162}
   m_RootOrder: 0
@@ -1445,8 +1445,10 @@ MonoBehaviour:
   Mickey: {fileID: 134878, guid: 313582bb7c24d9a4c858f17a20ec2f35, type: 2}
   DimJack: {fileID: 176678, guid: 0dec9376f4477b2408eee651af434c16, type: 2}
   ppic: {fileID: 2145414108}
+  usepic: {fileID: 1766883524}
   midterm: {fileID: 186770, guid: 65d2dcd861a759b4f98b4d5f400d2ac8, type: 2}
   nose: {fileID: 161882, guid: b1e16bae9288a8648b0ff04f1b9b5811, type: 2}
+  salad: {fileID: 136408, guid: 45feb4dc4b2c6e14ca2bc80fd0c43719, type: 2}
   BGmusic:
   - {fileID: 770017079}
   - {fileID: 62526711}
@@ -2093,7 +2095,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2145414108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .142739773, y: 2.66555214, z: -17.9530106}
+  m_LocalPosition: {x: 7.46999979, y: 5.76000023, z: -17.9500008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 23010838}
