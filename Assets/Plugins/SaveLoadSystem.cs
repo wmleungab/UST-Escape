@@ -9,8 +9,8 @@ public class SaveLoadSystem : MonoBehaviour
 		public string playerInventoryList ;
 		public SceneType currentSceneType = SceneType.MENU;
 		public bool[] labSceneStateArr = new bool[4];
-		public bool[] atriumSceneStateArr = new bool[5];
-		public bool[] lg2SceneStateArr = new bool[3];
+		public bool[] atriumSceneStateArr = new bool[10];
+		public bool[] lg2SceneStateArr = new bool[10];
 		SceneType lastSceneType = SceneType.MENU;
 
 		//SaveLoadSystemInterface slInterface=null;
@@ -25,14 +25,16 @@ public class SaveLoadSystem : MonoBehaviour
 
 		public enum AtriumSceneState
 		{
-				PREDDIALOG=0,
+				BEGANDIALOG=0,
+				PREDDIALOG,
 				LOCKEROPEN,
 				FROMLG2
 		}
 
 		public enum Lg2SceneState
 		{
-				SAVEPRED=0,
+				BEGANDIALOG=0,
+				SAVEPRED,
 				TBOPEN,
 				BRIDGE
 		}
