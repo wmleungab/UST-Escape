@@ -8,4 +8,6 @@ public class BattleData : MonoBehaviour {
 	public int []monsterID={7,5,6};
 	public string returnScene = "";
 	public bool isFinalStage = false;
+
+	public bool isBattleFinished =false;
 }

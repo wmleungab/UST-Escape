@@ -25,8 +25,9 @@ function Awake ()
 function UseEffect () 
 {
 	Debug.LogWarning("<INSERT CUSTOM ACTION HERE>"); //INSERT CUSTOM CODE HERE!
-	if(this.name=="potion")
+	if(this.name=="redapple")
 GameObject.Find("Player").GetComponent("HealthBar").SendMessage("Addhp",40);
+	else if(this.name=="greenapple");
 else if(this.name=="beautifulKey");
 else if(this.name=="midterm"){
 var i:int;

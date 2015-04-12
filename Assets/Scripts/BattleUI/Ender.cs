@@ -28,13 +28,16 @@ public class Ender : MonoBehaviour {
 		Win.audio.Play ();
 	}
 	void 	lost(){
+		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		StartCoroutine ("fadein2", Lost);
-
 		CancelInvoke ();
 	}
 	void returnScene(){
-		GameObject.Find("Inventory").SendMessage ("toMapMode");
+		if(GlobalValues.BattleData.isFinalStage)
+			Application.LoadLevel("SecretChamberAfter");
+			else
 		Application.LoadLevel(GlobalValues.BattleData.returnScene);
+
 	}
 
 	IEnumerator fadein (GameObject o)
