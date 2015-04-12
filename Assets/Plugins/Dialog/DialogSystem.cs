@@ -232,7 +232,7 @@ public class DialogSystem : MonoBehaviour
 										isClick = true;
 						}
 						if (isClick) {
-
+								gameObject.audio.Play ();
 								if (cdialogString.Count > 0) {
 										dialogInstance.transform.GetChild (1).GetComponent<TextMesh> ().text = cnameString.Dequeue ();
 										dialogInstance.transform.GetChild (2).GetComponent<TextMesh> ().text = cdialogString.Dequeue ();
@@ -362,11 +362,12 @@ public class DialogSystem : MonoBehaviour
 				switch (name) {
 				case "yesBtn":
 						Debug.Log ("Yes clicked");
-		
+						gameObject.audio.Play ();
 						playerOption = true;
 						break;
 				case "noBtn":
 						Debug.Log ("No clicked");
+						gameObject.audio.Play ();
 						playerOption = false;
 						break;
 				}
@@ -426,12 +427,12 @@ public class DialogSystem : MonoBehaviour
 				Vector3 position = Camera.mainCamera.gameObject.transform.position;
 				position.y -= 3;
 				position.z -= 3.5f;
-		if (Application.loadedLevelName == "SecretChamberBefore"||Application.loadedLevelName == "SecretChamberAfter") {
+				if (Application.loadedLevelName == "SecretChamberBefore" || Application.loadedLevelName == "SecretChamberAfter") {
 						Debug.Log ("Detect SecretChamberBefore by DS");
 
-			position.x = 0;
-			position.z = 0;
-			dialogInstance = Instantiate (dialogPrefab,position, Quaternion.Euler (0, 0, 0))as GameObject;
+						position.x = 0;
+						position.z = 0;
+						dialogInstance = Instantiate (dialogPrefab, position, Quaternion.Euler (0, 0, 0))as GameObject;
 				} else {
 
 						dialogInstance = Instantiate (dialogPrefab, position, Quaternion.Euler (90, 0, 0))as GameObject;
