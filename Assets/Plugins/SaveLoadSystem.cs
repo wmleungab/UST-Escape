@@ -6,7 +6,7 @@ public class SaveLoadSystem : MonoBehaviour
 
 		//Here is a private reference only this class can access
 		private static SaveLoadSystem _instance;
-		public string[] playerInventoryList = new string[20];
+		public string playerInventoryList ;
 		public SceneType currentSceneType = SceneType.MENU;
 		public bool[] labSceneStateArr = new bool[4];
 		public bool[] atriumSceneStateArr = new bool[5];
@@ -112,11 +112,8 @@ public class SaveLoadSystem : MonoBehaviour
 				} else if (currentSceneType == SceneType.UNDERSUN2) {
 					
 				}
-			
-				string tempS = "playerInventoryList_index";
-				for (int i=0; i<playerInventoryList.Length; i++) {
-						PlayerPrefs.SetString (tempS + i, playerInventoryList [i]);
-				}
+				PlayerPrefs.SetString ("PlayerInventoryList",this.playerInventoryList);
+
 		}
 		
 		void saveArr<T> (bool[] boolArr, string stateName)
@@ -173,10 +170,7 @@ public class SaveLoadSystem : MonoBehaviour
 
 				}
 
-				string tempS = "playerInventoryList_index";
-				for (int i=0; i<playerInventoryList.Length; i++) {
-						playerInventoryList [i] = PlayerPrefs.GetString (tempS + i);
-				}
+				this.playerInventoryList = PlayerPrefs.GetString ("PlayerInventoryList");
 
 				return;
 		}
@@ -194,6 +188,14 @@ public class SaveLoadSystem : MonoBehaviour
 				}
 			
 		}
+		
+		void setnSaveInventoryList(string il){
+		this.playerInventoryList = new string (il);
+		PlayerPrefs.SetString ("PlayerInventoryList",this.playerInventoryList);
+		}
+		void getnLoadInventoryList(string[] il){
+		this.playerInventoryList = PlayerPrefs.GetString ("PlayerInventoryList");
+		}
 
 		void Start ()
 		{
@@ -202,14 +204,14 @@ public class SaveLoadSystem : MonoBehaviour
 
 		void Update ()
 		{
-				/*	if (isSavableScenesTransaction()) {
+					if (isSavableScenesTransaction()) {
 						if (!GamePause.isPause ()) {
 								lastSceneType = currentSceneType;
 								save ();
 						
 						}
 					}
-*/
+
 				/*		if (isMenu2OtherSceneTransaction ()) {
 						Debug.Log ("SaveLoadSystem: A scene transaction from MainMenu to some scene was detected.");
 						lastSceneType = currentSceneType;

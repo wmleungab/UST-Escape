@@ -6,6 +6,7 @@ public class Multi_QTETriangleHelper : MonoBehaviour {
 	public Multi_QTETriangle parent;
 
 	void Start () {
+		if (Application.loadedLevelName != "sundial")
 		do {
 			parent = GameObject.Find ("QTETri(Clone)").GetComponent<Multi_QTETriangle> ();
 		} while(parent==null);
