@@ -28,6 +28,11 @@ public class BattleController : MonoBehaviour {
 	public GameObject Mickey;
 	public GameObject DimJack;
 	
+	public GameObject ppic;
+	public GameObject midterm;
+	public GameObject nose;
+
+
 	public GameObject []BGmusic;
 	
 	Vector3 []enemiesPos;
@@ -39,10 +44,27 @@ public class BattleController : MonoBehaviour {
 			BGmusic[0].audio.Play();
 		else
 			BGmusic[1].audio.Play();
+		setPrompt ();
 		setBackground ();
 		setPosition ();
 		createMonster ();
 		currentBattleState =BattleState.BATTLE_STARTING;
+	}
+
+	void setPrompt(){
+			GameObject o=null;
+		foreach(int i in GlobalValues.BattleData.monsterID){
+			if(i==3){
+				o=nose;break;
+			}
+			else if(i==4 ||i==5){
+				o=midterm;break;
+			}
+		}
+		if (o != null) {
+			GameObject s = Instantiate (o, ppic.transform.position, Quaternion.identity)as GameObject;
+			s.transform.parent = ppic.transform;
+		}
 	}
 	void 		setBackground (){
 
