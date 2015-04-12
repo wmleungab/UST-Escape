@@ -56,7 +56,12 @@ public class SecretChamber1DialogInterface : DialogInterface {
 	{
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finished with selection result " + selection);
-		//if(id==632)
+		if (id == 632) {
+			GlobalValues.BattleData.battleBackgroundID=5;
+			GlobalValues.BattleData.numOfMonsters=1;
+			GlobalValues.BattleData.monsterID=new int[]{7};
+			AutoFade.LoadLevel("battle",0.5f,0.5f,Color.black);
+		}
 		
 	}
 }
