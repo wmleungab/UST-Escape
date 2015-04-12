@@ -3,10 +3,14 @@ using System.Collections;
 
 public class AtriumDialogInterface : DialogInterface {
 
+	public GameObject zombies;
+
 	// Use this for initialization
 	void Start () {
-		if (!SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.BEGANDIALOG])
-			StartCoroutine (startBeginningDialog());
+		if (!SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.BEGANDIALOG]) {
+			if(zombies) zombies.SetActive(false);
+						StartCoroutine (startBeginningDialog ());
+				}
 		else {
 			Destroy (this.gameObject);
 		}
@@ -14,7 +18,7 @@ public class AtriumDialogInterface : DialogInterface {
 	
 	IEnumerator  startBeginningDialog ()
 	{
-		yield return new WaitForSeconds (0.3f);
+		yield return new WaitForSeconds (1.0f);
 		
 		DialogSystem.character[] cArr = {
 			DialogSystem.character.PLAYER,
@@ -39,9 +43,10 @@ public class AtriumDialogInterface : DialogInterface {
 					SaveLoadSystem.getInstance ().save ();
 					GameObject president = GameObject.Find ("president");
 					if (president) {
-							president.SendMessage ("colliderOnClick");
+						president.SendMessage ("startGiveItem");
 					}
-				Destroy (this.gameObject);
+			if(zombies) zombies.SetActive(true);
+			Destroy (this.gameObject);
 			}
 	}
 
