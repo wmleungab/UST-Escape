@@ -7,7 +7,6 @@ public class SaveLoadSystem : MonoBehaviour
 		//Here is a private reference only this class can access
 		private static SaveLoadSystem _instance;
 		public string[] playerInventoryList = new string[20];
-
 		public SceneType currentSceneType = SceneType.MENU;
 		public bool[] labSceneStateArr = new bool[4];
 		public bool[] atriumSceneStateArr = new bool[5];
@@ -36,7 +35,8 @@ public class SaveLoadSystem : MonoBehaviour
 				SAVEPRED=0,
 				TBOPEN,
 				BRIDGE
-		}		
+		}
+
 		public enum SceneType
 		{
 				MENU=0,
@@ -74,13 +74,14 @@ public class SaveLoadSystem : MonoBehaviour
 				}
 		}
 
-		public void saveWithCallBack(SaveLoadSystemInterface sli){
-			save ();
-			sli.onSaveComplete (currentSceneType);
+		public void saveWithCallBack (SaveLoadSystemInterface sli)
+		{
+				save ();
+				sli.onSaveComplete (currentSceneType);
 		}	
 
 	
-	//Please set the value of the bool array before calling this function
+		//Please set the value of the bool array before calling this function
 		public void save ()
 		{
 				PlayerPrefs.SetInt ("sceneNum", (int)currentSceneType);
@@ -103,12 +104,13 @@ public class SaveLoadSystem : MonoBehaviour
 						else
 								PlayerPrefs.SetInt ("LabSceneStatePUZZLESOLVED", 0);
 				} else if (currentSceneType == SceneType.ATRIUM) {
-					saveArr<AtriumSceneState>(atriumSceneStateArr, "AtriumSceneState");
+						saveArr<AtriumSceneState> (atriumSceneStateArr, "AtriumSceneState");
 				} else if (currentSceneType == SceneType.LG2) {
-					saveArr<Lg2SceneState>(lg2SceneStateArr, "Lg2SceneState");
+						saveArr<Lg2SceneState> (lg2SceneStateArr, "Lg2SceneState");
 				} else if (currentSceneType == SceneType.SUNDIAL) {
 				} else if (currentSceneType == SceneType.UNDERSUN1) {
 				} else if (currentSceneType == SceneType.UNDERSUN2) {
+					
 				}
 			
 				string tempS = "playerInventoryList_index";
@@ -117,16 +119,17 @@ public class SaveLoadSystem : MonoBehaviour
 				}
 		}
 		
-		void saveArr<T>(bool[] boolArr, string stateName){
+		void saveArr<T> (bool[] boolArr, string stateName)
+		{
 			
-			for(int i=0 ; i<boolArr.Length; i++){
-				string stringValue = System.Enum.GetName(typeof(T), i);
+				for (int i=0; i<boolArr.Length; i++) {
+						string stringValue = System.Enum.GetName (typeof(T), i);
 
-				if (boolArr[i])
-						PlayerPrefs.SetInt (stateName + stringValue, 1);
-				else
-						PlayerPrefs.SetInt (stateName + stringValue, 0);
-			}
+						if (boolArr [i])
+								PlayerPrefs.SetInt (stateName + stringValue, 1);
+						else
+								PlayerPrefs.SetInt (stateName + stringValue, 0);
+				}
 			
 		}
 		
@@ -157,10 +160,10 @@ public class SaveLoadSystem : MonoBehaviour
 
 						
 				} else if (currentSceneType == SceneType.ATRIUM) {
-					loadArr<AtriumSceneState>(atriumSceneStateArr, "AtriumSceneState");
+						loadArr<AtriumSceneState> (atriumSceneStateArr, "AtriumSceneState");
 
 				} else if (currentSceneType == SceneType.LG2) {
-					loadArr<Lg2SceneState>(lg2SceneStateArr, "Lg2SceneState");
+						loadArr<Lg2SceneState> (lg2SceneStateArr, "Lg2SceneState");
 
 				} else if (currentSceneType == SceneType.SUNDIAL) {
 
@@ -170,22 +173,23 @@ public class SaveLoadSystem : MonoBehaviour
 
 				string tempS = "playerInventoryList_index";
 				for (int i=0; i<playerInventoryList.Length; i++) {
-					playerInventoryList [i]=PlayerPrefs.GetString (tempS + i );
+						playerInventoryList [i] = PlayerPrefs.GetString (tempS + i);
 				}
 
 				return;
 		}
 
-		void loadArr<LoadT>(bool[] boolArr, string stateName){
+		void loadArr<LoadT> (bool[] boolArr, string stateName)
+		{
 			
-			for(int i=0 ; i<boolArr.Length; i++){
-				string stringValue = System.Enum.GetName(typeof(LoadT), i);
+				for (int i=0; i<boolArr.Length; i++) {
+						string stringValue = System.Enum.GetName (typeof(LoadT), i);
 
-				if (PlayerPrefs.GetInt (stateName + stringValue) == 1)
-						atriumSceneStateArr [i] = true;
-				else if (PlayerPrefs.GetInt (stateName + stringValue) == 0)
-						atriumSceneStateArr [i] = false;
-			}
+						if (PlayerPrefs.GetInt (stateName + stringValue) == 1)
+								atriumSceneStateArr [i] = true;
+						else if (PlayerPrefs.GetInt (stateName + stringValue) == 0)
+								atriumSceneStateArr [i] = false;
+				}
 			
 		}
 
@@ -193,13 +197,10 @@ public class SaveLoadSystem : MonoBehaviour
 		{
 			
 		}
-		
-
-
 
 		void Update ()
 		{
-		/*	if (isSavableScenesTransaction()) {
+				/*	if (isSavableScenesTransaction()) {
 						if (!GamePause.isPause ()) {
 								lastSceneType = currentSceneType;
 								save ();
@@ -207,7 +208,7 @@ public class SaveLoadSystem : MonoBehaviour
 						}
 					}
 */
-			/*		if (isMenu2OtherSceneTransaction ()) {
+				/*		if (isMenu2OtherSceneTransaction ()) {
 						Debug.Log ("SaveLoadSystem: A scene transaction from MainMenu to some scene was detected.");
 						lastSceneType = currentSceneType;
 						load ();

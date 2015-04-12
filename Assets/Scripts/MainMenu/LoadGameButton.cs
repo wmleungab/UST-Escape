@@ -16,6 +16,10 @@ public class LoadGameButton : MonoBehaviour {
 			Application.LoadLevel ("LG2_stage"); 
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.SUNDIAL) {
 			Application.LoadLevel ("sundial"); 
+		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.UNDERSUN1) {
+			Application.LoadLevel ("SecretChamberBefore"); 
+		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.UNDERSUN2) {
+			Application.LoadLevel ("SecretChamberAfter"); 
 		}
 	}
 	void OnMouseDown(){
