@@ -190,7 +190,7 @@ public class SaveLoadSystem : MonoBehaviour
 		}
 		
 		void setnSaveInventoryList(string il){
-		this.playerInventoryList = new string (il);
+		this.playerInventoryList =il;
 		PlayerPrefs.SetString ("PlayerInventoryList",this.playerInventoryList);
 		}
 		void getnLoadInventoryList(string[] il){
@@ -285,7 +285,7 @@ public class SaveLoadSystem : MonoBehaviour
 		public void resetSave ()
 		{
 				Debug.Log ("SaveLoadSystem:Reseting the save");
-				playerInventoryList = new string[20];
+				playerInventoryList = null;
 
 				currentSceneType = SceneType.LAB;
 				labSceneStateArr = new bool[4];
