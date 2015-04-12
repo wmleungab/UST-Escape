@@ -5,11 +5,13 @@ public class SecretChamber1DialogInterface : DialogInterface {
 
 	// Use this for initialization
 	void Start () {
+		SaveLoadSystem.getInstance().currentSceneType= SaveLoadSystem.SceneType.UNDERSUN1;
+		SaveLoadSystem.getInstance ().save ();
 		StartCoroutine ("startBeginningDialog");
 	}
 	IEnumerator  startBeginningDialog ()
 	{
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (0.5f);
 		
 		DialogSystem.character[] cArr = {
 			DialogSystem.character.PLAYER,

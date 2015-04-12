@@ -426,7 +426,7 @@ public class DialogSystem : MonoBehaviour
 				Vector3 position = Camera.mainCamera.gameObject.transform.position;
 				position.y -= 3;
 				position.z -= 3.5f;
-				if (Application.loadedLevelName == "SecretChamberBefore") {
+		if (Application.loadedLevelName == "SecretChamberBefore"||Application.loadedLevelName == "SecretChamberAfter") {
 						Debug.Log ("Detect SecretChamberBefore by DS");
 
 			position.x = 0;
