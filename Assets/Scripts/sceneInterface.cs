@@ -4,6 +4,7 @@ using System.Collections;
 public class sceneInterface : MonoBehaviour {
 
 	public bool withBattle = true;
+	public int battleBackgroundID=1;
 	public int monsterNumber;
 	public int[] monsterId;
 	static Hashtable dynamicHT;
@@ -18,10 +19,9 @@ public class sceneInterface : MonoBehaviour {
 		DontDestroyOnLoad(playerpObj);
 		GameObject dynamicObj = GameObject.Find("Dynamic");
 		DontDestroyOnLoad(dynamicObj);
-		GlobalValues.BattleData.numOfMonsters = monsterNumber;
-		GlobalValues.BattleData.monsterID=monsterId;
+
 		GlobalValues.BattleData.returnScene = Application.loadedLevelName;
-		Application.LoadLevel("battle");
+		loadBattleScene ();
 	}
 	
 	public void changeScene(string levelName){
@@ -45,15 +45,20 @@ public class sceneInterface : MonoBehaviour {
 			nextLevelDy.SetActive(true);
 		}
 
-		GlobalValues.BattleData.numOfMonsters = monsterNumber;
-		GlobalValues.BattleData.monsterID=monsterId;
-
 		if (withBattle) {
-			Application.LoadLevel ("battle");
+			loadBattleScene();
 			GlobalValues.BattleData.returnScene = levelName;
 		} else {
 			Application.LoadLevel (levelName);
 		}
+
+	}
+
+	void loadBattleScene(){
+		GlobalValues.BattleData.numOfMonsters = monsterNumber;
+		GlobalValues.BattleData.monsterID=monsterId;
+		GlobalValues.BattleData.battleBackgroundID=battleBackgroundID;
+		Application.LoadLevel ("battle");
 
 	}
 	
