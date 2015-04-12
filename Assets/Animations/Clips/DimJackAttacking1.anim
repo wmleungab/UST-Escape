@@ -77,7 +77,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: .516666651
+  - time: .550000012
     functionName: attack1_createmaclok
     data: 
     objectReferenceParameter: {fileID: 0}

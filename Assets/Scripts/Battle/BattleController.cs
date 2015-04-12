@@ -18,6 +18,7 @@ public class BattleController : MonoBehaviour {
 	public GameObject Atrium;
 	public GameObject LG2;
 	public GameObject Turkey;
+	public GameObject SC;
 
 	public GameObject Fryer;
 	public GameObject Cleaner;
@@ -51,6 +52,7 @@ public class BattleController : MonoBehaviour {
 		case 2: o=Atrium; break;		
 		case 3: o=LG2; break;		
 		case 4: o=Turkey; break;		
+		case 5: o=SC; break;		
 				}
 		if (o != null) {
 						GameObject s = Instantiate (o, BackgroundSpace.transform.position, Quaternion.identity)as GameObject;

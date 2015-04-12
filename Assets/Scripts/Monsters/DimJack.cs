@@ -68,6 +68,7 @@ public class DimJack : MonoBehaviour {
 
 	void invokeAttack1 ()
 	{
+
 		if (dieFlag && BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING) {
 			float r = Random.value;
 			Invoke ("attack1", frequency * (min + factor * r));
@@ -116,6 +117,18 @@ public class DimJack : MonoBehaviour {
 		GameObject w = GameObject.Find ("Weapons");
 		GameObject s = Instantiate (maclok1, new Vector3 (pos.x + 1, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
 		GameObject s2 = Instantiate (maclok2, new Vector3 (pos.x - 1.3f, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
+
+		Animator sa = s.GetComponentInChildren<Animator> ();
+		Animator s2a = s.GetComponentInChildren<Animator> ();
+
+		int r = (int)(2 * Random.value) + 1;
+		if (r == 1) {
+						sa.SetBool ("isleft", false);
+						s2a.SetBool ("isleft", false);
+				} else {
+						sa.SetBool ("isleft", true);
+						s2a.SetBool ("isleft", true);
+				}
 
 		s.transform.parent = 	w.transform;
 		s2.transform.parent = 	w.transform;
