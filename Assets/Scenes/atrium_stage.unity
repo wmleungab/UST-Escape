@@ -795,6 +795,7 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &73246475
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,6 +3161,7 @@ MonoBehaviour:
   battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1001 &414675781
 Prefab:
   m_ObjectHideFlags: 0
@@ -4672,6 +4674,7 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 3
   monsterId: 040000000500000004000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &733807073
 GameObject:
   m_ObjectHideFlags: 0
@@ -10303,6 +10306,7 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 22.7502995, y: 1, z: 5}
 --- !u!23 &1678943831
 Renderer:
   m_ObjectHideFlags: 0
@@ -11600,6 +11604,7 @@ MonoBehaviour:
   battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!4 &1843640920
 Transform:
   m_ObjectHideFlags: 0
@@ -11646,6 +11651,7 @@ MonoBehaviour:
   battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!4 &1891440567
 Transform:
   m_ObjectHideFlags: 0
@@ -12919,6 +12925,7 @@ MonoBehaviour:
   battleBackgroundID: 2
   monsterNumber: 1
   monsterId: 06000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &2077985248
 GameObject:
   m_ObjectHideFlags: 0

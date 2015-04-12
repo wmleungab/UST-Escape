@@ -1110,8 +1110,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &166466231
 GameObject:
   m_ObjectHideFlags: 0
@@ -2637,8 +2639,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &471528722
 GameObject:
   m_ObjectHideFlags: 0
@@ -6915,8 +6919,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 3
   monsterId: 010000000200000001000000
+  player_pos: {x: 26.1344109, y: 0, z: -5.65676594}
 --- !u!114 &1209790556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8256,8 +8262,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1606171801
 GameObject:
   m_ObjectHideFlags: 0
@@ -9704,8 +9712,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1802197925
 GameObject:
   m_ObjectHideFlags: 0
@@ -11152,8 +11162,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   withBattle: 1
+  battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!1 &2131284768
 GameObject:
   m_ObjectHideFlags: 0

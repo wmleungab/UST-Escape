@@ -7,6 +7,7 @@ public class sceneInterface : MonoBehaviour {
 	public int battleBackgroundID=1;
 	public int monsterNumber;
 	public int[] monsterId;
+	public Vector3 player_pos; 
 	static Hashtable dynamicHT;
 
 	void Start() {
@@ -26,6 +27,10 @@ public class sceneInterface : MonoBehaviour {
 	
 	public void changeScene(string levelName){
 		GameObject playerpObj = GameObject.FindWithTag("Player");
+		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+		playerObj.SetActive(false);
+		playerObj.transform.localPosition = player_pos;
+		playerObj.SetActive(true);
 		DontDestroyOnLoad(playerpObj);
 		if (!dynamicHT.ContainsKey(Application.loadedLevelName)) {
 						GameObject dynamicObj = GameObject.Find ("Dynamic");
@@ -40,8 +45,7 @@ public class sceneInterface : MonoBehaviour {
 				}
 
 		if (dynamicHT.ContainsKey(levelName)) {
-			GameObject nextLevelDy = (GameObject)dynamicHT[levelName];//GameObject.Find (("Dynamic" + levelName));
-			//nextLevelDy.name = "Dynamic";
+			GameObject nextLevelDy = (GameObject)dynamicHT[levelName];
 			nextLevelDy.SetActive(true);
 		}
 

@@ -29,7 +29,7 @@ public class MapItemSaveInterface : MonoBehaviour {
 		foreach(string itemName in itemList){
 			Transform temp = transform.Find (itemName);
 			if(temp!=null){
-				Destroy(temp);
+				Destroy(temp.gameObject);
 			}
 		}
 	}
