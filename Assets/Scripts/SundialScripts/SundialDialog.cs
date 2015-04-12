@@ -19,6 +19,7 @@ public class SundialDialog : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
+		GamePause.pauseGame ();
 				name.GetComponent<TextMesh> ().text = "You";
 				dialogue.GetComponent<TextMesh> ().text = main1;
 			
@@ -63,6 +64,7 @@ public class SundialDialog : MonoBehaviour
 								break;}
 				case 7:
 						{
+			GamePause.continueGame ();
 			Application.LoadLevel("SecretChamberBefore");
 								dialogue.GetComponent<TextMesh> ().text = "Change sense";
 								break;}

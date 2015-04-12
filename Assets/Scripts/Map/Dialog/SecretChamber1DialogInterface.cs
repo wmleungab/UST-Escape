@@ -11,7 +11,7 @@ public class SecretChamber1DialogInterface : DialogInterface {
 	}
 	IEnumerator  startBeginningDialog ()
 	{
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0f);
 		
 		DialogSystem.character[] cArr = {
 			DialogSystem.character.PLAYER,
@@ -59,6 +59,7 @@ public class SecretChamber1DialogInterface : DialogInterface {
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finished with selection result " + selection);
 		if (id == 632) {
+			GamePause.pauseGame();
 			GlobalValues.BattleData.battleBackgroundID=5;
 			GlobalValues.BattleData.numOfMonsters=1;
 			GlobalValues.BattleData.monsterID=new int[]{7};

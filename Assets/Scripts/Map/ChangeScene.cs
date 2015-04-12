@@ -9,6 +9,7 @@ public class ChangeScene : MonoBehaviour {
 	void Awake () {
 		if(control == null) {
 			control = this;
+			DontDestroyOnLoad(this.gameObject);
 		}
 		else if (control != this) {
 			Destroy(gameObject);
