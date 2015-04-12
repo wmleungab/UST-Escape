@@ -35,8 +35,11 @@ public class President : MonoBehaviour {
 
 	public void dialogCallBack(){
 		giveItem();
+		changeSong ();
 	}
-	
+	void changeSong(){
+			GameObject.Find ("BG_music").GetComponent<BGMController>().changeBGM();
+	}
 	void giveItem() {
 		
 		StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(giveItemName));

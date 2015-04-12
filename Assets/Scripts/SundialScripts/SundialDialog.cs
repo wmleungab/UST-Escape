@@ -64,7 +64,7 @@ public class SundialDialog : MonoBehaviour
 								break;}
 				case 7:
 						{
-			GamePause.continueGame ();
+
 			Application.LoadLevel("SecretChamberBefore");
 								dialogue.GetComponent<TextMesh> ().text = "Change sense";
 								break;}
