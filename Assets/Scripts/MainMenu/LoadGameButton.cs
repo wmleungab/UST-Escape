@@ -9,17 +9,17 @@ public class LoadGameButton : MonoBehaviour {
 		SaveLoadSystem.getInstance ().load();
 		if (SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.LAB) {
 			Debug.Log ("MainMenu: Loading Lab scene");
-			Application.LoadLevel ("lab_stage");
+			AutoFade.LoadLevel ("lab_stage", 0.5f, 0.5f, Color.black);
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.ATRIUM) {
-			Application.LoadLevel ("atrium_stage"); 
+			AutoFade.LoadLevel ("atrium_stage", 0.5f, 0.5f, Color.black);
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.LG2) {
-			Application.LoadLevel ("LG2_stage"); 
+			AutoFade.LoadLevel ("LG2_stage", 0.5f, 0.5f, Color.black);
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.SUNDIAL) {
-			Application.LoadLevel ("sundial"); 
+			AutoFade.LoadLevel ("sundial", 0.5f, 0.5f, Color.black);
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.UNDERSUN1) {
-			Application.LoadLevel ("SecretChamberBefore"); 
+			AutoFade.LoadLevel ("SecretChamberBefore", 0.5f, 0.5f, Color.black);
 		}else if(SaveLoadSystem.getInstance ().currentSceneType==SaveLoadSystem.SceneType.UNDERSUN2) {
-			Application.LoadLevel ("SecretChamberAfter"); 
+			AutoFade.LoadLevel ("SecretChamberAfter", 0.5f, 0.5f, Color.black);
 		}
 	}
 	void OnMouseDown(){

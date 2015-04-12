@@ -247,7 +247,7 @@ MonoBehaviour:
   startFlag: 1
   dieFlag: 1
   lastAttack: 0
-  canAttackRange: .25
+  canAttackRange: .200000003
   fry: {fileID: 122406, guid: 2f97e286c266afd4d9fc57a297099ca3, type: 2}
   attacking: 1
   frequency: 1

@@ -291,7 +291,7 @@ MonoBehaviour:
   defendTimer: 0
   sheildsize: .5
   lastAttack: 0
-  canAttackRange: .25
+  canAttackRange: .150000006
   startFlag: 1
   dieFlag: 1
   min: 3

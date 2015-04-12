@@ -200,7 +200,7 @@ MonoBehaviour:
   threshold: 5
   damage: 12
   lastAttack: 0
-  canAttackRange: .25
+  canAttackRange: .200000003
 --- !u!114 &11454818
 MonoBehaviour:
   m_ObjectHideFlags: 1
