@@ -86,7 +86,7 @@ function toBattleMode(){
 		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
 		canBeDragged = false;
 
-		openDisplay();
+		//openDisplay();
 	}
 }
 
@@ -168,7 +168,11 @@ function Update()
 					itemBeingDragged.GetComponent(ItemEffect).UseEffect(); //It's not equipment so we just use the effect.
 		   }
 		   else {
- 			   if(!windowRect.Contains(Input.mousePosition)){
+       			var mousePos:Vector2 = new Vector2(Input.mousePosition.x,Screen.height - Input.mousePosition.y);
+				if(cSheet.windowRect.Contains(mousePos)){
+					cSheet.getMouseClick(Input.mousePosition, itemBeingDragged);
+				}
+ 			   else if(!windowRect.Contains(Input.mousePosition)){
 				   Debug.Log("outside window");
 					var targetPos = Input.mousePosition;
 					targetPos.z = Camera.main.transform.position.y;  //camera to floor value

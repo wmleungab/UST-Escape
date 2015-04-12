@@ -9,22 +9,31 @@ var buttonPositions : Rect[]; //This list will contain where all buttons, equipp
 var windowSize : Vector2 = Vector2(375,300); //The size of the character window.
 var useCustomPosition = false; //Do we want to use the customPosition variable to define where on the screen the Character window will appear.
 var customPosition : Vector2 = Vector2 (70, 70); //The custom position of the Character window.
+var itemIconSize : Vector2 = Vector2(60.0, 60.0); //The size of the item icons.
+
 var cSheetSkin : GUISkin; //This is where you can add a custom GUI skin or use the one included (CSheetSkin) under the Resources folder.
+var Offset : Vector2 = Vector2 (7, 12); //This will leave so many pixels between the edge of the window (x = horizontal and y = vertical).
+var WindowOffset : Vector2 = Vector2 (0,18);
+var spaceTemp : float;
 var canBeDragged = true; //Can the Character window be dragged?
+var windowTitle = "Battle Equipments";
 
 var onOffButton : KeyCode = KeyCode.I; //The key to toggle the Character window on and of.
+var isBattle = false;
 
 var DebugMode = false; //If this is enabled, debug.logs will print out information when something happens (equipping items etc.).
 
 static var csheet = false; //Helps with turning the CharacterSheet on and off.
 
-private var windowRect = Rect(100,100,200,300); //Keeping track of our character window.
+public var windowRect = Rect(100,100,200,300); //Keeping track of our character window.
 
 //These are keeping track of components such as equipmentEffects and Audio.
 private var playersinv : Inventory; //Refers to the Inventory script.
 private var equipmentEffectIs = false;
 private var invAudio : InvAudio;
 private var invDispKeyIsSame = false;
+private var mouseInput : Vector3 = Vector3(-1,-1,-1);
+private var itemDragged : Item;
 
 @script AddComponentMenu ("Inventory/Character Sheet")
 @script RequireComponent(Inventory)
@@ -34,9 +43,14 @@ function Awake ()
 {
 	playersinv = GetComponent(Inventory);
 
+	spaceTemp = Screen.width/20;
+	windowSize = Vector2(Screen.width - spaceTemp * 2, Screen.height / 4 );
+	WindowOffset.y = spaceTemp/2;
 	if (useCustomPosition == false)
 	{
-		windowRect = Rect(Screen.width-windowSize.x-70,Screen.height-windowSize.y-(162.5+70*2),windowSize.x,windowSize.y);
+		//windowRect = Rect(Screen.width-windowSize.x-70,Screen.height-windowSize.y-(162.5+70*2),windowSize.x,windowSize.y);
+		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
+		Debug.Log(windowRect);
 	}
 	else
 	{
@@ -47,6 +61,7 @@ function Awake ()
 	{
 		invDispKeyIsSame = true;
 	}
+	setButtonPos();
 }
 
 //Take care of the array lengths.
@@ -59,6 +74,30 @@ function Start ()
 	}
 }
 
+function toBattleMode(){
+
+	if(!isBattle){
+		Debug.Log("Character Sheet change to battle mode");
+		isBattle = true;
+		windowTitle = "";
+		canBeDragged = false;
+
+		csheet = true;
+	}
+
+}
+function toMapMode(){
+
+	if(isBattle){
+		Debug.Log("Character Sheet change to map mode");
+		isBattle = false;
+		windowTitle = "Battle Equipments";
+		canBeDragged = true;
+
+		csheet = false;
+	}
+
+}
 //Checking if we already have somthing equipped
 function CheckSlot(tocheck:int)
 {
@@ -222,12 +261,16 @@ function Update ()
 //Draw the Character Window
 function OnGUI()
 {
+	if(isBattle) {
+		var newColor = new Color(1,1,1,0.0f);
+		GUI.color = newColor;
+	}
 	GUI.skin = cSheetSkin; //Use the cSheetSkin variable.
 	
 	if(csheet) //If the csheet is opened up.
 	{
 		//Make a window that shows what's in the csheet called "Character" and update the position and size variables from the window variables.
-		windowRect=GUI.Window (1, windowRect, DisplayCSheetWindow, "Character");
+		windowRect=GUI.Window (1, windowRect, DisplayCSheetWindow, windowTitle);
 	}
 }
 
@@ -242,40 +285,87 @@ function DisplayCSheetWindow(windowID:int)
 	var index=0;
 	for(var a in ArmorSlot) //Loop through the ArmorSlot array.
 	{
-		if(a==null)
-		{
-			if(GUI.Button(buttonPositions[index], ArmorSlotName[index])) //If we click this button (that has no item equipped):
+		if(!isBattle){
+			if(a==null)
 			{
-				var id=GetComponent(InventoryDisplay);
-				if(id.itemBeingDragged != null) //If we are dragging an item:
+				//var clicked = GUI.Button(buttonPositions[index], ArmorSlotName[index]);
+				var clicked = buttonPositions[index].Contains(mouseInput);
+				//if(GUI.Button(buttonPositions[index], ArmorSlotName[index])) //If we click this button (that has no item equipped):
+				if(clicked) 
 				{
-					EquipItem(id.itemBeingDragged,index); //Equip the Item.
-					id.ClearDraggedItem();//Stop dragging the item.
+					var id=GetComponent(InventoryDisplay);
+					Debug.Log("button clicked");
+					if(itemDragged != null) //If we are dragging an item:
+					{
+						Debug.Log("Equip Item with index " + index);
+						EquipItem(itemDragged,index); //Equip the Item.
+						clearDraggedItem();//Stop dragging the item.
+					}
 				}
+				GUI.Button(buttonPositions[index], ArmorSlotName[index]);
+			}
+			else
+			{
+				var clicked2 = buttonPositions[index].Contains(mouseInput);
+				if(clicked2 || GUI.Button(buttonPositions[index],ArmorSlot[index].itemIcon)) //If we click this button (that has an item equipped):
+				{
+					var id2=GetComponent(InventoryDisplay);
+					if(itemDragged != null) //If we are dragging an item:
+					{
+						EquipItem(itemDragged,index); //Equip the Item.
+						clearDraggedItem(); //Stop dragging the item.
+					}
+					else if (playersinv.Contents.length < playersinv.MaxContent) //If there is room in the inventory:
+					{
+						UnequipItem(ArmorSlot[index]); //Unequip the Item.
+						ArmorSlot[index] = null; //Clear the slot.
+						clearDraggedItem(); //Stop dragging the Item.
+					}
+					else if (DebugMode)
+					{
+						Debug.Log("Could not unequip " + ArmorSlot[index].name + " since the inventory is full");
+					}
+				}
+				
 			}
 		}
-		else
-		{
-			if(GUI.Button(buttonPositions[index],ArmorSlot[index].itemIcon)) //If we click this button (that has an item equipped):
-			{
-				var id2=GetComponent(InventoryDisplay);
-				if(id2.itemBeingDragged != null) //If we are dragging an item:
-				{
-					EquipItem(id2.itemBeingDragged,index); //Equip the Item.
-					id2.ClearDraggedItem(); //Stop dragging the item.
-				}
-				else if (playersinv.Contents.length < playersinv.MaxContent) //If there is room in the inventory:
-				{
-					UnequipItem(ArmorSlot[index]); //Unequip the Item.
-					ArmorSlot[index] = null; //Clear the slot.
-					id2.ClearDraggedItem(); //Stop dragging the Item.
-				}
-				else if (DebugMode)
-				{
-					Debug.Log("Could not unequip " + ArmorSlot[index].name + " since the inventory is full");
-				}
+		else{
+			if(a!=null && GUI.Button(buttonPositions[index],ArmorSlot[index].itemIcon)){
+				ArmorSlot[index].GetComponent(ItemEffect).UseEffect();
 			}
 		}
 		index++;
 	}
+}
+
+function getMouseClick(mousePosition:Vector3, _item: Item){
+Debug.Log("Get mouse input");
+mouseInput = mousePosition;
+
+mouseInput.x -= windowRect.x;
+mouseInput.y = Screen.height - mouseInput.y - windowRect.y;
+Debug.Log(mouseInput);
+Debug.Log(windowRect);
+itemDragged = _item;
+}
+
+function clearDraggedItem(){
+mouseInput = Vector3(-1,-1,-1);
+itemDragged = null;
+}
+
+function setButtonPos(){
+
+	var currentX = WindowOffset.x + Offset.x; //Where to put the first items.
+	var currentY = WindowOffset.y + Offset.y; //Im setting the start y position to 18 to give room for the title bar on the window.
+
+	var index=0;
+	for(var a in ArmorSlotName) //Loop through the ArmorSlot array.
+	{
+		buttonPositions[index] = Rect(currentX,currentY,itemIconSize.x,itemIconSize.y);
+		currentX += itemIconSize.x + spaceTemp/2;
+		index++;
+	}
+
+
 }
