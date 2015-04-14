@@ -9,6 +9,7 @@ public class box : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+		print ("box is clicked");
 		Cut ();
 	}
 	public void Cut (){

@@ -114,7 +114,7 @@ MonoBehaviour:
   canGet: 1
   maxGettingDistance: 3
   itemType: other
-  stackable: 0
+  stackable: 1
   maxStack: 20
   stack: 1
   isEquipment: 0

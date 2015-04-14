@@ -7,6 +7,7 @@ public class SaveLoadSystem : MonoBehaviour
 		//Here is a private reference only this class can access
 		private static SaveLoadSystem _instance;
 		public string playerInventoryList ;
+		public string playerEquipmentList ;
 		public SceneType currentSceneType = SceneType.MENU;
 		public bool[] labSceneStateArr = new bool[4];
 		public bool[] atriumSceneStateArr = new bool[10];
@@ -115,6 +116,7 @@ public class SaveLoadSystem : MonoBehaviour
 					
 				}
 				PlayerPrefs.SetString ("PlayerInventoryList",this.playerInventoryList);
+				PlayerPrefs.SetString ("PlayerEquipmentList",this.playerEquipmentList);
 
 		}
 		
@@ -173,6 +175,7 @@ public class SaveLoadSystem : MonoBehaviour
 				}
 
 				this.playerInventoryList = PlayerPrefs.GetString ("PlayerInventoryList");
+				this.playerEquipmentList = PlayerPrefs.GetString ("PlayerEquipmentList");
 
 				return;
 		}
@@ -198,6 +201,15 @@ public class SaveLoadSystem : MonoBehaviour
 		public string getnLoadInventoryList(){
 		this.playerInventoryList = PlayerPrefs.GetString ("PlayerInventoryList");
 		return this.playerInventoryList;
+		}
+
+		public void setnSaveEquipmentList(string il){
+			this.playerEquipmentList =il;
+			PlayerPrefs.SetString ("PlayerEquipmentList",this.playerEquipmentList);
+		}
+		public string getnLoadEquipmentList(){
+			this.playerEquipmentList = PlayerPrefs.GetString ("PlayerEquipmentList");
+			return this.playerEquipmentList;
 		}
 
 		void Start ()
@@ -289,6 +301,7 @@ public class SaveLoadSystem : MonoBehaviour
 		{
 				Debug.Log ("SaveLoadSystem:Reseting the save");
 				playerInventoryList = null;
+				playerEquipmentList = null;
 
 				currentSceneType = SceneType.LAB;
 				labSceneStateArr = new bool[4];

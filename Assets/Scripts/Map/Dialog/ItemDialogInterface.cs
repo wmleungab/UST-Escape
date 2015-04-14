@@ -4,13 +4,16 @@ using System.Collections;
 public class ItemDialogInterface : DialogInterface {
 
 	static int dialogID = 0;
+	public static bool showDialog = true;
 
 	void getItemDialog(){
-		string temp = "Item " + this.name + " x1 get";
-		DialogSystem.character[] nameString ={DialogSystem.character.SYSTEM};
-		string[] dialogString = new string[]{temp};
-		//dsObj.startDialog(nameString, dialogString);
-		conversation (nameString, dialogString, ++dialogID);
+		if (showDialog) {
+						string temp = "Item " + this.name + " x1 get";
+						DialogSystem.character[] nameString = {DialogSystem.character.SYSTEM};
+						string[] dialogString = new string[]{temp};
+						//dsObj.startDialog(nameString, dialogString);
+						conversation (nameString, dialogString, ++dialogID);
+				}
 	}
 	void dropItemDialog(){
 		string temp = "Item " + this.name + " x1 dropped";
