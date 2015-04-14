@@ -64,9 +64,11 @@ public class InventorySaveInterface : MonoBehaviour {
 	}
 
 	IEnumerator waitFor10Seconds(){
+		ItemDialogInterface.showDialog = false;
 		yield return new WaitForSeconds(2);
 		var equipstr = SaveLoadSystem.getInstance ().getnLoadEquipmentList ();
 		gameObject.SendMessage("equipFromList",  equipstr);
+		ItemDialogInterface.showDialog = true;
 	}
 
 }

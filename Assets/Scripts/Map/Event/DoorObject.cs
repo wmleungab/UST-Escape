@@ -26,13 +26,6 @@ public class DoorObject : MonoBehaviour {
 	
 	void goToNextScene() {
 		Debug.Log("go to next scene");	
-		if(next_stage == "LG2_stage"){
-			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
-			if(slObj != null){
-				slObj.atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
-				slObj.save ();		
-			}
-		}
 		gameObject.SendMessage("changeScene",next_stage);
 	}
 	

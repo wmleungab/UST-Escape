@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &176654122
 GameObject:
@@ -441,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35df79cf94921b47ba78165a5640379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStageName: LG2_stage
+  startStageName: atrium_stage
 --- !u!82 &1460736407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -839,6 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventoryList: $
+  playerEquipmentList: 
   currentSceneType: 0
   labSceneStateArr: 00000000
   atriumSceneStateArr: 00000000000000000000
