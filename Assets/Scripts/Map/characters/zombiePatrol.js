@@ -49,6 +49,7 @@ function attacking() {
 		}
 		else{
 			transform.parent.SendMessage("gotoBattle");
+			Destroy(transform.parent.gameObject);
 		}
 	}
 	else {
@@ -102,9 +103,9 @@ function OnTriggerStay(other:Collider) {
 		switch (other.name){
 			case "mace":
 				Destroy(transform.parent.gameObject);    
+				Destroy(other.gameObject);
 				break;
 		}
-		Destroy(other.gameObject);
 	}
 
 }
