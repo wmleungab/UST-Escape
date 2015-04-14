@@ -331,7 +331,9 @@ function DisplayCSheetWindow(windowID:int)
 		}
 		else{
 			if(a!=null && GUI.Button(buttonPositions[index],ArmorSlot[index].itemIcon)){
+				UnequipItem(ArmorSlot[index]);
 				ArmorSlot[index].GetComponent(ItemEffect).UseEffect();
+				ArmorSlot[index] = null;
 			}
 		}
 		index++;

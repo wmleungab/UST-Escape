@@ -86,6 +86,7 @@ function toBattleMode(){
 		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
 		canBeDragged = false;
 
+	GamePause.pauseGame();
 		//openDisplay();
 	}
 }
