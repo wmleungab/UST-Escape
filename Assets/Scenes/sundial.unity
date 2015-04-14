@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &35443825
 GameObject:
@@ -706,6 +705,10 @@ GameObject:
   - 114: {fileID: 671408844}
   - 82: {fileID: 671408843}
   - 114: {fileID: 671408842}
+  - 114: {fileID: 671408853}
+  - 114: {fileID: 671408852}
+  - 114: {fileID: 671408851}
+  - 114: {fileID: 671408850}
   - 114: {fileID: 671408849}
   m_Layer: 0
   m_Name: Inventory
@@ -884,6 +887,112 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 671408840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dd58bff6c25114eb6f66864f36db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671408850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400026, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 408445669}
+  m_GameObject: {fileID: 671408840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082f7696a8429884cabbdee854d1afd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponSlot: {fileID: 0}
+  ArmorSlotName:
+  - other
+  - other
+  - other
+  - other
+  - other
+  - other
+  buttonPositions:
+  - serializedVersion: 2
+    x: 0
+    y: 0
+    width: 60
+    height: 60
+  - serializedVersion: 2
+    x: 60
+    y: 0
+    width: 60
+    height: 60
+  - serializedVersion: 2
+    x: 120
+    y: 0
+    width: 60
+    height: 60
+  - serializedVersion: 2
+    x: 180
+    y: 0
+    width: 60
+    height: 60
+  - serializedVersion: 2
+    x: 240
+    y: 0
+    width: 60
+    height: 60
+  - serializedVersion: 2
+    x: 300
+    y: 0
+    width: 60
+    height: 60
+  windowSize: {x: 500, y: 200}
+  useCustomPosition: 0
+  customPosition: {x: 70, y: 70}
+  itemIconSize: {x: 60, y: 60}
+  cSheetSkin: {fileID: 11400000, guid: 683a06e8611614482b8182db772cfcdf, type: 2}
+  Offset: {x: 7, y: 12}
+  WindowOffset: {x: 0, y: 18}
+  spaceTemp: 0
+  canBeDragged: 0
+  windowTitle: Battle Equipments
+  onOffButton: 105
+  isBattle: 0
+  DebugMode: 0
+  windowRect:
+    serializedVersion: 2
+    x: 100
+    y: 100
+    width: 200
+    height: 300
+--- !u!114 &671408851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400024, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 408445669}
+  m_GameObject: {fileID: 671408840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dd58bff6c25114eb6f66864f36db75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671408852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400022, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 408445669}
+  m_GameObject: {fileID: 671408840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46bca43e0aa84d87aa8525b6af476dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &671408853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400020, guid: b558e570e838845129d9dc7e8bfc7372,
+    type: 2}
+  m_PrefabInternal: {fileID: 408445669}
   m_GameObject: {fileID: 671408840}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1370,6 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventoryList: $
+  playerEquipmentList: 
   currentSceneType: 0
   labSceneStateArr: 00000000
   atriumSceneStateArr: 00000000000000000000
