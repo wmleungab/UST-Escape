@@ -44,11 +44,14 @@ public class InventorySaveInterface : MonoBehaviour {
 			string itemstr = SaveLoadSystem.getInstance ().getnLoadInventoryList ();
 			string[] itemList = itemstr.Split (',');
 
+
 			if (itemstr.Length > 0) {
 					Debug.Log (itemstr);
 
 					loadFromList (itemList);
 					loaded = true;
+
+				StartCoroutine(waitFor10Seconds());
 			}
 		}
 	}
@@ -59,5 +62,11 @@ public class InventorySaveInterface : MonoBehaviour {
 			StartCoroutine (ciObj.giveItemToPlayer (itemName));
 		}
 	}
-	
+
+	IEnumerator waitFor10Seconds(){
+		yield return new WaitForSeconds(2);
+		var equipstr = SaveLoadSystem.getInstance ().getnLoadEquipmentList ();
+		gameObject.SendMessage("equipFromList",  equipstr);
+	}
+
 }

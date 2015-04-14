@@ -72,6 +72,7 @@ function Start ()
 	{
 		Debug.LogError("The variables on the Character script attached to " + transform.name + " are not set up correctly. There needs to be an equal amount of slots on 'ArmorSlotName' and 'buttonPositions'.");
 	}
+
 }
 
 function toBattleMode(){
@@ -181,6 +182,7 @@ function EquipItem(i:Item,slot:int)
 		}
 		
 		playersinv.RemoveItem(i.transform); //We remove the item from the inventory
+		saveStrArr();
 	}
 }
 
@@ -206,6 +208,7 @@ function UnequipItem(i:Item)
 		Debug.Log(i.name + " has been unequipped");
 	}
 	playersinv.AddItem(i.transform);
+	saveStrArr();
 }
 
 //Places the weapon in the hand of the Player.
@@ -371,3 +374,40 @@ function setButtonPos(){
 
 
 }
+
+function saveStrArr():String{
+
+	var result = "";
+		
+	for (var a in ArmorSlot){
+			if(a!=null) result += (a.name + ",");
+	
+	}
+		
+	if(result.Length>0)
+			result = result.Remove(result.Length - 1);
+		
+	SaveLoadSystem.getInstance().setnSaveEquipmentList (result);
+	Debug.Log("EquipList={"+result+"}");
+	return result;
+
+}
+
+function equipFromList( equipList:String){
+
+	Debug.Log("start equip from list");
+
+	var itemstr : String = SaveLoadSystem.getInstance ().getnLoadEquipmentList ();
+	var itemList = itemstr.Split (","[0]);
+
+	var index = 0;
+
+	for (var itemName in itemList) {
+		Debug.Log(itemName);
+		if (itemName.Length >0)
+			EquipItem((transform.Find(itemName).GetComponent(Item)),index);
+		index ++;
+	}
+
+}
+
