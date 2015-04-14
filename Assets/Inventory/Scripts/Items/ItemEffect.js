@@ -47,7 +47,7 @@ SendMessage("findKey","salad");
 else if(this.name=="key");
 else if(this.name=="nose"){
 for(i=0;i<GameObject.Find("Enemies").transform.childCount;i++)
-if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("void")){
+if(GameObject.Find("Enemies").transform.GetChild(i).name.Contains("Void")){
 GameObject.Find("Enemies").transform.GetChild(i).gameObject.GetComponent("HealthBar").SendMessage("decreaseHP",12);
 SendMessage("findKey","nose");
 }

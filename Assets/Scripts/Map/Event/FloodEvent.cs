@@ -18,7 +18,7 @@ public class FloodEvent : EventScript {
 				slObj.atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
 				slObj.save ();		
 			}
-			gameObject.SendMessage("gotoBattle");
+			gameObject.SendMessage("changeScene", "LG2_stage");
 		}
 		
 	}

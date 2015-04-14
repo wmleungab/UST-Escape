@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next_stage: atrium_stage
   next_stage_name: Atrium
-  player_pos: {x: -15.83393, y: .5, z: -7.74274111}
+  player_pos: {x: 22.7502995, y: .5, z: 5}
 --- !u!114 &86674935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
-  player_pos: {x: 0, y: 0, z: 0}
+  player_pos: {x: -16.4305706, y: 1, z: -6.46126795}
 --- !u!23 &86674936
 Renderer:
   m_ObjectHideFlags: 0
@@ -1870,6 +1870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventoryList: $
+  playerEquipmentList: 
   currentSceneType: 0
   labSceneStateArr: 00000000
   atriumSceneStateArr: 00000000000000000000
