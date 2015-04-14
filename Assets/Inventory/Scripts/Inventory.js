@@ -26,6 +26,19 @@ function Start ()
 	}
 }
 
+function toBattleMode(){
+
+	GetComponent(InventoryDisplay).toBattleMode();
+	GetComponent(Character).toBattleMode();
+
+}
+function toMapMode(){
+
+	GetComponent(InventoryDisplay).toMapMode();
+	GetComponent(Character).toMapMode();
+
+}
+
 //Add an item to the inventory.
 function AddItem(Item:Transform)
 {

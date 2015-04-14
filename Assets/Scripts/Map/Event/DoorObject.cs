@@ -33,10 +33,6 @@ public class DoorObject : MonoBehaviour {
 				slObj.save ();		
 			}
 		}
-		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-		playerObj.SetActive(false);
-		playerObj.transform.localPosition = player_pos;
-		playerObj.SetActive(true);
 		gameObject.SendMessage("changeScene",next_stage);
 	}
 	
