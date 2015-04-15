@@ -13,7 +13,7 @@ var itemIconSize : Vector2 = Vector2(60.0, 60.0); //The size of the item icons.
 
 var cSheetSkin : GUISkin; //This is where you can add a custom GUI skin or use the one included (CSheetSkin) under the Resources folder.
 var Offset : Vector2 = Vector2 (7, 12); //This will leave so many pixels between the edge of the window (x = horizontal and y = vertical).
-var WindowOffset : Vector2 = Vector2 (0,18);
+var WindowOffset : Vector2 = Vector2 (50,18);
 var spaceTemp : float;
 var canBeDragged = true; //Can the Character window be dragged?
 var windowTitle = "Battle Equipments";
@@ -45,6 +45,7 @@ function Awake ()
 
 	spaceTemp = Screen.width/20;
 	windowSize = Vector2(Screen.width - spaceTemp * 2, Screen.height / 4 );
+	itemIconSize = Vector2(windowSize.y/1.5, windowSize.y/1.5);
 	WindowOffset.y = spaceTemp/2;
 	if (useCustomPosition == false)
 	{
@@ -238,7 +239,7 @@ function RemoveWeapon (Item : Item)
 function Update ()
 {
 	//This will turn the character sheet on and off.
-	if (Input.GetKeyDown(onOffButton))
+	if ((Input.GetKeyDown(onOffButton) || Input.GetKeyDown(KeyCode.Menu)) && !isBattle)
 	{
 		if (csheet)
 		{

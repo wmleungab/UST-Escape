@@ -46,7 +46,7 @@ var windowTitle = "Inventory";
 //Store components and adjust the window position.
 function Awake()
 {
-	windowSize = Vector2(Screen.width/4, Screen.height);
+	windowSize = Vector2(Screen.width/4, Screen.height - Screen.height / 4);
 	itemIconSize = Vector2(windowSize.x/3, windowSize.x/3);
 	spaceTemp = Screen.width/20;
 
@@ -80,11 +80,12 @@ function toBattleMode(){
 	if(!isBattle){
 		Debug.Log("Inventory change to battle mode");
 		isBattle = true;
-		windowTitle = "";
+		/*windowTitle = "";
 		WindowOffset.y = spaceTemp/2;
 		windowSize = Vector2(Screen.width - spaceTemp * 2, Screen.height / 4 );
 		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
 		canBeDragged = false;
+		*/
 
 	GamePause.pauseGame();
 		//openDisplay();
