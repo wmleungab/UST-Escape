@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MapItemSaveInterface : MonoBehaviour {
 
-	static bool loaded = false;
 	// Use this for initialization
 	void Start () {
 		startLoading ();
@@ -11,7 +10,6 @@ public class MapItemSaveInterface : MonoBehaviour {
 	}
 	
 	void startLoading(){
-		if (!loaded) {
 			string itemstr = SaveLoadSystem.getInstance ().getnLoadInventoryList ();
 			string[] itemList = itemstr.Split (',');
 			
@@ -19,9 +17,7 @@ public class MapItemSaveInterface : MonoBehaviour {
 				Debug.Log (itemstr);
 				
 				loadFromList (itemList);
-				loaded = true;
 			}
-		}
 	}
 	
 	void loadFromList(string[] itemList) {

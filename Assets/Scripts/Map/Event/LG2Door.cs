@@ -8,6 +8,8 @@ public class LG2Door : DoorObject {
 		if (SaveLoadSystem.getInstance().atriumSceneStateArr[(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
 			this.gameObject.SetActive(true);
 		}
+		else 
+			this.gameObject.SetActive(false);
 
 	}
 	

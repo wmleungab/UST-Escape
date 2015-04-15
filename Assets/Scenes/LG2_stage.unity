@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next_stage: atrium_stage
   next_stage_name: Atrium
-  player_pos: {x: 22.7502995, y: .5, z: 5}
+  player_pos: {x: 22.7502995, y: .5, z: -8.19697571}
 --- !u!114 &86674935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,14 +265,14 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 0
   monsterId: 
-  player_pos: {x: -16.4305706, y: 1, z: -6.46126795}
+  player_pos: {x: -16.4305706, y: 1, z: -8.19697571}
 --- !u!23 &86674936
 Renderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 86674933}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -2860,13 +2860,11 @@ GameObject:
   - 114: {fileID: 1054835490}
   - 114: {fileID: 1054835489}
   - 114: {fileID: 1054835488}
+  - 114: {fileID: 1054835491}
+  - 114: {fileID: 1054835498}
   - 114: {fileID: 1054835493}
-  - 114: {fileID: 1054835492}
   - 82: {fileID: 1054835495}
   - 114: {fileID: 1054835494}
-  - 114: {fileID: 1054835498}
-  - 114: {fileID: 1054835491}
-  - 114: {fileID: 1054835496}
   - 114: {fileID: 1054835497}
   m_Layer: 0
   m_Name: Inventory
@@ -2943,18 +2941,6 @@ MonoBehaviour:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400022, guid: b558e570e838845129d9dc7e8bfc7372,
-    type: 2}
-  m_PrefabInternal: {fileID: 1065406370}
-  m_GameObject: {fileID: 1054835486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46bca43e0aa84d87aa8525b6af476dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1054835492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400014, guid: b558e570e838845129d9dc7e8bfc7372,
     type: 2}
   m_PrefabInternal: {fileID: 1065406370}
   m_GameObject: {fileID: 1054835486}
@@ -3052,18 +3038,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &1054835496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400024, guid: b558e570e838845129d9dc7e8bfc7372,
-    type: 2}
-  m_PrefabInternal: {fileID: 1065406370}
-  m_GameObject: {fileID: 1054835486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56dd58bff6c25114eb6f66864f36db75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1054835497
 MonoBehaviour:
   m_ObjectHideFlags: 0

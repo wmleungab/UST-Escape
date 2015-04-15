@@ -4,10 +4,10 @@ using System.Collections;
 [RequireComponent (typeof (CreateItem))]
 public class InventorySaveInterface : MonoBehaviour {
 
-	static bool loaded = false;
-
 	void Start(){
-		startLoading ();
+			Debug.Log("Start Loading Inventory");
+			//gameObject.SendMessage("startLoading");
+			startLoadingInventory();
 	}
 
 	string[] outputSaveList(){
@@ -39,9 +39,9 @@ public class InventorySaveInterface : MonoBehaviour {
 		return result;
 	}
 
-	void startLoading(){
-		if (!loaded) {
+	void startLoadingInventory(){
 			string itemstr = SaveLoadSystem.getInstance ().getnLoadInventoryList ();
+			Debug.Log("Inventory LOading: " + itemstr);
 			string[] itemList = itemstr.Split (',');
 
 
@@ -49,11 +49,9 @@ public class InventorySaveInterface : MonoBehaviour {
 					Debug.Log (itemstr);
 
 					loadFromList (itemList);
-					loaded = true;
 
 				StartCoroutine(waitFor10Seconds());
 			}
-		}
 	}
 
 	void loadFromList(string[] itemList) {

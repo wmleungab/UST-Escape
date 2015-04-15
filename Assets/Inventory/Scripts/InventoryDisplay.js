@@ -97,12 +97,12 @@ function toMapMode(){
 	if(isBattle){
 		Debug.Log("Inventory change to map mode");
 		isBattle = false;
-		windowTitle = "Inventory";
+		/*windowTitle = "Inventory";
 		WindowOffset.y = spaceTemp/2;
 		windowSize = Vector2(Screen.width/4, Screen.height);
 		windowRect=Rect(0,0,windowSize.x,windowSize.y);
 		canBeDragged = true;
-
+		*/
 		closeDisplay();
 	}
 	
