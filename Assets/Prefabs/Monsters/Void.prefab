@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hb: {fileID: 127550, guid: 83c539cd43f23e64dafeb27dc2f1fa56, type: 2}
-  fullHP: 25
-  HP: 25
+  fullHP: 20
+  HP: 20
   offset: {x: -1.20000005, y: 3.20000005, z: 0}
   hpLengthFactor: 1
 --- !u!212 &21220570
