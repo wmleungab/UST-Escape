@@ -7,16 +7,7 @@ public class Fryer : MonoBehaviour {
 
 	public GameObject prompt;
 
-	public GameObject defendSheildpf;
-	
-	 GameObject defendSheild;
-	public bool defendState=false;
-	public float defendmin=2;
-	public float defendfactor=2;
-	public float defendfrequency=1;
-	public float defendlength=2;
-	public float defendTimer;
-	public float sheildsize=0.5f;
+
 
 	public bool startFlag=true;
 	public bool dieFlag=true;
@@ -45,23 +36,8 @@ public class Fryer : MonoBehaviour {
 		invokeAttack ();
 
 		float ran = Random.value;
-		Invoke ("Defend", defendfrequency * (defendmin + ran * defendfactor));
 	}
 
-	void Defend(){
-		 defendSheild = Instantiate (defendSheildpf, new Vector3 (pos.x , pos.y, pos.z-1),Quaternion.identity)as GameObject;
-		defendSheild.transform.localScale = new Vector3 (sheildsize, sheildsize, 1);
-		defendSheild.transform.parent = gameObject.transform;
-		defendState = true;
-		Invoke ("DefendDisappear", defendlength);
-	}
-
-	void DefendDisappear(){
-		Destroy (defendSheild);
-		defendState = false;
-		float ran = Random.value;
-		Invoke ("Defend", defendfrequency * (defendmin + ran * defendfactor));
-	}
 
 	void Attack(){
 		GameObject p = Instantiate (prompt, new Vector3 (pos.x+0.3f , pos.y+3.2f, pos.z-1),Quaternion.identity)as GameObject;
@@ -109,14 +85,12 @@ public class Fryer : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && !defendState&& Time.time-lastAttack>canAttackRange) {
+		if (BattleController.currentBattleState == BattleState.BATTLE_PROGRESSING && dieFlag && Time.time-lastAttack>canAttackRange) {
 			gameObject.GetComponent<HealthBar> ().HP--;
 			audio.Play();
 			lastAttack=Time.time;
 		}
-		if (defendState) {
-				AudioSource.PlayClipAtPoint (defendsound, pos);
-				}
+
 
 	}
 

@@ -2,17 +2,17 @@
 using System.Collections;
 
 public class Ender : MonoBehaviour {
-	public GameObject Win;
-	public GameObject Lost;
+	public GameObject Win=new GameObject();
+	public GameObject Lost=new GameObject();
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		Win.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
 	//	Lost.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
 		Lost.transform.localScale = new Vector3(0,0,1);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public  void Update () {
 		if (BattleController.currentBattleState == BattleState.BATTLE_ENDING_WIN) {
 						win ();
 						BattleController.currentBattleState = BattleState.BATTLE_ENDING;
@@ -22,13 +22,13 @@ public class Ender : MonoBehaviour {
 				}
 	}
 
-	void 	win(){
+	public  void 	win(){
 		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		StartCoroutine ("fadein", Win);
 		Invoke ("returnScene", 5);
 		Win.audio.Play ();
 	}
-	void 	lost(){
+	public  void 	lost(){
 		GameObject.Find("Inventory").SendMessage ("toMapMode");
 		Lost.transform.GetChild(1).GetComponent<TextMesh>().text="X0";
 		gameObject. SendMessage ("findKey", "greenapple");
@@ -36,13 +36,13 @@ public class Ender : MonoBehaviour {
 		CancelInvoke ();
 	}
 
-	void findKeyCallback(Transform item){
+	public void findKeyCallback(Transform item){
 		if (item != null) {
 			Lost.transform.GetChild(1).GetComponent<TextMesh>().text="X1";
 		}
 	}
 
-	void returnScene(){
+	public void returnScene(){
 		if(GlobalValues.BattleData.isFinalStage)
 			Application.LoadLevel("SecretChamberAfter");
 			else
@@ -50,7 +50,7 @@ public class Ender : MonoBehaviour {
 
 	}
 
-	IEnumerator fadein (GameObject o)
+	public IEnumerator fadein (GameObject o)
 	{
 		yield return new WaitForSeconds (0.1f);
 
@@ -63,7 +63,7 @@ public class Ender : MonoBehaviour {
 
 	}
 
-	IEnumerator fadein2 (GameObject o)
+	public IEnumerator fadein2 (GameObject o)
 	{
 		yield return new WaitForSeconds (0.1f);
 		Lost.audio.Play ();
