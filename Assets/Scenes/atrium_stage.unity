@@ -5010,7 +5010,7 @@ MonoBehaviour:
   maxTouchingDistance: 8
   keyItemName: bucket
   getItemName: bucketWithWater
-  eventNumber: 0
+  eventNumber: 3
 --- !u!114 &717154813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5037,8 +5037,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   withBattle: 1
   battleBackgroundID: 2
-  monsterNumber: 1
-  monsterId: 01000000
+  monsterNumber: 3
+  monsterId: 040000000500000004000000
   player_pos: {x: 22.7502995, y: 1, z: 5}
 --- !u!1 &733807073
 GameObject:

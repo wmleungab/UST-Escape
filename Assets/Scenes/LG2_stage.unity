@@ -3787,7 +3787,7 @@ GameObject:
   - 114: {fileID: 1465969271}
   - 114: {fileID: 1465969270}
   - 114: {fileID: 1465969269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VoldmorZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4060,6 +4060,10 @@ Prefab:
     - target: {fileID: 11400006, guid: b37e7ba150406475caef2c8219eeffaa, type: 2}
       propertyPath: monsterId.Array.data[2]
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b37e7ba150406475caef2c8219eeffaa, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b37e7ba150406475caef2c8219eeffaa, type: 2}
