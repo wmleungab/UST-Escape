@@ -440,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35df79cf94921b47ba78165a5640379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startStageName: atrium_stage
+  startStageName: lab_stage
 --- !u!82 &1460736407
 AudioSource:
   m_ObjectHideFlags: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef052acccaccc984fae640fb92961962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryList: $
+  playerInventoryList: "\x04"
   playerEquipmentList: 
   currentSceneType: 0
   labSceneStateArr: 00000000
