@@ -14,13 +14,7 @@ public class Multi_DefenseRoundScript : MonoBehaviour
 		
 	}
 	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-		
-		
-	}
+
 	
 	IEnumerator startanim ()
 	{

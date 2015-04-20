@@ -26,8 +26,5 @@ public class Multi_QTESlidePt : MonoBehaviour {
 	{
 		if (parent != null)parent.PtTriggerExit (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

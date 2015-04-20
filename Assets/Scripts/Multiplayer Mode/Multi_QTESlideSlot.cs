@@ -26,8 +26,5 @@ public class Multi_QTESlideSlot : MonoBehaviour {
 	{
 		if (parent != null)parent.slotTriggerExit (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

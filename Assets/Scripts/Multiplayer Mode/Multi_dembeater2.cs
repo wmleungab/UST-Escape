@@ -8,7 +8,7 @@ public class Multi_dembeater2 : MonoBehaviour
 		public bool startFlag = false;
 		public bool dieFlag = true;
 		public float readyTime;
-	public AudioClip attackSound;
+		public AudioClip attackSound;
 		float time;
 		Animator anim;
 		Vector3 pos;

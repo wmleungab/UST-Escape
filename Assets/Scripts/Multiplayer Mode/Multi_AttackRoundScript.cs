@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Multi_AttackRoundScript : MonoBehaviour
@@ -14,13 +14,7 @@ public class Multi_AttackRoundScript : MonoBehaviour
 
 		}
 	
-		// Update is called once per frame
-		void Update ()
-		{
 
-			
-			
-		}
 
 		IEnumerator startanim ()
 		{

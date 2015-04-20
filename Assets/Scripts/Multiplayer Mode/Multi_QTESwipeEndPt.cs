@@ -17,8 +17,5 @@ public class Multi_QTESwipeEndPt : MonoBehaviour {
 	{
 		if (parent != null)parent.collisionEndPt (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

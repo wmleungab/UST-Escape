@@ -9,10 +9,7 @@ public class Multi_FailScript : MonoBehaviour {
 		StartCoroutine ("startanim");
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 	
 	IEnumerator startanim ()
 	{	yield return new WaitForSeconds (2.75f);

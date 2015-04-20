@@ -26,8 +26,5 @@ public class Multi_QTESwipeArrow : MonoBehaviour {
 	{
 		if (parent != null)parent.triggerExitArrow (col);
 	}
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

@@ -17,8 +17,5 @@ public class Multi_QTESwipeStartPt : MonoBehaviour {
 	{
 		if (parent != null)parent.collisionStartPt (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

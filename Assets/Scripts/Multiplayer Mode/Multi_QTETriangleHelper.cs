@@ -26,8 +26,5 @@ public class Multi_QTETriangleHelper : MonoBehaviour {
 	{
 		if (parent != null)parent.baseTriggerExit (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

@@ -28,8 +28,5 @@ public class Multi_QTETriangleCheck : MonoBehaviour {
 	{
 		//if (parent != null)parent.baseTriggerExit (col);
 	}
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
