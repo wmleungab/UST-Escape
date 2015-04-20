@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-public class SaveLoadSystemInterfaceTest {
+public class SundialDialogTest {
 	[Test]
 	public void StartTest(){
 		Assert.That (true);
@@ -10,4 +10,10 @@ public class SaveLoadSystemInterfaceTest {
 	public void UpdateTest(){
 		Assert.That (true);
 	}
+	[Test]
+	public void OnMouseUpTest(){
+		Assert.That (true);
+	}
+
+
 }
