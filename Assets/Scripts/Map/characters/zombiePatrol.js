@@ -42,10 +42,13 @@ function Update () {
 function attacking() {
 
 	if (enemyInsight) {
-		if ((victim.transform.position - transform.position).sqrMagnitude > Mathf.Pow(navComponent.stoppingDistance, 2)) {
-	    	navComponent.SetDestination(victim.position);
+		var distance = (victim.transform.position - transform.position).sqrMagnitude;
+		if (distance > Mathf.Pow(navComponent.stoppingDistance, 2)) {
+			var playerPos = victim.position+victim.transform.GetComponent(NavMeshAgent).velocity;
+	    	navComponent.SetDestination(playerPos);
 			attackTimer = 0;
-			Debug.DrawLine (transform.position, victim.transform.position, Color.red);
+			//Debug.Log(navComponent.velocity);
+			Debug.DrawLine (transform.position, playerPos, Color.red);
 		}
 		else{
 			transform.parent.SendMessage("gotoBattle");
