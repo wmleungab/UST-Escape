@@ -41,7 +41,7 @@ public class LockerDialogInterface : DialogInterface {
 		};
 		string[] dialogString = new string[]{
 			"There is no reaction",
-			"There must be expensive things in the locker, I wish I know the password..."
+			"There must be expensive things in the locker,\n I wish I know the password..."
 		};
 		//dsObj.startDialog(nameString, dialogString);
 		showBigIcon (nameString, dialogString, 2, closeLockerSprite);
@@ -64,6 +64,7 @@ public class LockerDialogInterface : DialogInterface {
 		//selection -1: No selection carried out 0; false or no 1: true or yes
 		Debug.Log ("Dialog with id " + id + "has finish");
 		if(lockerObj!=null && id==1) lockerObj.closeIntroDialogCallBack();
+
 		if(lockerObj!=null && id==4) lockerObj.successDialogCallBack();
 	}
 }
