@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef052acccaccc984fae640fb92961962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventoryList: "\x04"
+  playerInventoryList: $
   playerEquipmentList: 
   currentSceneType: 0
   labSceneStateArr: 00000000

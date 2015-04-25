@@ -305,6 +305,8 @@ public class SaveLoadSystem : MonoBehaviour
 
 				currentSceneType = SceneType.LAB;
 				labSceneStateArr = new bool[4];
+		atriumSceneStateArr = new bool[10];
+		lg2SceneStateArr = new bool[10];
 				save ();
 		}
 		
