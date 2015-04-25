@@ -5,7 +5,9 @@ public class DimJack : MonoBehaviour {
 	public GameObject defendSheildpf;
 	
 	public GameObject prompt;
-	
+
+	AudioSource hitSound;
+	AudioSource defendSound;
 	public AudioClip hitsound;
 	public AudioClip defendsound;
 
@@ -44,10 +46,14 @@ public class DimJack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		hitSound = GetComponents<AudioSource>()[1];
+		defendSound = GetComponents<AudioSource>()[2];
 
 		anim = GetComponent<Animator> ();
 		
 		invokeAttack1 ();
+
+	
 	}
 
 	
@@ -113,7 +119,9 @@ public class DimJack : MonoBehaviour {
 	}
 
 	void attack1_createmaclok(){
-		AudioSource.PlayClipAtPoint (hitsound, transform.position);
+		//AudioSource.PlayClipAtPoint (hitsound, transform.position);
+		hitSound.clip = hitsound;
+		hitSound.Play ();
 		GameObject w = GameObject.Find ("Weapons");
 		GameObject s = Instantiate (maclok1, new Vector3 (pos.x + 1, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
 		GameObject s2 = Instantiate (maclok2, new Vector3 (pos.x - 1.3f, pos.y , w.transform.position.z),Quaternion.identity)as GameObject;
@@ -145,6 +153,8 @@ public class DimJack : MonoBehaviour {
 		}
 		if (defendState) {
 			AudioSource.PlayClipAtPoint (defendsound, pos);
+			defendSound.clip = defendsound;
+			defendSound.Play ();
 		}
 	}
 	void die()

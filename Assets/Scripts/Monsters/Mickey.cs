@@ -7,7 +7,9 @@ public class Mickey : MonoBehaviour {
 
 	public AudioClip flyboxsound;
 	public AudioClip defendsound;
-	
+	AudioSource flyboxSound;
+	AudioSource defendSound;
+
 	public GameObject prompt;
 
 	GameObject defendSheild;
@@ -43,7 +45,9 @@ public class Mickey : MonoBehaviour {
 	bool endFlag=false;
 	// Use this for initialization
 	void Start () {
-		
+		flyboxSound = GetComponents<AudioSource>()[1];
+		defendSound = GetComponents<AudioSource>()[2];
+
 		anim = GetComponent<Animator> ();
 
 	}
@@ -109,7 +113,9 @@ public class Mickey : MonoBehaviour {
 			lastAttack=Time.time;
 		}
 		if (defendState) {
-			AudioSource.PlayClipAtPoint (defendsound, pos);
+		//	AudioSource.PlayClipAtPoint (defendsound, pos);
+			defendSound.clip = defendsound;
+			defendSound.Play ();
 		}
 	}
 
@@ -118,7 +124,9 @@ public class Mickey : MonoBehaviour {
 		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0f , transform.position.y+3.5f, -49),Quaternion.identity)as GameObject;
 
 		anim.SetTrigger ("attack");
-		AudioSource.PlayClipAtPoint (flyboxsound, pos);
+
+		flyboxSound.clip = flyboxsound;
+		flyboxSound.Play ();
 	}
 	
 	void attack_createbox(){

@@ -5,6 +5,7 @@ public class Void : MonoBehaviour {
 	public GameObject defendSheildpf;
 	
 	public AudioClip defendsound;
+	AudioSource defendSound;
 	
 	public GameObject prompt;
 
@@ -40,6 +41,7 @@ public class Void : MonoBehaviour {
 		Invoke ("Defend", defendfrequency * (defendmin + ran * defendfactor));
 	}
 	void Start(){
+		defendSound = GetComponents<AudioSource>()[1];
 
 		}
 
@@ -101,7 +103,10 @@ public class Void : MonoBehaviour {
 			lastAttack=Time.time;
 				}
 		if (defendState) {
-			AudioSource.PlayClipAtPoint (defendsound, pos);
+		//	AudioSource.PlayClipAtPoint (defendsound, pos);
+		
+			defendSound.clip = defendsound;
+			defendSound.Play ();
 		}
 	}
 	void die()

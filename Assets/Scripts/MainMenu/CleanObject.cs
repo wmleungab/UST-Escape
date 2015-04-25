@@ -11,7 +11,8 @@ public class CleanObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	if (!done) {
-			if(GameObject.Find("Player")!=null)Destroy(GameObject.FindGameObjectWithTag("Player"));
+
+			if(GameObject.FindGameObjectWithTag("Player")!=null)Destroy(GameObject.FindGameObjectWithTag("Player"));
 			if(GameObject.Find("Dynamic")!=null)Destroy(GameObject.Find("Dynamic"));
 			if(GameObject.Find("AutoFade")!=null)Destroy(GameObject.Find("AutoFade"));
 			done=true;

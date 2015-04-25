@@ -19,7 +19,7 @@ public class Magicball : MonoBehaviour {
 	void Start () {
 		allowFing=true;
 		fingFrameTime=0;
-		AudioSource.PlayClipAtPoint (magicsound, gameObject.transform.position);
+		audio.Play ();
 	}
 
 	// Update is called once per frame

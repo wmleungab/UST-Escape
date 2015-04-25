@@ -34,7 +34,10 @@ public class Cleaner : MonoBehaviour
 		Vector3 ms;
 		Vector3 mc;
 		bool allowSlide = false;
-	
+		AudioSource defendSound;
+	AudioSource warnSound;
+	AudioSource attackSound;
+
 	public float lastAttack=0;
 	public float canAttackRange=0.5f;
 	
@@ -42,7 +45,9 @@ public class Cleaner : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-
+		warnSound = GetComponents<AudioSource>()[1];
+		attackSound = GetComponents<AudioSource>()[2];
+		defendSound = GetComponents<AudioSource>()[3];
 		}
 
 		void  	init ()
@@ -78,7 +83,11 @@ public class Cleaner : MonoBehaviour
 		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+0.3f , transform.position.y+3.7f, transform.position.z-1),Quaternion.identity)as GameObject;
 
 		time = readyTime;
-		AudioSource.PlayClipAtPoint (warningsound, gameObject.transform.position);
+
+		warnSound.clip = warningsound;
+		warnSound.Play ();
+
+		//((AudioSource)aswarningsound).PlayClipAtPoint (warningsound, gameObject.transform.position);
 				anim.SetTrigger ("ReadyToFight");
 				InvokeRepeating ("counting", 1, 1f);
 				allowSlide = true;
@@ -99,7 +108,9 @@ public class Cleaner : MonoBehaviour
 
 		void fight ()
 	{
-		AudioSource.PlayClipAtPoint (hitsound, gameObject.transform.position);
+		attackSound.clip = hitsound;
+		attackSound.Play ();
+		//AudioSource.PlayClipAtPoint (hitsound, gameObject.transform.position);
 				anim.SetTrigger ("ToFight");
 				resetVar ();
 		}
@@ -190,7 +201,9 @@ public class Cleaner : MonoBehaviour
 			lastAttack=Time.time;
 				}
 		if (defendState) {
-			AudioSource.PlayClipAtPoint (defendsound, transform.position);
+			defendSound.clip = defendsound;
+			defendSound.Play ();
+			//AudioSource.PlayClipAtPoint (defendsound, transform.position);
 		}
 
 		}

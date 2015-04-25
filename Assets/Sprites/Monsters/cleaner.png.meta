@@ -64,12 +64,12 @@ TextureImporter:
     - name: cleaner_1
       rect:
         serializedVersion: 2
-        x: 499
+        x: 497
         y: 724
         width: 483
         height: 640
       alignment: 9
-      pivot: {x: .671129048, y: .441882998}
+      pivot: {x: .674664319, y: .444550991}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: cleaner_2
       rect:

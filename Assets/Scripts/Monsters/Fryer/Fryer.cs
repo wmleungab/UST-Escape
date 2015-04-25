@@ -4,7 +4,7 @@ using System.Collections;
 public class Fryer : MonoBehaviour {
 	public AudioClip flyfrysound;
 	public AudioClip defendsound;
-
+	AudioSource flyfrySound;
 	public GameObject prompt;
 
 
@@ -28,7 +28,7 @@ public class Fryer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		flyfrySound = GetComponents<AudioSource>()[1];
 	}
 	void init(){
 		pos = gameObject.transform.position;
@@ -45,7 +45,9 @@ public class Fryer : MonoBehaviour {
 		GameObject s = Instantiate (fry, new Vector3 (pos.x + 0.43f, pos.y + 0.78f, -20),Quaternion.identity)as GameObject;
 		s.transform.parent = 	GameObject.Find("Weapons").transform;
 		//continue attack
-		AudioSource.PlayClipAtPoint (flyfrysound, pos);
+	//	AudioSource.PlayClipAtPoint (flyfrysound, pos);
+		flyfrySound.clip = flyfrysound;
+		flyfrySound.Play ();
 		if (attacking) {
 			invokeAttack();
 				}

@@ -52,10 +52,19 @@ public class Dembeater2 : MonoBehaviour {
 
 	Vector3 pos;
 	
+	AudioSource fightSound;
+	AudioSource warnSound;
+	AudioSource attackSound;
+	AudioSource defendSound;
+
+	
 	// Use this for initialization
-	void Start ()
-	{
+	void Start (){
 		
+		fightSound = GetComponents<AudioSource>()[1];
+	warnSound = GetComponents<AudioSource>()[2];
+	attackSound = GetComponents<AudioSource>()[3];
+	defendSound = GetComponents<AudioSource>()[4];
 	}
 	
 	void  	init ()
@@ -91,7 +100,9 @@ public class Dembeater2 : MonoBehaviour {
 	void readyTofight ()
 	{		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+1.1f , transform.position.y+2.1f, transform.position.z-1),Quaternion.identity)as GameObject;
 
-		AudioSource.PlayClipAtPoint (warningsound, pos);
+
+		warnSound.clip = warningsound;
+		warnSound.Play ();
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
 		InvokeRepeating ("counting", 1, 1f);
@@ -195,15 +206,20 @@ public class Dembeater2 : MonoBehaviour {
 			lastAttack=Time.time;
 		}
 		if (defendState) {
-			AudioSource.PlayClipAtPoint (defendsound, pos);
+			defendSound.clip = defendsound;
+			defendSound.Play ();
 		}
 	}
 	
 	void playerdamage ()
 	{
-		AudioSource.PlayClipAtPoint (hitsound, pos);
+		attackSound.clip = hitsound;
+		attackSound.Play ();
+		//AudioSource.PlayClipAtPoint (hitsound, pos);
 		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
-		AudioSource.PlayClipAtPoint (fightsound, pos);
+
+		fightSound.clip = fightsound;
+		fightSound.Play ();
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.3f, pos.y+2.5f, pos.z),Quaternion.identity)as GameObject;
 		exp.transform.localScale = new Vector3 (2f, 2f, 1);
 		GameObject exp2 = Instantiate (explosion, new Vector3 (pos.x+0.2f, pos.y+2.6f, pos.z),Quaternion.identity)as GameObject;

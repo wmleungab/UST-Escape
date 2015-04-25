@@ -48,11 +48,17 @@ public class DemBeater : MonoBehaviour {
 	int fingFrameTime=0;
 
 	Vector3 pos;
+
+	AudioSource defendSound;
+	AudioSource warnSound;
+	AudioSource attackSound;
 	
 	// Use this for initialization
 	void Start ()
 	{
-		
+		warnSound = GetComponents<AudioSource>()[1];
+		attackSound = GetComponents<AudioSource>()[2];
+		defendSound = GetComponents<AudioSource>()[3];
 	}
 	
 	void  	init ()
@@ -89,7 +95,9 @@ public class DemBeater : MonoBehaviour {
 	{
 		GameObject p = Instantiate (prompt, new Vector3 (transform.position.x+1.1f , transform.position.y+2.1f, transform.position.z-1),Quaternion.identity)as GameObject;
 
-		AudioSource.PlayClipAtPoint (warningsound, transform.position);
+		warnSound.clip = warningsound;
+		warnSound.Play ();
+		//AudioSource.PlayClipAtPoint (warningsound, transform.position);
 		time = readyTime;
 		anim.SetTrigger ("ReadyToFight");
 		InvokeRepeating ("counting", 1, 1f);
@@ -203,14 +211,18 @@ public class DemBeater : MonoBehaviour {
 			
 		}
 		if (defendState) {
-			AudioSource.PlayClipAtPoint (defendsound, pos);
+			defendSound.clip = defendsound;
+			defendSound.Play ();
 		}
 	}
 	
 	void playerdamage ()
 	{
 		
-		AudioSource.PlayClipAtPoint (hitsound, transform.position);
+	//	AudioSource.PlayClipAtPoint (hitsound, transform.position);
+		attackSound.clip = hitsound;
+		attackSound.Play ();
+
 		GameObject.Find ("Player").GetComponent<HealthBar> ().HP -= damage;
 		GameObject exp = Instantiate (explosion, new Vector3 (pos.x-0.2f, pos.y-2.5f, pos.z),Quaternion.identity)as GameObject;
 		exp.transform.localScale = new Vector3 (1.5f, 1.5f, 1);

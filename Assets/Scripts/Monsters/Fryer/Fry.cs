@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Fry : MonoBehaviour {
-	public AudioClip cutfrysound;
 	public GameObject parent;
 
 	void Start(){
@@ -13,7 +12,7 @@ public class Fry : MonoBehaviour {
 
 	public void Cut (){
 		Destroy (parent);
-		AudioSource.PlayClipAtPoint (cutfrysound, gameObject.transform.position);
+		audio.Play ();
 	//	StartCoroutine ("Disappearing");
 			}
 
