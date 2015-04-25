@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.46483421, y: 1, z: -.956345558}
+  m_LocalPosition: {x: 4.46483421, y: .00999999978, z: -.956345558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -245,6 +245,7 @@ MonoBehaviour:
   battleBackgroundID: 1
   monsterNumber: 1
   monsterId: 06000000
+  player_pos: {x: 0, y: 0, z: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
