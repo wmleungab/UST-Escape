@@ -138,6 +138,7 @@ public class SaveLoadSystem : MonoBehaviour
 		{
 				Debug.Log ("SaveLoadSystem: Loading the previous save");
 				currentSceneType = (SceneType)PlayerPrefs.GetInt ("sceneNum");
+				lastSceneType = currentSceneType;
 				if (currentSceneType == SceneType.LAB) {
 
 
@@ -219,10 +220,14 @@ public class SaveLoadSystem : MonoBehaviour
 
 		void Update ()
 		{
+		Debug.Log ("current Scene is:" + currentSceneType);
 					if (isSavableScenesTransaction()) {
+						//Debug.Log ("Arrived here checking isPause");
 						if (!GamePause.isPause ()) {
-								lastSceneType = currentSceneType;
-								save ();
+								
+							Debug.Log ("SL System: Change Scene detected, saving...from "+ lastSceneType+"to"+currentSceneType);
+							lastSceneType = currentSceneType;
+							save ();
 						}
 					}
 
@@ -286,10 +291,10 @@ public class SaveLoadSystem : MonoBehaviour
 						currentSceneType = SceneType.SUNDIAL;
 						return true;
 				} else if (name == "SecretChamberBefore") {
-						currentSceneType = SceneType.SUNDIAL;
+						currentSceneType = SceneType.UNDERSUN1;
 						return true;
-				} else if (name == "SecretChamberBefore") {
-						currentSceneType = SceneType.SUNDIAL;
+				} else if (name == "SecretChamberAfter") {
+						currentSceneType = SceneType.UNDERSUN2;
 						return true;
 				}
 				return false;
