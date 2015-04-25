@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SecretChamber2DialogInterface : DialogInterface {
-
+	bool cleaner=true;
 	// Use this for initialization
 	void Start () {
 		SaveLoadSystem.getInstance().currentSceneType= SaveLoadSystem.SceneType.UNDERSUN2;
@@ -60,7 +60,11 @@ public class SecretChamber2DialogInterface : DialogInterface {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (cleaner) {
+			if (GameObject.Find ("AutoFade") != null)
+				Destroy (GameObject.Find ("AutoFade"));
+			cleaner=false;
+		}
 	}
 	
 	override public void  onDialogFinish (int id, int selection)

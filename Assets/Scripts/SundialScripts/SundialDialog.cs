@@ -15,11 +15,12 @@ public class SundialDialog : MonoBehaviour
 		string main4 = "'Mobiliarbus'...! 'Mobiliarbus!'";
 		string main5 = "It starts rotating!";
 		string main6 = "It works! A stair? What is the stair going to?";
-
+	bool cleaner=true;
 		// Use this for initialization
 		void Start ()
 		{
-		GamePause.pauseGame ();
+				GamePause.pauseGame ();
+
 				name.GetComponent<TextMesh> ().text = "You";
 				dialogue.GetComponent<TextMesh> ().text = main1;
 			
@@ -80,6 +81,12 @@ public class SundialDialog : MonoBehaviour
 						++conserveration_count;
 						OnMouseUp ();
 				}
+
+		if (cleaner) {
+			if (GameObject.Find ("AutoFade") != null)
+				Destroy (GameObject.Find ("AutoFade"));
+			cleaner=false;
+		}
 						
 		}
 
