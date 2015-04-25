@@ -13,7 +13,8 @@ public class lightControl : MonoBehaviour {
 	private float startTime;
     void Start() {
         lt = lt.GetComponent<Light>();
- 		if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
+		Debug.Log ("From LG2 Light = " + SaveLoadSystem.getInstance().atriumSceneStateArr[(int)SaveLoadSystem.AtriumSceneState.FROMLG2]);
+		if (SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2]){
 			lt.intensity = maxIntensity;
 		}
    }

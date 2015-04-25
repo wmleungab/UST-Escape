@@ -50,7 +50,7 @@ function Awake ()
 	if (useCustomPosition == false)
 	{
 		//windowRect = Rect(Screen.width-windowSize.x-70,Screen.height-windowSize.y-(162.5+70*2),windowSize.x,windowSize.y);
-		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/2,windowSize.x,windowSize.y);
+		windowRect=Rect(spaceTemp,Screen.height-windowSize.y-spaceTemp/4,windowSize.x,windowSize.y);
 		Debug.Log(windowRect);
 	}
 	else

@@ -11,13 +11,17 @@ public class FloodEvent : EventScript {
 		
 		StartCoroutine(GetComponent<CreateItem>().giveItemToPlayer(getItemName));
 		eventCount++;
-		
+
+		if (eventCount == 1) {
+			GetComponent<FloodDialogInterface>().startDialog();
+		}
+		if (eventCount == 3) {
+			GetComponent<FloodDialogInterface>().startDialog2();
+		}
 		if(eventCount>=(eventNumber*2+1)){
-			SaveLoadSystem slObj = SaveLoadSystem.getInstance ();
-			if(slObj != null){
-				slObj.atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
-				slObj.save ();		
-			}
+			SaveLoadSystem.getInstance ().currentSceneType = SaveLoadSystem.SceneType.ATRIUM;
+			SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
+			SaveLoadSystem.getInstance ().save ();		
 			gameObject.SendMessage("changeScene", "LG2_stage");
 		}
 		
