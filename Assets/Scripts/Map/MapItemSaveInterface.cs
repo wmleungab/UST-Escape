@@ -18,6 +18,15 @@ public class MapItemSaveInterface : MonoBehaviour {
 				
 				loadFromList (itemList);
 			}
+
+			itemstr = SaveLoadSystem.getInstance ().getnLoadEquipmentList ();
+			itemList = itemstr.Split (',');
+
+			if (itemstr.Length > 0) {
+				Debug.Log (itemstr);
+				
+				loadFromList (itemList);
+			}
 	}
 	
 	void loadFromList(string[] itemList) {
