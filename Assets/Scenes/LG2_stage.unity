@@ -902,7 +902,7 @@ MonoBehaviour:
   itemIcon: {fileID: 2800000, guid: 248abe7a468f44a01903bad78ea1ef58, type: 3}
   canGet: 1
   maxGettingDistance: 3
-  itemType: other
+  itemType: 
   stackable: 0
   maxStack: 20
   stack: 1
@@ -1373,8 +1373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objList:
-  - {fileID: 100000, guid: 7237fc18ac227154b8d2abffcfc33457, type: 2}
-  - {fileID: 100000, guid: 79eb96fffad3596409d1fbc7aa50ecab, type: 2}
+  - {fileID: 100000, guid: 67d06f17e360642c5bd6a976ba3dbed3, type: 2}
+  - {fileID: 100000, guid: 8aadad659a6d2df40a794c19477722f7, type: 2}
 --- !u!114 &420395321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,7 +2129,7 @@ MonoBehaviour:
   itemIcon: {fileID: 2800000, guid: 5e104677a966bc646bbbc5ebc2010fcd, type: 3}
   canGet: 1
   maxGettingDistance: 3
-  itemType: other
+  itemType: 
   stackable: 0
   maxStack: 20
   stack: 1
@@ -2875,7 +2875,7 @@ MonoBehaviour:
   itemIcon: {fileID: 2800000, guid: cf098d020880a6644a2d23568a2277e7, type: 3}
   canGet: 1
   maxGettingDistance: 3
-  itemType: other
+  itemType: 
   stackable: 0
   maxStack: 20
   stack: 1
@@ -7047,7 +7047,7 @@ MonoBehaviour:
   itemIcon: {fileID: 2800000, guid: 2df7010e9ebc649d08ce6babf3846270, type: 3}
   canGet: 1
   maxGettingDistance: 3
-  itemType: other
+  itemType: 
   stackable: 0
   maxStack: 20
   stack: 1
