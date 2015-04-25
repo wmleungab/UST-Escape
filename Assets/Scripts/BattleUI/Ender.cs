@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class Ender : MonoBehaviour {
-	public GameObject Win=new GameObject();
-	public GameObject Lost=new GameObject();
+	public GameObject Win;
+	public GameObject Lost;
 	// Use this for initialization
 	public void Start () {
 		Win.renderer.material.color = new Vector4 (Win.renderer.material.color.r, Win.renderer.material.color.g, Win.renderer.material.color.b, 0);
