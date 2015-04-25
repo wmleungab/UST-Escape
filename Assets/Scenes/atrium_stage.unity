@@ -5010,7 +5010,7 @@ MonoBehaviour:
   maxTouchingDistance: 8
   keyItemName: bucket
   getItemName: bucketWithWater
-  eventNumber: 3
+  eventNumber: 2
 --- !u!114 &717154813
 MonoBehaviour:
   m_ObjectHideFlags: 0
