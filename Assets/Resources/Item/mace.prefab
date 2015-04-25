@@ -112,7 +112,7 @@ MonoBehaviour:
   itemIcon: {fileID: 2800000, guid: 248abe7a468f44a01903bad78ea1ef58, type: 3}
   canGet: 1
   maxGettingDistance: 3
-  itemType: other
+  itemType: 
   stackable: 0
   maxStack: 20
   stack: 1
