@@ -31,7 +31,7 @@ public var windowRect = Rect(100,100,200,300); //Keeping track of our character 
 private var playersinv : Inventory; //Refers to the Inventory script.
 private var equipmentEffectIs = false;
 private var invAudio : InvAudio;
-private var invDispKeyIsSame = false;
+private var invDispKeyIsSame = true;
 private var mouseInput : Vector3 = Vector3(-1,-1,-1);
 private var itemDragged : Item;
 
