@@ -4,7 +4,7 @@ using System.Collections;
 public class LabSceneDialogInterface : DialogInterface
 {
 
-
+	private bool cleaner=true;
 
 		// Use this for initialization
 		void Start ()
@@ -12,6 +12,14 @@ public class LabSceneDialogInterface : DialogInterface
 
 				StartCoroutine ("wait1Sec");
 				
+		}
+
+		void Update(){
+		if (cleaner) {
+			if (GameObject.Find ("AutoFade") != null)
+				Destroy (GameObject.Find ("AutoFade"));
+			cleaner=false;
+		}
 		}
 
 		IEnumerator  wait1Sec ()

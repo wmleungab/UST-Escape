@@ -13,6 +13,7 @@ public class Multi_NetworkManager : MonoBehaviour
 		private const string gameName = "HKUSTGameRoom";
 		private HostData[] hostList;
 		private GUIStyle myButtonStyle;
+	private bool cleaner=true;
 
 		// Use this for initialization
 		void Start ()
@@ -23,7 +24,11 @@ public class Multi_NetworkManager : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		
+			if (cleaner) {
+						if (GameObject.Find ("AutoFade") != null)
+								Destroy (GameObject.Find ("AutoFade"));
+						cleaner=false;
+				}
 		}
 
 		private void RefreshHostList ()
