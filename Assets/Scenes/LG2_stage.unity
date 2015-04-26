@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: e44880da4b40c0749bd5fba70ed390fd, type: 2}
 --- !u!1 &11808219
 GameObject:
@@ -3254,7 +3255,7 @@ Transform:
   m_PrefabInternal: {fileID: 220297633}
   m_GameObject: {fileID: 863600544}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.46483421, y: 1, z: -.956345558}
+  m_LocalPosition: {x: 4.46483421, y: .00999999978, z: -.956345558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1464879304}
@@ -4079,7 +4080,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4976,7 +4977,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6196,7 +6197,7 @@ Transform:
   m_PrefabInternal: {fileID: 430225069}
   m_GameObject: {fileID: 1627364127}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 4.46483421, y: 1, z: -.956345558}
+  m_LocalPosition: {x: 4.46483421, y: .00999999978, z: -.956345558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 890500307}
@@ -6307,7 +6308,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

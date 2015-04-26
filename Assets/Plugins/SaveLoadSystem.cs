@@ -223,12 +223,13 @@ public class SaveLoadSystem : MonoBehaviour
 		Debug.Log ("current Scene is:" + currentSceneType);
 					if (isSavableScenesTransaction()) {
 						//Debug.Log ("Arrived here checking isPause");
-						if (!GamePause.isPause ()) {
+
+			//			if (!GamePause.isPause ()) {
 								
-							Debug.Log ("SL System: Change Scene detected, saving...from "+ lastSceneType+"to"+currentSceneType);
-							lastSceneType = currentSceneType;
-							save ();
-						}
+			Debug.Log ("SL System: Change Scene detected, saving...from "+ lastSceneType+"to"+currentSceneType);
+			lastSceneType = currentSceneType;
+			save ();	
+				//		}
 					}
 
 				/*		if (isMenu2OtherSceneTransaction ()) {
