@@ -125,7 +125,7 @@ public class Void : MonoBehaviour {
 		
 		for (float i=0; i<=1f; i+=0.05f) {
 			foreach (Renderer r in component) {
-				r.material.color = new Vector4 (r.material.color.r, r.material.color.g, r.material.color.b, 1-i);
+				if(r !=null)r.material.color = new Vector4 (r.material.color.r, r.material.color.g, r.material.color.b, 1-i);
 				yield return new WaitForSeconds (0.01f);}
 		}
 		
