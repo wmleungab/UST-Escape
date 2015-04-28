@@ -19,12 +19,17 @@ public class FloodEvent : EventScript {
 			GetComponent<FloodDialogInterface>().startDialog2();
 		}
 		if(eventCount>=(eventNumber*2+1)){
-			SaveLoadSystem.getInstance ().currentSceneType = SaveLoadSystem.SceneType.ATRIUM;
-			SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
-			SaveLoadSystem.getInstance ().save ();		
-			gameObject.SendMessage("changeScene", "LG2_stage");
+			GetComponent<FloodDialogInterface>().startBattleDialog();
 		}
 		
+	}
+
+	public void battleDialogCallback(){
+		SaveLoadSystem.getInstance ().currentSceneType = SaveLoadSystem.SceneType.ATRIUM;
+		SaveLoadSystem.getInstance ().atriumSceneStateArr [(int)SaveLoadSystem.AtriumSceneState.FROMLG2] = true;
+		SaveLoadSystem.getInstance ().save ();		
+		gameObject.SendMessage("changeScene", "LG2_stage");
+
 	}
 
 }
