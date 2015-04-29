@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 19400000, guid: e482c53c63024e54882024c796edba28, type: 2}
 --- !u!1001 &39638611
 Prefab:
@@ -6016,7 +6017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bigTableNo: -1
   noOfTables: 24
-  answerArray: 000000000100000000000000000000000000000000000000
+  answerArray: 010100000101000000000000000000010000000000000101
   pcOn: {fileID: 21300000, guid: 4c27d5974a1893a40a7fd156c1c1ca34, type: 3}
   pcOff: {fileID: 21300000, guid: 0d828bb7976166b439311febf2101a25, type: 3}
   doorOpenPic: {fileID: 21300000, guid: f1d07c37e726e7f4d8167f496d6a21d1, type: 3}
